@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title><![CDATA[极大似然估计法（MLE）]]></title>
+      <title><![CDATA[极大似然估计法MLE]]></title>
       <url>/2018/03/10/mle/</url>
       <content type="html"><![CDATA[<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 极大似然估计法（$Method  of  Maximum  Likelihood  Estimation –MLE$）</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; 极大似然估计法最早由高斯（C.F.Gauss）提出。后来为费歇在1912年的文章中重新提出，并且证明了这个方法的一些性质。极大似然估计这一名称也是费歇（R.A.Fisher）给的。这是一种目前仍然得到广泛应用的方法。它是建立在极大似然原理的基础上的一个统计方法。</p>
@@ -140,7 +140,7 @@
 <script>
 var gitment = new Gitment({
   id: 'window.location.pathname', // 可选。默认为 location.href
-  title:  '极大似然估计法（MLE）',
+  title:  '极大似然估计法MLE',
   owner: 'goingcoder',
   repo: 'goingcoder.github.io',
   oauth: {
