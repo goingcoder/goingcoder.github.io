@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="matplot," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="离弦的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="123import matplotlib.pyplot as pltprint(plt.plot([1,3,2,4]))plt.show() 第1句，这是导入Matplotlib接口的主要子模块pyplot绘图的首选格式。这是最好的做法，也是为了避免对全局名称空间的污染，强烈鼓励永远不要像这样导入接口： 1from &amp;lt;module&amp;gt; import * 第2句，此代码行是实际的绘图命令。">
+<meta name="keywords" content="matplot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="matplotlib-1学习">
+<meta property="og:url" content="https://goingcoder.github.io/2018/02/02/matplotlib1/index.html">
+<meta property="og:site_name" content="离弦的博客">
+<meta property="og:description" content="123import matplotlib.pyplot as pltprint(plt.plot([1,3,2,4]))plt.show() 第1句，这是导入Matplotlib接口的主要子模块pyplot绘图的首选格式。这是最好的做法，也是为了避免对全局名称空间的污染，强烈鼓励永远不要像这样导入接口： 1from &amp;lt;module&amp;gt; import * 第2句，此代码行是实际的绘图命令。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-02T14:50:19.988Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="matplotlib-1学习">
+<meta name="twitter:description" content="123import matplotlib.pyplot as pltprint(plt.plot([1,3,2,4]))plt.show() 第1句，这是导入Matplotlib接口的主要子模块pyplot绘图的首选格式。这是最好的做法，也是为了避免对全局名称空间的污染，强烈鼓励永远不要像这样导入接口： 1from &amp;lt;module&amp;gt; import * 第2句，此代码行是实际的绘图命令。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://goingcoder.github.io/2018/02/02/matplotlib1/"/>
+
+
+
+
+
+  <title>matplotlib-1学习 | 离弦的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?your-analytics-id";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+		
+	</div>
+	
+	
+	
+	<a href="https://github.com/goingcoder" class="github-corner" aria-label="View source on Github">
+		<svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+			<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    
+	
+	<header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">离弦的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">我若为王,舍我其谁</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'your-swiftype-key','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/02/02/matplotlib1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="goingcoder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/23649220?s=400&u=964c794854ddfd2a46f55952deb5f1010bbd2982&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="离弦的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">matplotlib-1学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-02T22:13:22+08:00">
+                2018-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/matplot/" itemprop="url" rel="index">
+                    <span itemprop="name">matplot</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/02/matplotlib1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/02/02/matplotlib1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">print(plt.plot([<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">4</span>]))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>第1句，这是导入Matplotlib接口的主要子模块pyplot绘图的首选格式。这是最好的做法，也是为了避免对全局名称空间的污染，强烈鼓励永远不要像这样导入接口：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> &lt;module&gt; <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+<p>第2句，此代码行是实际的绘图命令。我们只指定了一个值列表，这些值表示要绘制的点的垂直坐标。matplotlib将使用一个隐式的水平值列表，从0（前值）到n-1（n为列表中的条目数），纵轴表示Y轴，横坐标表示X轴。</p>
+<p>第3句，这条命令实际上是打开包含绘图图像的窗口。</p>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = range(<span class="number">6</span>)</span><br><span class="line">plt.plot(x, [xi**<span class="number">2</span> <span class="keyword">for</span> xi <span class="keyword">in</span> x])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h2 id="1-多线图"><a href="#1-多线图" class="headerlink" title="1.多线图"></a>1.多线图</h2><p>如果需要在一个图中画出多条线，我们只需要在show之前多次plot就可以了。Matplotlib会给每条线自动选择不同颜色。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = range(<span class="number">1</span>, <span class="number">5</span>)</span><br><span class="line">plt.plot(x, [xi*<span class="number">1.5</span> <span class="keyword">for</span> xi <span class="keyword">in</span> x])</span><br><span class="line">plt.plot(x, [xi*<span class="number">3.0</span> <span class="keyword">for</span> xi <span class="keyword">in</span> x])</span><br><span class="line">plt.plot(x, [xi/<span class="number">3.0</span> <span class="keyword">for</span> xi <span class="keyword">in</span> x])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>也可以写成下列形式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x, [xi*<span class="number">1.5</span> <span class="keyword">for</span> xi <span class="keyword">in</span> x], x, [xi*<span class="number">3.0</span> <span class="keyword">for</span> xi <span class="keyword">in</span> x], x,[xi/<span class="number">3.0</span> <span class="keyword">for</span> xi <span class="keyword">in</span> x])</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x, x*<span class="number">1.5</span>, x, x*<span class="number">3.0</span>, x, x/<span class="number">3.0</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="2、网格"><a href="#2、网格" class="headerlink" title="2、网格"></a>2、网格</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.grid(<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="3、坐标轴"><a href="#3、坐标轴" class="headerlink" title="3、坐标轴"></a>3、坐标轴</h2><p>你可能已经注意到，matplotlib为了精确地包含绘制的数据集自动设置图的界限。有时我们想自己设置坐标轴的界限。我们可以这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.py</span><br><span class="line">plot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> npx = np.arange(<span class="number">1</span>, <span class="number">5</span>)</span><br><span class="line">plt.plot(x, x*<span class="number">1.5</span>, x, x*<span class="number">3.0</span>, x, x/<span class="number">3.0</span>)</span><br><span class="line">print(plt.axis()) <span class="comment"># shows the current axis limits values，</span></span><br><span class="line"><span class="comment"># (0.85, 4.15, -0.25000000000000006, 12.583333333333334)</span></span><br><span class="line"><span class="comment"># plt.axis([0, 5, -1, 13]) 		# 	set new axes limits</span></span><br><span class="line"><span class="comment"># [0, 5, -1, 13]</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>如果axis()函数没有参数，它的返回值是实际的界限，有两种方式给这个函数传，一是通过四个值得列表[xmin, xmax, ymin, ymax] ，二是键值对的方式。</p>
+<p>我们也可以只限制某个轴的最大值或者最小值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.axis(xmin=NNN, ymax=NNN)</span><br></pre></td></tr></table></figure>
+<p>或者通过xlim()和ylim()函数只限制某一个坐标轴的界限。</p>
+<h2 id="4、给坐标增加一个标签"><a href="#4、给坐标增加一个标签" class="headerlink" title="4、给坐标增加一个标签"></a>4、给坐标增加一个标签</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.plot([<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>])</span><br><span class="line">plt.xlabel(<span class="string">'This is the X axis'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'This is the Y axis'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h2 id="5、增加一个标题"><a href="#5、增加一个标题" class="headerlink" title="5、增加一个标题"></a>5、增加一个标题</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.title(<span class="string">'Simple plot'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="6、增加图例"><a href="#6、增加图例" class="headerlink" title="6、增加图例"></a>6、增加图例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x, x*<span class="number">1.5</span>, label=<span class="string">'Normal'</span>)</span><br><span class="line">plt.plot(x, x*<span class="number">3.0</span>, label=<span class="string">'Fast'</span>)</span><br><span class="line">plt.plot(x, x/<span class="number">3.0</span>, label=<span class="string">'Slow'</span>)</span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure>
+<h2 id="7、保存图到文件"><a href="#7、保存图到文件" class="headerlink" title="7、保存图到文件"></a>7、保存图到文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.savefig(<span class="string">'plot123.png'</span>)</span><br><span class="line">plt.savefig(<span class="string">'plot123.png'</span>, dpi=<span class="number">200</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="8、Plot-支持可选的第三个参数"><a href="#8、Plot-支持可选的第三个参数" class="headerlink" title="8、Plot()支持可选的第三个参数"></a>8、Plot()支持可选的第三个参数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(X, Y, <span class="string">'&lt;format&gt;'</span>, ...)</span><br></pre></td></tr></table></figure>
+<p>plot方法的关键字参数color(或c)用来设置线的颜色。</p>
+<p>控制颜色</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(y, <span class="string">'y'</span>)</span><br><span class="line">plt.plot(y+<span class="number">1</span>, <span class="string">'m'</span>)</span><br><span class="line">plt.plot(y+<span class="number">2</span>, <span class="string">'c'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>1）颜色的缩写</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>Color abbreviation </strong></th>
+<th style="text-align:center"><strong>Color Name </strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">b</td>
+<td style="text-align:center">blue</td>
+</tr>
+<tr>
+<td style="text-align:center">c</td>
+<td style="text-align:center">cyan</td>
+</tr>
+<tr>
+<td style="text-align:center">g</td>
+<td style="text-align:center">green</td>
+</tr>
+<tr>
+<td style="text-align:center">k</td>
+<td style="text-align:center">black</td>
+</tr>
+<tr>
+<td style="text-align:center">m</td>
+<td style="text-align:center">magenta</td>
+</tr>
+<tr>
+<td style="text-align:center">r</td>
+<td style="text-align:center">red</td>
+</tr>
+<tr>
+<td style="text-align:center">w</td>
+<td style="text-align:center">white</td>
+</tr>
+<tr>
+<td style="text-align:center">y</td>
+<td style="text-align:center">yellow 2</td>
+</tr>
+</tbody>
+</table>
+<p>2）十六进制字符 #FF00FF</p>
+<p>3）(r, g, b) 或 (r, g, b, a)，其中 r g b a 取均为[0, 1]之间</p>
+<p>4）[0, 1]之间的浮点数的字符串形式，表示灰度值。0表示黑色，1表示白色</p>
+<p>也可写成</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x1, y1, fmt1, x2, y2, fmt2, ...)</span><br><span class="line">plt.plot(y, <span class="string">'y'</span>, y+<span class="number">1</span>, <span class="string">'m'</span>, y+<span class="number">2</span>, <span class="string">'c'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="9、控制线条样式"><a href="#9、控制线条样式" class="headerlink" title="9、控制线条样式"></a>9、控制线条样式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(y, <span class="string">'--'</span>, y+<span class="number">1</span>, <span class="string">'-.'</span>, y+<span class="number">2</span>, <span class="string">':'</span>)</span><br></pre></td></tr></table></figure>
+<p>-  solid</p>
+<p>–  dashed</p>
+<p>-.  dashdot</p>
+<p>:    dotted</p>
+<p>‘’, ‘ ‘,    None</p>
+<h2 id="10、控制标记样式"><a href="#10、控制标记样式" class="headerlink" title="10、控制标记样式"></a>10、控制标记样式</h2><table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>Marker abbreviation </strong></th>
+<th style="text-align:center"><strong>Marker style </strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">.</td>
+<td style="text-align:center">Point marker</td>
+</tr>
+<tr>
+<td style="text-align:center">,</td>
+<td style="text-align:center">Pixel marker</td>
+</tr>
+<tr>
+<td style="text-align:center">o</td>
+<td style="text-align:center">Circle marker</td>
+</tr>
+<tr>
+<td style="text-align:center">v</td>
+<td style="text-align:center">Triangle down marker</td>
+</tr>
+<tr>
+<td style="text-align:center">^</td>
+<td style="text-align:center">Triangle up marker</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center">Triangle left marker</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;</td>
+<td style="text-align:center">Triangle right marker</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Tripod down marker</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Tripod up marker</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Tripod left marker</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Tripod right marker</td>
+</tr>
+<tr>
+<td style="text-align:center">s</td>
+<td style="text-align:center">Square marker</td>
+</tr>
+<tr>
+<td style="text-align:center">p</td>
+<td style="text-align:center">Pentagon marker</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:center">Star marker</td>
+</tr>
+<tr>
+<td style="text-align:center">h</td>
+<td style="text-align:center">Hexagon marker</td>
+</tr>
+<tr>
+<td style="text-align:center">H</td>
+<td style="text-align:center">Rotated hexagon marker</td>
+</tr>
+<tr>
+<td style="text-align:center">+</td>
+<td style="text-align:center">Plus marker</td>
+</tr>
+<tr>
+<td style="text-align:center">x</td>
+<td style="text-align:center">Cross (x) marker</td>
+</tr>
+<tr>
+<td style="text-align:center">D</td>
+<td style="text-align:center">Diamond marker</td>
+</tr>
+<tr>
+<td style="text-align:center">d</td>
+<td style="text-align:center">Thin diamond marker</td>
+</tr>
+<tr>
+<td style="text-align:center">\</td>
+<td style="text-align:center"></td>
+<td>Vertical line (vline symbol) marker</td>
+</tr>
+<tr>
+<td style="text-align:center">_</td>
+<td style="text-align:center">Horizontal line (hline symbol) marker</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">y = np.arange(<span class="number">1</span>, <span class="number">3</span>, <span class="number">0.3</span>)</span><br><span class="line">plt.plot(y, <span class="string">'cx--'</span>, y+<span class="number">1</span>, <span class="string">'mo:'</span>, y+<span class="number">2</span>, <span class="string">'kp-.'</span>);</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>传递关键字参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">y = np.arange(<span class="number">1</span>, <span class="number">3</span>, <span class="number">0.3</span>)</span><br><span class="line">plt.plot(y, color=<span class="string">'blue'</span>, linestyle=<span class="string">'dashdot'</span>, linewidth=<span class="number">4</span>,</span><br><span class="line">marker=<span class="string">'o'</span>, markerfacecolor=<span class="string">'red'</span>, markeredgecolor=<span class="string">'black'</span>,</span><br><span class="line">markeredgewidth=<span class="number">3</span>, markersize=<span class="number">12</span>);</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>如果想画两条一样颜色的线，可以这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x1, y1, x2, y2, color=<span class="string">'green'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="11、X轴和Y轴的刻度"><a href="#11、X轴和Y轴的刻度" class="headerlink" title="11、X轴和Y轴的刻度"></a>11、X轴和Y轴的刻度</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locs, labels = plt.xticks()</span><br></pre></td></tr></table></figure>
+<p>不加任何参数的画，tick函数返回当前位置和标签，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(plt.xticks())</span><br><span class="line"><span class="comment">#(array([0. , 0.2, 0.4, 0.6, 0.8, 1. ]), &lt;a list of 6 Text xticklabel objects&gt;)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line">x = [<span class="number">5</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span>] </span><br><span class="line">plt.plot(x); </span><br><span class="line">plt.xticks(range(len(x)), [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>]); </span><br><span class="line">plt.yticks(range(<span class="number">1</span>, <span class="number">8</span>, <span class="number">2</span>)); </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>使用字符来代表x的刻度</p>
+<h2 id="12、中文字体不显示的问题"><a href="#12、中文字体不显示的问题" class="headerlink" title="12、中文字体不显示的问题"></a>12、中文字体不显示的问题</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> mpl</span><br><span class="line"></span><br><span class="line">mpl.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'FangSong'</span>] <span class="comment"># 指定默认字体</span></span><br><span class="line">mpl.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="keyword">False</span> <span class="comment"># 解决保存图像是负号'-'显示为方块的问题</span></span><br></pre></td></tr></table></figure>
+<p>参考：Matplotlib for python development</p>
+<p>python中matplotlib的颜色及线条控制：<a href="http://blog.csdn.net/qq_26376175/article/details/67637151" target="_blank" rel="noopener">http://blog.csdn.net/qq_26376175/article/details/67637151</a></p>
+<p><div id="container"></div></p>
+<p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'window.location.pathname', // 可选。默认为 location.href
+  title: 'matplotlib-1学习',
+  owner: 'goingcoder',
+  repo: 'goingcoder.github.io',
+  oauth: {
+
+      client_id: 'de24b44123b8efbb4747',
+      client_secret: '785f51974278cde45a927a91a8438ef35eab9dd0',
+
+  },
+})
+gitment.render('container')
+</script>
+      
+    </div>
+    
+    
+    
+
+    
+
+	<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/02/02/matplotlib1/">matplotlib-1学习</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 goingcoder 的个人博客">goingcoder</a></p>
+  <p><span>发布时间:</span>2018年02月02日 - 22:02</p>
+  <p><span>最后更新:</span>2018年02月02日 - 22:02</p>
+  <p><span>原始链接:</span><a href="/2018/02/02/matplotlib1/" title="matplotlib-1学习">https://goingcoder.github.io/2018/02/02/matplotlib1/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://goingcoder.github.io/2018/02/02/matplotlib1/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+	</div>
+	
+	
+	<div>
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	</div>
+	
+	
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/matplot/" rel="tag"># matplot</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/30/linux4/" rel="next" title="linux-4：linux配置信息">
+                <i class="fa fa-chevron-left"></i> linux-4：linux配置信息
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/10/mle/" rel="prev" title="极大似然估计法（MLE）">
+                极大似然估计法（MLE） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/02/02/matplotlib1/"
+           data-title="matplotlib-1学习" data-url="https://goingcoder.github.io/2018/02/02/matplotlib1/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars1.githubusercontent.com/u/23649220?s=400&u=964c794854ddfd2a46f55952deb5f1010bbd2982&v=4"
+                alt="goingcoder" />
+            
+              <p class="site-author-name" itemprop="name">goingcoder</p>
+              <p class="site-description motion-element" itemprop="description">匆忙世间的闲人。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/goingcoder" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.hustyrf.top" title="陈冠希" target="_blank">陈冠希</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-多线图"><span class="nav-number">1.</span> <span class="nav-text"><a href="#1-&#x591A;&#x7EBF;&#x56FE;" class="headerlink" title="1.&#x591A;&#x7EBF;&#x56FE;"></a>1.&#x591A;&#x7EBF;&#x56FE;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、网格"><span class="nav-number">2.</span> <span class="nav-text"><a href="#2&#x3001;&#x7F51;&#x683C;" class="headerlink" title="2&#x3001;&#x7F51;&#x683C;"></a>2&#x3001;&#x7F51;&#x683C;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、坐标轴"><span class="nav-number">3.</span> <span class="nav-text"><a href="#3&#x3001;&#x5750;&#x6807;&#x8F74;" class="headerlink" title="3&#x3001;&#x5750;&#x6807;&#x8F74;"></a>3&#x3001;&#x5750;&#x6807;&#x8F74;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、给坐标增加一个标签"><span class="nav-number">4.</span> <span class="nav-text"><a href="#4&#x3001;&#x7ED9;&#x5750;&#x6807;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x6807;&#x7B7E;" class="headerlink" title="4&#x3001;&#x7ED9;&#x5750;&#x6807;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x6807;&#x7B7E;"></a>4&#x3001;&#x7ED9;&#x5750;&#x6807;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x6807;&#x7B7E;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、增加一个标题"><span class="nav-number">5.</span> <span class="nav-text"><a href="#5&#x3001;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x6807;&#x9898;" class="headerlink" title="5&#x3001;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x6807;&#x9898;"></a>5&#x3001;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x6807;&#x9898;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、增加图例"><span class="nav-number">6.</span> <span class="nav-text"><a href="#6&#x3001;&#x589E;&#x52A0;&#x56FE;&#x4F8B;" class="headerlink" title="6&#x3001;&#x589E;&#x52A0;&#x56FE;&#x4F8B;"></a>6&#x3001;&#x589E;&#x52A0;&#x56FE;&#x4F8B;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、保存图到文件"><span class="nav-number">7.</span> <span class="nav-text"><a href="#7&#x3001;&#x4FDD;&#x5B58;&#x56FE;&#x5230;&#x6587;&#x4EF6;" class="headerlink" title="7&#x3001;&#x4FDD;&#x5B58;&#x56FE;&#x5230;&#x6587;&#x4EF6;"></a>7&#x3001;&#x4FDD;&#x5B58;&#x56FE;&#x5230;&#x6587;&#x4EF6;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8、Plot-支持可选的第三个参数"><span class="nav-number">8.</span> <span class="nav-text"><a href="#8&#x3001;Plot-&#x652F;&#x6301;&#x53EF;&#x9009;&#x7684;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;" class="headerlink" title="8&#x3001;Plot()&#x652F;&#x6301;&#x53EF;&#x9009;&#x7684;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;"></a>8&#x3001;Plot()&#x652F;&#x6301;&#x53EF;&#x9009;&#x7684;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9、控制线条样式"><span class="nav-number">9.</span> <span class="nav-text"><a href="#9&#x3001;&#x63A7;&#x5236;&#x7EBF;&#x6761;&#x6837;&#x5F0F;" class="headerlink" title="9&#x3001;&#x63A7;&#x5236;&#x7EBF;&#x6761;&#x6837;&#x5F0F;"></a>9&#x3001;&#x63A7;&#x5236;&#x7EBF;&#x6761;&#x6837;&#x5F0F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10、控制标记样式"><span class="nav-number">10.</span> <span class="nav-text"><a href="#10&#x3001;&#x63A7;&#x5236;&#x6807;&#x8BB0;&#x6837;&#x5F0F;" class="headerlink" title="10&#x3001;&#x63A7;&#x5236;&#x6807;&#x8BB0;&#x6837;&#x5F0F;"></a>10&#x3001;&#x63A7;&#x5236;&#x6807;&#x8BB0;&#x6837;&#x5F0F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11、X轴和Y轴的刻度"><span class="nav-number">11.</span> <span class="nav-text"><a href="#11&#x3001;X&#x8F74;&#x548C;Y&#x8F74;&#x7684;&#x523B;&#x5EA6;" class="headerlink" title="11&#x3001;X&#x8F74;&#x548C;Y&#x8F74;&#x7684;&#x523B;&#x5EA6;"></a>11&#x3001;X&#x8F74;&#x548C;Y&#x8F74;&#x7684;&#x523B;&#x5EA6;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12、中文字体不显示的问题"><span class="nav-number">12.</span> <span class="nav-text"><a href="#12&#x3001;&#x4E2D;&#x6587;&#x5B57;&#x4F53;&#x4E0D;&#x663E;&#x793A;&#x7684;&#x95EE;&#x9898;" class="headerlink" title="12&#x3001;&#x4E2D;&#x6587;&#x5B57;&#x4F53;&#x4E0D;&#x663E;&#x793A;&#x7684;&#x95EE;&#x9898;"></a>12&#x3001;&#x4E2D;&#x6587;&#x5B57;&#x4F53;&#x4E0D;&#x663E;&#x793A;&#x7684;&#x95EE;&#x9898;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">goingcoder</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+-->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
