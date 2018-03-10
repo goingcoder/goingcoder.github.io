@@ -152,6 +152,18 @@ var gitment = new Gitment({
 gitment.render('container')
 </script>]]></content>
       
+        <categories>
+            
+            <category> 机器学习 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
         
     </entry>
     
