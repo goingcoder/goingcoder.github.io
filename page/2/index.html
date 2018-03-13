@@ -318,6 +318,175 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/01/17/ner2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="goingcoder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/23649220?s=400&u=964c794854ddfd2a46f55952deb5f1010bbd2982&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="离弦的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/17/ner2/" itemprop="url">序列标注-2：命名实体识别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-17T22:07:40+08:00">
+                2018-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ner/" itemprop="url" rel="index">
+                    <span itemprop="name">ner</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/17/ner2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/17/ner2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://sighan.cs.uchicago.edu/" target="_blank" rel="noopener">SIGHAN</a>是国际计算语言学会（ACL）中文语言处理小组的简称，其英文全称为“Special Interest Group for Chinese Language Processing of the Association for Computational Linguistics”.Bakeoff则是SIGHAN所主办的国际中文语言处理竞赛，第一届于2003年在日本札幌举行（Bakeoff 2003),第二届于2005年在韩国济州岛举行(Bakeoff 2005), 而2006年在悉尼举行的第三届（Bakeoff 2006）则在前两届的基础上加入了中文命名实体识别评测。目前SIGHAN Bakeoff已成功举办了6届，其中Bakeoff 2005的数据和结果在其主页上是完全免费和公开的，但是请注意使用的前提是非商业使用（non-commercial）:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;The data and results for the 2nd International Chinese Word Segmentation Bakeoff are now available for non-commercial use.</p>
+<p>The Third SIGHAN Chinese Language Processing Bakeoff will feature two tasks:</p>
+<ul>
+<li>Word Segmentation</li>
+<li>Named Entity Recognition</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/17/ner2/#espandi" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+	<div>
+      
+	</div>
+	
+	
+	
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/01/16/ner/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -423,7 +592,7 @@
           <h3 id="1-命名实体研究历史"><a href="#1-命名实体研究历史" class="headerlink" title="1.命名实体研究历史"></a>1.命名实体研究历史</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;国外对于英文命名实体识别的研究开始比较早。1991年Rau在第7届IEEE人工智能应用会议上发表了“抽取和识别公司名称”的有关研究文章, 首次描述了抽取和识别公司名称的系统, 该系统主要采用启发式算法和手工编写规则的方法，1996年, 命名实体评测作为信息抽取的一个子任务被引入MUC-6 ,在其后的MUC-7的MET-2 以及IEER-99、CoNLL-2002、CoNLL-2003、IREX、LREC等一系列国际会议中, 命名实体识别都被作为其中的一项指定任务。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/16/ner/#more" rel="contents">
+            <a class="btn" href="/2018/01/16/ner/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -564,7 +733,7 @@
           <h1 id="复古的伟大继承人：李白"><a href="#复古的伟大继承人：李白" class="headerlink" title="复古的伟大继承人：李白"></a><p align="center">复古的伟大继承人：李白</p></h1><h2 id="古风"><a href="#古风" class="headerlink" title="古风"></a><p align="center">古风</p></h2><p align="center">大雅久不作，吾衰竟谁陈？<br>王风委蔓草，战国多荆榛。<br>龙虎相啖食，兵戈逮狂秦。<br>正声何微茫，哀怨起骚人。<br>扬马激颓波，开流荡无垠。<br>废兴虽万变，宪章亦已沦。<br>自从建安来，绮丽不足珍。<br>圣代复元古，垂衣贵清真。<br>群才属休明，乘运共跃鳞。<br>文质相炳焕，众星罗秋旻。<br>我志在删述，垂辉映千春。<br>希圣如有立，绝笔于获麟。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/16/poetry/#more" rel="contents">
+            <a class="btn" href="/2018/01/16/poetry/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -709,7 +878,7 @@
 <p>目标：$Given\:X,predcit\: Y$</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/16/sequence-laneling/#more" rel="contents">
+            <a class="btn" href="/2018/01/16/sequence-laneling/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -852,7 +1021,7 @@
 <p><strong>(2).What is the difference between test set and validation set?</strong></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/13/训练集-验证集-测试集/#more" rel="contents">
+            <a class="btn" href="/2018/01/13/训练集-验证集-测试集/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -951,7 +1120,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
