@@ -318,6 +318,177 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/04/04/tf3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="goingcoder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/23649220?s=400&u=964c794854ddfd2a46f55952deb5f1010bbd2982&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="离弦的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/04/tf3/" itemprop="url">tensorflow-变量</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-04T17:44:13+08:00">
+                2018-04-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tensorflow/" itemprop="url" rel="index">
+                    <span itemprop="name">tensorflow</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/04/tf3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/04/tf3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;训练模型时，需要使用<strong>变量(Variables)</strong>保存和更新参数。Variables是包含张量(tensor)的内存缓冲。变量必须要先被<strong>初始化(initialize)</strong>，而且可以在训练时和训练后<strong>保存(save)</strong>到磁盘中。之后可以再<strong>恢复(restore)</strong>保存的变量值来训练和测试模型。 </p>
+<h1 id="1-创建-Creation"><a href="#1-创建-Creation" class="headerlink" title="1.创建(Creation)"></a>1.创建(Creation)</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创建Variable，需将一个tensor传递给Variable()构造函数。可以使用TensorFlow提供的许多ops(操作)初始化张量，参考<a href="https://www.tensorflow.org/versions/r0.12/api_docs/python/constant_op.html" target="_blank" rel="noopener">constants or random values</a>。这些ops都要求指定tensor的<strong>shape(形状)</strong>。比如</p>
+<blockquote>
+<h4 id="Create-two-variables"><a href="#Create-two-variables" class="headerlink" title="Create two variables."></a>Create two variables.</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; weights = tf.Variable(tf.random_normal([<span class="number">784</span>, <span class="number">200</span>], stddev=<span class="number">0.35</span>), </span><br><span class="line">&gt; name=”weights”) </span><br><span class="line">&gt; biases = tf.Variable(tf.zeros([<span class="number">200</span>]), name=”biases”)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+</blockquote>
+<p>&nbsp;</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/04/tf3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+	<div>
+      
+	</div>
+	
+	
+	
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/04/04/tf2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1894,182 +2065,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/01/23/errors1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="goingcoder">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/23649220?s=400&u=964c794854ddfd2a46f55952deb5f1010bbd2982&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="离弦的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/23/errors1/" itemprop="url">errors1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-23T18:28:07+08:00">
-                2018-01-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/error/" itemprop="url" rel="index">
-                    <span itemprop="name">error</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/01/23/errors1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/23/errors1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>​    今天又遇到换行符的错误。想起以前换行符中遇到的坑。在不同的操作系统默认的换行符不一样，字符处理的时候会遇到一些莫名奇妙的问题。windows的换行是\r\n，linux的是\n，mac的是\r。在网络编程中，如果把Windows的一个文件数据传输到linux系统中的另一个文件，如果计算两个文件的字节数会发现两个系统同样的文本数据字节数会不一样。就是因为换行符导致的，通常模式下，换行符，空格等都是空白符，不可见的。在notepad++中视图显示所有字符会发现Windows中的换行符为CRLF，而linux中换行符为LF。利用notepad++可以将Windows文本文件转换为unix格式的文件。</p>
-<p><div id="container"></div></p>
-<p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  id:  'window.location.pathname', // 可选。默认为 location.href
-  title:  'errors1',
-  owner: 'goingcoder',
-  repo: 'goingcoder.github.io',
-  oauth: {
-
-      client_id: 'de24b44123b8efbb4747',
-      client_secret: '785f51974278cde45a927a91a8438ef35eab9dd0',
-
-  },
-})
-gitment.render('container')
-</script>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-	<div>
-      
-	</div>
-	
-	
-	
-	
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2124,7 +2119,7 @@ gitment.render('container')
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
