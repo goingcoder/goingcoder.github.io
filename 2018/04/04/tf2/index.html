@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="linux," />
+  <meta name="keywords" content="tensorflow," />
 
 
 
@@ -85,20 +85,18 @@
 
 
 
-<meta name="description" content="1.作用&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;显示linux任务。top程序提供运行系统的动态实时视图。它可以显示系统概要信息以及当前由Linux内核管理的任务列表。所显示的系统摘要信息的类型以及任务所显示的信息的类型、顺序和大小都是用户可配置的，并且可以在重新启动时对该配置进行持久化。 2.语法1top(选项) 3.常用选项1">
-<meta name="keywords" content="linux">
+<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Tensorflow中的会话是来执行定义好的运算的。会话拥有并管理Tensorflow程序运行时的所有资源。当计算完成之后需要关闭会话来帮助系统回收资源，否则可能出现资源泄露的问题。 Tensorflow中使用会话的模式一般有两种，第一种模式需要明确调用会话生成函数和关闭会话函数，流程如下： 12345">
+<meta name="keywords" content="tensorflow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux-3：top命令">
-<meta property="og:url" content="https://goingcoder.github.io/2018/01/26/linux3/index.html">
+<meta property="og:title" content="tensorflow-会话（session）">
+<meta property="og:url" content="https://goingcoder.github.io/2018/04/04/tf2/index.html">
 <meta property="og:site_name" content="离弦的博客">
-<meta property="og:description" content="1.作用&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;显示linux任务。top程序提供运行系统的动态实时视图。它可以显示系统概要信息以及当前由Linux内核管理的任务列表。所显示的系统摘要信息的类型以及任务所显示的信息的类型、顺序和大小都是用户可配置的，并且可以在重新启动时对该配置进行持久化。 2.语法1top(选项) 3.常用选项1">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Tensorflow中的会话是来执行定义好的运算的。会话拥有并管理Tensorflow程序运行时的所有资源。当计算完成之后需要关闭会话来帮助系统回收资源，否则可能出现资源泄露的问题。 Tensorflow中使用会话的模式一般有两种，第一种模式需要明确调用会话生成函数和关闭会话函数，流程如下： 12345">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://goingcoder.github.io/2018/01/26/linux3/a.png">
-<meta property="og:updated_time" content="2018-01-26T14:56:08.168Z">
+<meta property="og:updated_time" content="2018-04-04T09:42:00.218Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux-3：top命令">
-<meta name="twitter:description" content="1.作用&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;显示linux任务。top程序提供运行系统的动态实时视图。它可以显示系统概要信息以及当前由Linux内核管理的任务列表。所显示的系统摘要信息的类型以及任务所显示的信息的类型、顺序和大小都是用户可配置的，并且可以在重新启动时对该配置进行持久化。 2.语法1top(选项) 3.常用选项1">
-<meta name="twitter:image" content="https://goingcoder.github.io/2018/01/26/linux3/a.png">
+<meta name="twitter:title" content="tensorflow-会话（session）">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Tensorflow中的会话是来执行定义好的运算的。会话拥有并管理Tensorflow程序运行时的所有资源。当计算完成之后需要关闭会话来帮助系统回收资源，否则可能出现资源泄露的问题。 Tensorflow中使用会话的模式一般有两种，第一种模式需要明确调用会话生成函数和关闭会话函数，流程如下： 12345">
 
 
 
@@ -128,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://goingcoder.github.io/2018/01/26/linux3/"/>
+  <link rel="canonical" href="https://goingcoder.github.io/2018/04/04/tf2/"/>
 
 
 
 
 
-  <title>linux-3：top命令 | 离弦的博客</title>
+  <title>tensorflow-会话（session） | 离弦的博客</title>
   
 
 
@@ -320,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/01/26/linux3/">
+    <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/04/04/tf2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="goingcoder">
@@ -337,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linux-3：top命令</h1>
+          <h1 class="post-title" itemprop="name headline">tensorflow-会话（session）</h1>
         
 
         <div class="post-meta">
@@ -349,8 +347,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-26T21:30:18+08:00">
-                2018-01-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-04T16:21:05+08:00">
+                2018-04-04
               </time>
             
 
@@ -372,8 +370,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/liunx/" itemprop="url" rel="index">
-                    <span itemprop="name">liunx</span>
+                  <a href="/categories/tensorflow/" itemprop="url" rel="index">
+                    <span itemprop="name">tensorflow</span>
                   </a>
                 </span>
 
@@ -390,8 +388,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/01/26/linux3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/26/linux3/" itemprop="commentCount"></span>
+                <a href="/2018/04/04/tf2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/04/tf2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -419,77 +417,75 @@
       
 
       
-        <h2 id="1-作用"><a href="#1-作用" class="headerlink" title="1.作用"></a>1.作用</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;显示linux任务。top程序提供运行系统的动态实时视图。它可以显示系统概要信息以及当前由Linux内核管理的任务列表。所显示的系统摘要信息的类型以及任务所显示的信息的类型、顺序和大小都是用户可配置的，并且可以在重新启动时对该配置进行持久化。</p>
-<h2 id="2-语法"><a href="#2-语法" class="headerlink" title="2.语法"></a>2.语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top(选项)</span><br></pre></td></tr></table></figure>
-<h2 id="3-常用选项"><a href="#3-常用选项" class="headerlink" title="3.常用选项"></a>3.常用选项</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-b：以批处理模式操作；</span><br><span class="line">-c：显示完整的命令，例如使用的命令python test.py；</span><br><span class="line">-d：指定屏幕刷新间隔时间，并覆盖个人配置文件或启动默认值中的相应值， -d ss.tt (seconds.tenths)；</span><br><span class="line">-H：线程切换，当加上这个选项的时候，只会显示所有个人的显示</span><br><span class="line">-s：保密模式；</span><br><span class="line">-S：累积模式；</span><br><span class="line">-i&lt;时间&gt;：设置间隔时间；</span><br><span class="line">-u&lt;用户名&gt;：指定用户名，显示指定用户线程；</span><br><span class="line">-p&lt;进程号&gt;：指定进程；</span><br><span class="line">-n&lt;次数&gt;：循环显示的次数。</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="4-top交互命令"><a href="#4-top交互命令" class="headerlink" title="4.top交互命令"></a>4.top交互命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">回车键或者空格键：刷新显示</span><br><span class="line">&quot;?&quot;或&quot;h&quot;：显示帮助画面，给出一些简短的命令总结说明；</span><br><span class="line">k：终止一个进程；</span><br><span class="line">i：忽略闲置和僵死进程，这是一个开关式命令；</span><br><span class="line">q：退出程序</span><br><span class="line">r：重新安排一个进程的优先级别；</span><br><span class="line">S：切换到累计模式；</span><br><span class="line">s：改变两次刷新之间的延迟时间（单位为s），如果有小数，就换算成ms。输入0值则系统将不断刷新，默认值是5s；</span><br><span class="line">m：切换显示内存信息；</span><br><span class="line">t：切换显示进程和CPU状态信息；</span><br><span class="line">c：切换显示命令名称和完整命令行；</span><br><span class="line">M：根据驻留内存大小进行排序；</span><br><span class="line">P：根据CPU使用百分比大小进行排序；p</span><br><span class="line">w：将当前设置写入~/.toprc文件中。</span><br></pre></td></tr></table></figure>
-<h2 id="5-例子"><a href="#5-例子" class="headerlink" title="5.例子"></a>5.例子</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">top - 09:44:56 up 16 days, 21:23,  1 user,  load average: 9.59, 4.75, 1.92</span><br><span class="line">Tasks: 145 total,   2 running, 143 sleeping,   0 stopped,   0 zombie</span><br><span class="line">Cpu(s): 99.8%us,  0.1%sy,  0.0%ni,  0.2%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st</span><br><span class="line">Mem:   4147888k total,  2493092k used,  1654796k free,   158188k buffers</span><br><span class="line">Swap:  5144568k total,       56k used,  5144512k free,  2013180k cached</span><br></pre></td></tr></table></figure>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tensorflow中的会话是来执行定义好的运算的。会话拥有并管理Tensorflow程序运行时的所有资源。当计算完成之后需要关闭会话来帮助系统回收资源，否则可能出现资源泄露的问题。 Tensorflow中使用会话的模式一般有两种，第一种模式需要明确调用会话生成函数和关闭会话函数，流程如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">matrix1 =  tf.constant([[<span class="number">3</span>,<span class="number">3</span>]])</span><br><span class="line">matrix2 = tf.constant([[<span class="number">2</span>],</span><br><span class="line">                       [<span class="number">2</span>]])</span><br><span class="line"></span><br><span class="line">product = tf.matmul(matrix1, matrix2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 1</span></span><br><span class="line">sess = tf.Session()</span><br><span class="line">result = sess.run(product)</span><br><span class="line">print(result)</span><br><span class="line">sess.close()</span><br><span class="line"><span class="comment"># 输出：[[12]]</span></span><br></pre></td></tr></table></figure>
+<p>​    <a id="more"></a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用这种模式时，所有计算完成后，需要明确调用Session.close()函数关闭会话并释放资源。然而当程序因为异常而退出时，关闭会话的函数可能就不会被执行而导致资源泄露。为了解决异常退出导致资源泄露的问题，Tensorflow可以通过Python的上下文管理器来使用会话。 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">matrix1 =  tf.constant([[<span class="number">3</span>,<span class="number">3</span>]])</span><br><span class="line">matrix2 = tf.constant([[<span class="number">2</span>],</span><br><span class="line">                       [<span class="number">2</span>]])</span><br><span class="line"></span><br><span class="line">product = tf.matmul(matrix1, matrix2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># method2,sess会自动关闭</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    result2 = sess.run(product)</span><br><span class="line">    print(result)</span><br><span class="line"></span><br><span class="line"><span class="comment">##</span></span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过Python的上下文管理器的机制，只要所有的计算放在with的内部就可以。当上下文管理器退出时会自动释放所有资源。</p>
+<h2 id="上下文管理器"><a href="#上下文管理器" class="headerlink" title="上下文管理器"></a>上下文管理器</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在使用Python编程中，可以会经常碰到这种情况：有一个特殊的语句块，在执行这个语句块之前需要先执行一些准备动作；当语句块执行完成后，需要继续执行一些收尾动作。</p>
+<p>例如：当需要操作文件或数据库的时候，首先需要获取文件句柄或者数据库连接对象，当执行完相应的操作后，需要执行释放文件句柄或者关闭数据库连接的动作。</p>
+<p>又如，当多线程程序需要访问临界资源的时候，线程首先需要获取互斥锁，当执行完成并准备退出临界区的时候，需要释放互斥锁。</p>
+<p>​    对于这些情况，Python中提供了<strong>上下文管理器（Context Manager）</strong>的概念，可以通过上下文管理器来定义/控制代码块执行前的准备动作，以及执行后的收尾动作。</p>
+<h2 id="上下文管理协议"><a href="#上下文管理协议" class="headerlink" title="上下文管理协议"></a>上下文管理协议</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;那么在Python中怎么实现一个上下文管理器呢？这里，又要提到两个”魔术方法”__enter__和__exit__，下面就是关于这两个方法的具体介绍。</p>
 <ul>
-<li>top - 09:44:56[当前系统时间],</li>
+<li><p><strong>enter</strong>(self) Defines what the context manager should do at the beginning of the block created by the with statement. Note that the return value of <strong>enter</strong> is bound to the target of the with statement, or the name after the as.</p>
+</li>
+<li><p><strong>exit</strong>(self, exception_type, exception_value, traceback) Defines what the context manager should do after its block has been executed (or terminates). It can be used to handle exceptions, perform cleanup, or do something always done immediately after the action in the block. If the block executes successfully, exception_type, exception_value, and traceback will be None. Otherwise, you can choose to handle the exception or let the user handle it; if you want to handle it, make sure <strong>exit</strong> returns True after all is said and done. If you don’t want the exception to be handled by the context manager, just let it happen.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;也就是说，当我们需要创建一个上下文管理器类型的时候，就需要实现<strong>enter</strong>和<strong>exit</strong>方法，这对方法就称为<strong>上下文管理协议（Context Manager Protocol）</strong>，定义了一种运行时上下文环境。</p>
+</li>
 </ul>
+<h2 id="with语句"><a href="#with语句" class="headerlink" title="with语句"></a>with语句</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Python中，可以通过with语句来方便的使用上下文管理器，with语句可以在代码块运行前进入一个运行时上下文（执行__enter__方法），并在代码块结束后退出该上下文（执行__exit__方法）。</p>
+<p>with语句的语法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> context_expr [<span class="keyword">as</span> var]:</span><br><span class="line">    with_suite</span><br></pre></td></tr></table></figure>
 <ul>
-<li>16 days[系统已经运行了16天],</li>
-<li>1 user[个用户当前登录],</li>
-<li>load average: 9.59, 4.75, 1.92[系统负载，即任务队列的平均长度]</li>
-<li>Tasks: 145 total[总进程数],</li>
-<li>2 running[正在运行的进程数],</li>
-<li>143 sleeping[睡眠的进程数],</li>
-<li>0 stopped[停止的进程数],</li>
-<li>0 zombie[冻结进程数],</li>
-<li>Cpu(s): 99.8%us[用户空间占用CPU百分比],</li>
-<li>0.1%sy[内核空间占用CPU百分比],</li>
-<li>0.0%ni[用户进程空间内改变过优先级的进程占用CPU百分比],</li>
-<li>0.2%id[空闲CPU百分比], 0.0%wa[等待输入输出的CPU时间百分比],</li>
-<li>0.0%hi[硬中断（Hardware IRQ）占用CPU的百分比],</li>
-<li>0.0%si [] 软中断（Software Interrupts）占用CPU的百分比]</li>
-<li>0.0%st[],</li>
-<li>Mem: 4147888k total[物理内存总量],</li>
-<li>2493092k used[使用的物理内存总量],</li>
-<li>1654796k free[空闲内存总量],</li>
-<li>158188k buffers[用作内核缓存的内存量]</li>
-<li>Swap:  5144568k total[交换区总量],</li>
-<li>56k used[使用的交换区总量],</li>
-<li>5144512k free[空闲交换区总量],</li>
-<li>2013180k cached[缓冲的交换区总量],</li>
+<li>context_expr是支持上下文管理协议的对象，也就是上下文管理器对象，负责维护上下文环境</li>
+<li>as var是一个可选部分，通过变量方式保存上下文管理器对象</li>
+<li>with_suite就是需要放在上下文环境中执行的语句块</li>
 </ul>
-<p><img src="/2018/01/26/linux3/a.png" alt="top命令视图"></p>
-<ul>
-<li>PID 进程id</li>
-<li>USER 进程所有者</li>
-<li>PR 进程优先级</li>
-<li>NI nice值。负值表示高优先级，正值表示低优先级</li>
-<li>VIRT 进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES</li>
-<li>RES 进程使用的、未被换出的物理内存大小，单位kb。RES=CODE+DATA</li>
-<li>SHR 共享内存大小，单位kb</li>
-<li>S 进程状态。D=不可中断的睡眠状态 R=运行 S=睡眠 T=跟踪/停止 Z=僵尸进程</li>
-<li>%CPU 上次更新到现在的CPU时间占用百分比</li>
-<li>%MEM 进程使用的物理内存百分比</li>
-<li>TIME+ 进程使用的CPU时间总计，单位1/100秒</li>
-<li>COMMAND 进程名称（命令名/命令行）</li>
-</ul>
-<p><strong>注意</strong>：TIME+代表的是进程使用CPU的时间，不是进程启动到现在的时间。因此，如果一个人进程使用CPU的时间很少，即使这个进程已经存在很长时间了，TIME+也是个很小的数值。如果使用多个CPU或者是多核的CPU，那么这个时间是多个CPU的时间的和。例如16:39.33,表示16分钟39秒十分之3秒百分之3秒。</p>
-<p><a href="http://man.linuxde.net/top" target="_blank" rel="noopener">http://man.linuxde.net/top</a></p>
-<p><a href="https://www.cnblogs.com/ronli/p/centos-top.html" target="_blank" rel="noopener">https://www.cnblogs.com/ronli/p/centos-top.html</a></p>
-<p><a href="https://linux.die.net/man/1/top" target="_blank" rel="noopener">https://linux.die.net/man/1/top</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Python的内置类型中，很多类型都是支持上下文管理协议的，例如file，thread.LockType，threading.Lock等等。这里我们就以file类型为例，看看with语句的使用。</p>
+<h3 id="with语句简化文件操作"><a href="#with语句简化文件操作" class="headerlink" title="with语句简化文件操作"></a>with语句简化文件操作</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当需要写一个文件的时候，一般都会通过下面的方式。代码中使用了try-finally语句块，即使出现异常，也能保证关闭文件句柄。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">logger = open(<span class="string">"log.txt"</span>, <span class="string">"w"</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    logger.write(<span class="string">'Hello '</span>)</span><br><span class="line">    logger.write(<span class="string">'World'</span>)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    logger.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> logger.closed</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其实，Python的内置file类型是支持上下文管理协议的，可以直接通过内建函数dir()来查看file支持的方法和属性：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> dir(file)</span><br><span class="line">[<span class="string">'__class__'</span>, <span class="string">'__delattr__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__enter__'</span>, <span class="string">'__exit__'</span>, <span class="string">'__format__'</span>, <span class="string">'</span></span><br><span class="line"><span class="string">__getattribute__'</span>, <span class="string">'__hash__'</span>, <span class="string">'__init__'</span>, <span class="string">'__iter__'</span>, <span class="string">'__new__'</span>, <span class="string">'__reduce__'</span>,</span><br><span class="line"><span class="string">'__reduce_ex__'</span>, <span class="string">'__repr__'</span>, <span class="string">'__setattr__'</span>, <span class="string">'__sizeof__'</span>, <span class="string">'__str__'</span>, <span class="string">'__subclass</span></span><br><span class="line"><span class="string">hook__'</span>, <span class="string">'close'</span>, <span class="string">'closed'</span>, <span class="string">'encoding'</span>, <span class="string">'errors'</span>, <span class="string">'fileno'</span>, <span class="string">'flush'</span>, <span class="string">'isatty'</span>, <span class="string">'</span></span><br><span class="line"><span class="string">mode'</span>, <span class="string">'name'</span>, <span class="string">'newlines'</span>, <span class="string">'next'</span>, <span class="string">'read'</span>, <span class="string">'readinto'</span>, <span class="string">'readline'</span>, <span class="string">'readlines'</span>,</span><br><span class="line"><span class="string">'seek'</span>, <span class="string">'softspace'</span>, <span class="string">'tell'</span>, <span class="string">'truncate'</span>, <span class="string">'write'</span>, <span class="string">'writelines'</span>, <span class="string">'xreadlines'</span>]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所以，可以通过with语句来简化上面的代码，代码的效果是一样的，但是使用with语句的代码更加的简洁：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">"log.txt"</span>, <span class="string">"w"</span>) <span class="keyword">as</span> logger:</span><br><span class="line">    logger.write(<span class="string">'Hello '</span>)</span><br><span class="line">    logger.write(<span class="string">'World'</span>)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">print</span> logger.closed</span><br></pre></td></tr></table></figure>
+<p>参考：</p>
+<p><a href="https://www.cnblogs.com/wilber2013/p/4638967.html" target="_blank" rel="noopener">https://www.cnblogs.com/wilber2013/p/4638967.html</a></p>
+<p><a href="https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/" target="_blank" rel="noopener">https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/</a></p>
 <p><div id="container"></div></p>
 <p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
   id: 'window.location.pathname', // 可选。默认为 location.href
-  title: 'linux-3：top命令',
+  title: 'tensorflow-会话（session）',
   owner: 'goingcoder',
   repo: 'goingcoder.github.io',
   oauth: {
 
-      client_id: 'de24b44123b8efbb4747',
-      client_secret: '785f51974278cde45a927a91a8438ef35eab9dd0',
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">client_id: &apos;de24b44123b8efbb4747&apos;,</span><br><span class="line">client_secret: &apos;785f51974278cde45a927a91a8438ef35eab9dd0&apos;,</span><br></pre></td></tr></table></figure>
 
   },
 })
 gitment.render('container')
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -523,12 +519,12 @@ gitment.render('container')
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/01/26/linux3/">linux-3：top命令</a></p>
+  <p><span>本文标题:</span><a href="/2018/04/04/tf2/">tensorflow-会话（session）</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 goingcoder 的个人博客">goingcoder</a></p>
-  <p><span>发布时间:</span>2018年01月26日 - 21:01</p>
-  <p><span>最后更新:</span>2018年01月26日 - 22:01</p>
-  <p><span>原始链接:</span><a href="/2018/01/26/linux3/" title="linux-3：top命令">https://goingcoder.github.io/2018/01/26/linux3/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://goingcoder.github.io/2018/01/26/linux3/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年04月04日 - 16:04</p>
+  <p><span>最后更新:</span>2018年04月04日 - 17:04</p>
+  <p><span>原始链接:</span><a href="/2018/04/04/tf2/" title="tensorflow-会话（session）">https://goingcoder.github.io/2018/04/04/tf2/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://goingcoder.github.io/2018/04/04/tf2/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -568,7 +564,7 @@ gitment.render('container')
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/tensorflow/" rel="tag"># tensorflow</a>
           
         </div>
       
@@ -581,8 +577,8 @@ gitment.render('container')
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/23/errors1/" rel="next" title="errors1">
-                <i class="fa fa-chevron-left"></i> errors1
+              <a href="/2018/04/04/tf1/" rel="next" title="tf1">
+                <i class="fa fa-chevron-left"></i> tf1
               </a>
             
           </div>
@@ -590,10 +586,6 @@ gitment.render('container')
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/30/linux4/" rel="prev" title="linux-4：linux配置信息">
-                linux-4：linux配置信息 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -624,8 +616,8 @@ gitment.render('container')
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2018/01/26/linux3/"
-           data-title="linux-3：top命令" data-url="https://goingcoder.github.io/2018/01/26/linux3/">
+      <div class="ds-thread" data-thread-key="2018/04/04/tf2/"
+           data-title="tensorflow-会话（session）" data-url="https://goingcoder.github.io/2018/04/04/tf2/">
       </div>
     </div>
 
@@ -773,7 +765,7 @@ gitment.render('container')
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-作用"><span class="nav-number">1.</span> <span class="nav-text"><a href="#1-&#x4F5C;&#x7528;" class="headerlink" title="1.&#x4F5C;&#x7528;"></a>1.&#x4F5C;&#x7528;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-语法"><span class="nav-number">2.</span> <span class="nav-text"><a href="#2-&#x8BED;&#x6CD5;" class="headerlink" title="2.&#x8BED;&#x6CD5;"></a>2.&#x8BED;&#x6CD5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-常用选项"><span class="nav-number">3.</span> <span class="nav-text"><a href="#3-&#x5E38;&#x7528;&#x9009;&#x9879;" class="headerlink" title="3.&#x5E38;&#x7528;&#x9009;&#x9879;"></a>3.&#x5E38;&#x7528;&#x9009;&#x9879;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-top交互命令"><span class="nav-number">4.</span> <span class="nav-text"><a href="#4-top&#x4EA4;&#x4E92;&#x547D;&#x4EE4;" class="headerlink" title="4.top&#x4EA4;&#x4E92;&#x547D;&#x4EE4;"></a>4.top&#x4EA4;&#x4E92;&#x547D;&#x4EE4;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-例子"><span class="nav-number">5.</span> <span class="nav-text"><a href="#5-&#x4F8B;&#x5B50;" class="headerlink" title="5.&#x4F8B;&#x5B50;"></a>5.&#x4F8B;&#x5B50;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#上下文管理器"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;" class="headerlink" title="&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;"></a>&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上下文管理协议"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x534F;&#x8BAE;" class="headerlink" title="&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x534F;&#x8BAE;"></a>&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x534F;&#x8BAE;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#with语句"><span class="nav-number">3.</span> <span class="nav-text"><a href="#with&#x8BED;&#x53E5;" class="headerlink" title="with&#x8BED;&#x53E5;"></a>with&#x8BED;&#x53E5;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#with语句简化文件操作"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#with&#x8BED;&#x53E5;&#x7B80;&#x5316;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;" class="headerlink" title="with&#x8BED;&#x53E5;&#x7B80;&#x5316;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;"></a>with&#x8BED;&#x53E5;&#x7B80;&#x5316;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;</span></a></li></ol></li></ol></div>
             
 
           </div>
