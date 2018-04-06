@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://goingcoder.github.io/"/>
-  <updated>2018-04-04T10:11:27.738Z</updated>
+  <updated>2018-04-06T10:58:42.714Z</updated>
   <id>https://goingcoder.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>tf.placeholder 与 tf.Variable区别</title>
+    <link href="https://goingcoder.github.io/2018/04/06/tf4/"/>
+    <id>https://goingcoder.github.io/2018/04/06/tf4/</id>
+    <published>2018-04-06T10:37:35.000Z</published>
+    <updated>2018-04-06T10:58:42.714Z</updated>
+    
+    <content type="html"><![CDATA[<p>二者的主要区别在于：</p><p><strong>tf.Variable</strong>：主要在于一些可训练变量（trainable variables），比如模型的权重（weights，W）或者偏置值（bias）；</p><p><strong>声明时，必须提供初始值；<em>**</em></strong></p><p>名称的真实含义，在于变量，也即在真实训练时，其值是会改变的，自然事先需要指定初始值； </p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">weights = tf.Variable( tf.truncated_normal([IMAGE_PIXELS,                                hidden1_units],stddev=<span class="number">1.</span>/math.sqrt(float(IMAGE_PIXELS)), name=<span class="string">'weights'</span>))</span><br><span class="line">biases = tf.Variable(tf.zeros([hidden1_units]), name=<span class="string">'biases'</span>)</span><br></pre></td></tr></table></figure><a id="more"></a><p><strong>tf.placeholder</strong>：用于得到传递进来的真实的训练样本：</p><p><strong>不必指定初始值</strong>，可在运行时，通过 Session.run 的函数的 feed_dict 参数指定；这也是其命名的原因所在，仅仅作为一种占位符；</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">images_placeholder = tf.placeholder(tf.float32, shape=[batch_size, IMAGE_PIXELS])</span><br><span class="line">labels_placeholder = tf.placeholder(tf.int32, shape=[batch_size])</span><br></pre></td></tr></table></figure><p>如下则是二者真实的使用场景：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(FLAGS.max_steps):</span><br><span class="line">    feed_dict = &#123;</span><br><span class="line">        images_placeholder = images_feed,</span><br><span class="line">        labels_placeholder = labels_feed</span><br><span class="line">    &#125;</span><br><span class="line">    _, loss_value = sess.run([train_op, loss], feed_dict=feed_dict)</span><br></pre></td></tr></table></figure><p>当执行这些操作时，tf.Variable 的值将会改变，也即被修改，这也是其名称的来源（variable，变量）。</p><p>那么，什么时候该用tf.placeholder，什么时候该使用tf.Variable之类直接定义参数呢？</p><p>答案是，<strong>tf.Variable适合一些需要初始化或被训练而变化的权重或参数，而tf.placeholder适合通常不会改变的被训练的数据集。</strong></p><p><div id="container"></div></p><p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var gitment = new Gitment({  id: 'window.location.pathname', // 可选。默认为 location.href  title: 'tf.placeholder 与 tf.Variable区别',  owner: 'goingcoder',  repo: 'goingcoder.github.io',  oauth: {<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">client_id: &apos;de24b44123b8efbb4747&apos;,</span><br><span class="line">client_secret: &apos;785f51974278cde45a927a91a8438ef35eab9dd0&apos;,</span><br></pre></td></tr></table></figure>  },})gitment.render('container')</script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;二者的主要区别在于：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;tf.Variable&lt;/strong&gt;：主要在于一些可训练变量（trainable variables），比如模型的权重（weights，W）或者偏置值（bias）；&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;声明时，必须提供初始值；&lt;em&gt;**&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;名称的真实含义，在于变量，也即在真实训练时，其值是会改变的，自然事先需要指定初始值； &lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;weights = tf.Variable( tf.truncated_normal([IMAGE_PIXELS, 		                               hidden1_units],stddev=&lt;span class=&quot;number&quot;&gt;1.&lt;/span&gt;/math.sqrt(float(IMAGE_PIXELS)), name=&lt;span class=&quot;string&quot;&gt;&#39;weights&#39;&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;biases = tf.Variable(tf.zeros([hidden1_units]), name=&lt;span class=&quot;string&quot;&gt;&#39;biases&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="tensorflow" scheme="https://goingcoder.github.io/categories/tensorflow/"/>
+    
+    
+      <category term="linux" scheme="https://goingcoder.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>tensorflow-变量</title>
@@ -531,26 +557,6 @@
 &lt;p&gt;$X:X_1 \:  X_2\: X_3\:…X_L$&lt;/p&gt;
 &lt;p&gt;$Y:Y_1 \:  Y_2 \:  Y_3 \: …Y_L$&lt;/p&gt;
 &lt;p&gt;目标：$Given\:X,predcit\: Y$&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>训练集 验证集 测试集</title>
-    <link href="https://goingcoder.github.io/2018/01/13/%E8%AE%AD%E7%BB%83%E9%9B%86-%E9%AA%8C%E8%AF%81%E9%9B%86-%E6%B5%8B%E8%AF%95%E9%9B%86/"/>
-    <id>https://goingcoder.github.io/2018/01/13/训练集-验证集-测试集/</id>
-    <published>2018-01-12T17:11:46.000Z</published>
-    <updated>2018-01-21T11:32:12.400Z</updated>
-    
-    <content type="html"><![CDATA[<p>在机器学习中划分数据的过程中总是有几个疑问？</p><p><strong>(1).Why only three partitions? (training, validation, test)?</strong></p><p><strong>(2).What is the difference between test set and validation set?</strong></p><a id="more"></a><p><font face="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In  <strong>machine</strong> learning, the study and construction of algorithms that can learn from and make predictions on data is a common task. Such algorithms work by making data-driven predictions or decisions,through building a mathematical model from input data.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The data used to build the final model usually comes from multiple datasets. In particular, three data sets are commonly used in <strong>different stages</strong> of the creation of the model.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The model is initially <strong>fit</strong> on a training dataset that is a set of examples used to fit the parameters (e.g. weights of connections between neurons in artificial neural networks of the model. The model (e.g. a neural net or a naive Bayes classifier is trained on the training dataset using a supervised learning method (e.g. gradient descent or stochastic gradient descent). In practice, the training dataset often consist of pairs of an input vector and the corresponding <em>answer</em> vector or scalar, which is commonly denoted as the <em>target</em>. The current model is run with the training dataset and produces a result, which is then compared with the <em>target</em>, for each input vector in the training dataset. Based on the result of the comparison and the specific learning algorithm being used, the parameters of the model are adjusted. The model fitting can include both Feature_selection and parameter estimation.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Successively, the fitted model is used to predict the responses for the observations in a second dataset called the <strong>validation dataset</strong>.The validation dataset provides an  <strong>unbiased evaluation</strong>  of a model fit on the training dataset while tuning the model’s  <strong>hyperparameters</strong>  (e.g. the number of hidden units in a neural network) by early stopping: stop training when the error on the validation dataset increases, as this is a sign of overfitting to the training dataset. This simple procedure is complicated in practice by the fact that the validation dataset’s error may fluctuate during training, producing multiple local minima. This complication has led to the creation of many ad-hoc rules for deciding when overfitting has truly begun.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Finally, the <strong>test dataset</strong> is a dataset used to provide an unbiased evaluation of a <em>final</em> model fit on the training dataset.</font> </p><h2 id="1-Training-dataset"><a href="#1-Training-dataset" class="headerlink" title="1.Training dataset"></a>1.Training dataset</h2><p><font face="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A training dataset is a dataset of examples used for learning, that is to fit the parameters (e.g., weights) of, for example, a classifier).<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Most approaches that search through training data for empirical relationships tend to <strong>overfit</strong>  the data, meaning that they can identify apparent relationships in the training data that do not hold in general.</font></p><h2 id="2-Test-dataset"><a href="#2-Test-dataset" class="headerlink" title="2.Test dataset"></a>2.Test dataset</h2><p><font face="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A test dataset is a dataset that is  <strong>independent</strong>  of the training dataset, but that follows the same <strong>probability distribution </strong> as the training dataset. If a model fit to the training dataset also fits the test dataset well, minimal overfitting has taken place . A better fitting of the training dataset as opposed to the test dataset usually points to overfitting.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A test set is therefore a set of examples used only to assess the performance (i.e.  <strong>generalization</strong> ) of a fully specified classifier.</font></p><h2 id="3-Validation-dataset"><a href="#3-Validation-dataset" class="headerlink" title="3.Validation dataset"></a>3.Validation dataset</h2><p><font face="Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A validation dataset is a set of examples used to tune the <strong>hyperparameters</strong>  (i.e. the architecture) of a classifier. In artificial neural networks, a hyperparameter is, for example, the number of hidden units. It, as well as the testing set (as mentioned above), should follow the same probability distribution as the training dataset.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>In order to avoid overfitting</strong>  , when any classification parameter needs to be adjusted, it is necessary to have a validation dataset in addition to the training and test datasets. For example, if the most suitable classifier for the problem is sought, the training dataset is used to train the candidate algorithms, the validation dataset is used to compare their performances and decide which one to take and, finally, the test dataset is used to obtain the performance characteristics such as accuracy, sensitivity, specificity, F-measure, and so on. The validation dataset functions as a hybrid: it is training data used by testing, but neither as part of the low-level training nor as part of the final testing.</font></p><h2 id="4-意义"><a href="#4-意义" class="headerlink" title="4.意义"></a>4.意义</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一般来说，机器学习中包含两种参数。一是普通参数和超参数。对应到神经网络中，普通参数为权重，超参数为隐藏层单元的个数，迭代的次数等。我们通常会将数据集划分为三部分，训练集、验证集、测试集。比例为8:1:1。三个集合无交集是同分布的。训练集用来学习普通的参数。验证集用来验证学习到的模型的准确率，调整模型的超参数，在神经网络中可以是隐藏单元的个数或者确定网络的结构（model selection）。测试集是对验证集中挑选出的模型进行最终的性能检测。<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 例如在神经网络的训练中，验证集是没有参与训练的过程的。但是，在超参数的选择中，我们根据验证集的结果调整迭代的次数等，从这个角度上看，验证集也是参与了调参的过程。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最后，如果是在比赛中，官方提供的数据只有一个训练集和无标签的测试集。由于官方一般给的训练集不是很多，一般不用再划分一个测试集。</p><p>参考资料：<a href="https://en.wikipedia.org/wiki/Training,_test,_and_validation_sets" target="_blank" rel="noopener">维基百科</a></p><p><div id="container"></div></p><p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var gitment = new Gitment({  id: 'window.location.pathname', // 可选。默认为 location.href  title: '训练集 验证集 测试集',  owner: 'goingcoder',  repo: 'goingcoder.github.io',  oauth: {      client_id: 'de24b44123b8efbb4747',      client_secret: '785f51974278cde45a927a91a8438ef35eab9dd0',  },})gitment.render('container')</script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在机器学习中划分数据的过程中总是有几个疑问？&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;(1).Why only three partitions? (training, validation, test)?&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;(2).What is the difference between test set and validation set?&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
