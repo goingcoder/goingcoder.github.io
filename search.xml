@@ -46,7 +46,7 @@ gitment.render('container')
         
         <tags>
             
-            <tag> linux </tag>
+            <tag> tensorflow </tag>
             
         </tags>
         
