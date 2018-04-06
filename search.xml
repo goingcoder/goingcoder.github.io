@@ -19,6 +19,10 @@
 <p>当执行这些操作时，tf.Variable 的值将会改变，也即被修改，这也是其名称的来源（variable，变量）。</p>
 <p>那么，什么时候该用tf.placeholder，什么时候该使用tf.Variable之类直接定义参数呢？</p>
 <p>答案是，<strong>tf.Variable适合一些需要初始化或被训练而变化的权重或参数，而tf.placeholder适合通常不会改变的被训练的数据集。</strong></p>
+<p>小例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">input1 = tf.placeholder(tf.float32)</span><br><span class="line">input2 = tf.placeholder(tf.float32)</span><br><span class="line"></span><br><span class="line">output = tf.multiply(input1, input2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    print(sess.run(output,  feed_dict=&#123;input1: <span class="number">7.</span>, input2: <span class="number">2.</span>&#125;))</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">14.0</span></span><br></pre></td></tr></table></figure>
 <p><div id="container"></div></p>
 <p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>

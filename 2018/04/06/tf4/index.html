@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="离弦的博客">
 <meta property="og:description" content="二者的主要区别在于： tf.Variable：主要在于一些可训练变量（trainable variables），比如模型的权重（weights，W）或者偏置值（bias）； 声明时，必须提供初始值；** 名称的真实含义，在于变量，也即在真实训练时，其值是会改变的，自然事先需要指定初始值；  12weights = tf.Variable( tf.truncated_normal([IMAGE_PI">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-06T10:59:27.619Z">
+<meta property="og:updated_time" content="2018-04-06T11:02:33.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tf.placeholder 与 tf.Variable区别">
 <meta name="twitter:description" content="二者的主要区别在于： tf.Variable：主要在于一些可训练变量（trainable variables），比如模型的权重（weights，W）或者偏置值（bias）； 声明时，必须提供初始值；** 名称的真实含义，在于变量，也即在真实训练时，其值是会改变的，自然事先需要指定初始值；  12weights = tf.Variable( tf.truncated_normal([IMAGE_PI">
@@ -431,6 +431,10 @@
 <p>当执行这些操作时，tf.Variable 的值将会改变，也即被修改，这也是其名称的来源（variable，变量）。</p>
 <p>那么，什么时候该用tf.placeholder，什么时候该使用tf.Variable之类直接定义参数呢？</p>
 <p>答案是，<strong>tf.Variable适合一些需要初始化或被训练而变化的权重或参数，而tf.placeholder适合通常不会改变的被训练的数据集。</strong></p>
+<p>小例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">input1 = tf.placeholder(tf.float32)</span><br><span class="line">input2 = tf.placeholder(tf.float32)</span><br><span class="line"></span><br><span class="line">output = tf.multiply(input1, input2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    print(sess.run(output,  feed_dict=&#123;input1: <span class="number">7.</span>, input2: <span class="number">2.</span>&#125;))</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">14.0</span></span><br></pre></td></tr></table></figure>
 <p><div id="container"></div></p>
 <p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
@@ -468,7 +472,7 @@ gitment.render('container')
   <p><span>本文标题:</span><a href="/2018/04/06/tf4/">tf.placeholder 与 tf.Variable区别</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 goingcoder 的个人博客">goingcoder</a></p>
   <p><span>发布时间:</span>2018年04月06日 - 18:04</p>
-  <p><span>最后更新:</span>2018年04月06日 - 18:04</p>
+  <p><span>最后更新:</span>2018年04月06日 - 19:04</p>
   <p><span>原始链接:</span><a href="/2018/04/06/tf4/" title="tf.placeholder 与 tf.Variable区别">https://goingcoder.github.io/2018/04/06/tf4/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://goingcoder.github.io/2018/04/06/tf4/"  aria-label="复制成功！"></i></span>
   </p>
