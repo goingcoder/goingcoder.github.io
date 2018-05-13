@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="dynamic programming," />
 
 
 
@@ -85,19 +85,29 @@
 
 
 
-<meta name="description" content="长江后浪催前浪，一题新人换旧人。——《张协状元》 资之深，则取之左右逢其原。 ——《孟子》 ** 1.阶乘(Factorial)$1\times 2\times3\times\dots\times N$,整数1到$N$的连乘积。$N$阶乘$N!$ 分析：$N!$源自$(N-1)!$，如此就递回分割问题了。  阵列的每一格对应每一个问题。设定第一格的答案，再以回圈依序计算其余答案。">
-<meta name="keywords" content="Hexo,next">
+<meta name="description" content="​    动态规划中递推式的求解方法不是动态规划的本质。 动态规划的本质，是对问题状态的定义和状态转移方程的定义。 动态规划是通过拆分问题，定义问题状态和状态之间的关系，使得问题能够以递推（或者说分治）的方式去解决。 本题下的其他答案，大多都是在说递推的求解方法，但如何拆分问题，才是动态规划的核心。 而拆分问题，靠的就是状态的定义和状态转移方程的定义。 要解决这个问题，我们首先要定义这个问题和这个">
+<meta name="keywords" content="dynamic programming">
 <meta property="og:type" content="article">
-<meta property="og:title" content="dp1">
+<meta property="og:title" content="动态规划">
 <meta property="og:url" content="https://goingcoder.github.io/2018/05/07/dp1/index.html">
 <meta property="og:site_name" content="离弦的博客">
-<meta property="og:description" content="长江后浪催前浪，一题新人换旧人。——《张协状元》 资之深，则取之左右逢其原。 ——《孟子》 ** 1.阶乘(Factorial)$1\times 2\times3\times\dots\times N$,整数1到$N$的连乘积。$N$阶乘$N!$ 分析：$N!$源自$(N-1)!$，如此就递回分割问题了。  阵列的每一格对应每一个问题。设定第一格的答案，再以回圈依序计算其余答案。">
+<meta property="og:description" content="​    动态规划中递推式的求解方法不是动态规划的本质。 动态规划的本质，是对问题状态的定义和状态转移方程的定义。 动态规划是通过拆分问题，定义问题状态和状态之间的关系，使得问题能够以递推（或者说分治）的方式去解决。 本题下的其他答案，大多都是在说递推的求解方法，但如何拆分问题，才是动态规划的核心。 而拆分问题，靠的就是状态的定义和状态转移方程的定义。 要解决这个问题，我们首先要定义这个问题和这个">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://goingcoder.github.io/2018/05/07/dp1/dp1/wps63B6.tmp.jpg">
-<meta property="og:updated_time" content="2018-05-07T16:08:06.154Z">
+<meta property="og:image" content="https://goingcoder.github.io/2018/05/07/dp1/D:/hexo/source/_posts/wps3581.jpg">
+<meta property="og:image" content="https://goingcoder.github.io/2018/05/07/dp1/wpsB825.jpg">
+<meta property="og:image" content="https://goingcoder.github.io/2018/05/07/dp1/wpsB76A.jpg">
+<meta property="og:image" content="https://goingcoder.github.io/2018/05/07/dp1/a1.png">
+<meta property="og:image" content="https://goingcoder.github.io/2018/05/07/dp1/D:/hexo/source/_posts/wpsE565.tmp.png">
+<meta property="og:image" content="https://goingcoder.github.io/2018/05/07/dp1/wps2ACB.jpg">
+<meta property="og:image" content="https://goingcoder.github.io/2018/05/07/dp1/wps2204.jpg">
+<meta property="og:image" content="https://goingcoder.github.io/2018/05/07/dp1/wps75F.jpg">
+<meta property="og:image" content="https://goingcoder.github.io/2018/05/07/dp1/wps589E.jpg">
+<meta property="og:image" content="https://goingcoder.github.io/2018/05/07/dp1/wps58E0.jpg">
+<meta property="og:updated_time" content="2018-05-13T15:07:52.961Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dp1">
-<meta name="twitter:description" content="长江后浪催前浪，一题新人换旧人。——《张协状元》 资之深，则取之左右逢其原。 ——《孟子》 ** 1.阶乘(Factorial)$1\times 2\times3\times\dots\times N$,整数1到$N$的连乘积。$N$阶乘$N!$ 分析：$N!$源自$(N-1)!$，如此就递回分割问题了。  阵列的每一格对应每一个问题。设定第一格的答案，再以回圈依序计算其余答案。">
+<meta name="twitter:title" content="动态规划">
+<meta name="twitter:description" content="​    动态规划中递推式的求解方法不是动态规划的本质。 动态规划的本质，是对问题状态的定义和状态转移方程的定义。 动态规划是通过拆分问题，定义问题状态和状态之间的关系，使得问题能够以递推（或者说分治）的方式去解决。 本题下的其他答案，大多都是在说递推的求解方法，但如何拆分问题，才是动态规划的核心。 而拆分问题，靠的就是状态的定义和状态转移方程的定义。 要解决这个问题，我们首先要定义这个问题和这个">
 <meta name="twitter:image" content="https://goingcoder.github.io/2018/05/07/dp1/dp1/wps63B6.tmp.jpg">
 
 
@@ -134,7 +144,7 @@
 
 
 
-  <title>dp1 | 离弦的博客</title>
+  <title>动态规划 | 离弦的博客</title>
   
 
 
@@ -337,7 +347,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">dp1</h1>
+          <h1 class="post-title" itemprop="name headline">动态规划</h1>
         
 
         <div class="post-meta">
@@ -397,12 +407,92 @@
       
 
       
-        <p>长江后浪催前浪，一题新人换旧人。——《张协状元》</p>
-<p>资之深，则取之左右逢其原。 ——《孟子》</p>
-<h2 id="1-阶乘-Factorial"><a href="#1-阶乘-Factorial" class="headerlink" title="** 1.阶乘(Factorial)"></a>** 1.阶乘(Factorial)</h2><p>$1\times 2\times3\times\dots\times N$,整数1到$N$的连乘积。$N$阶乘$N!$</p>
+        <p>​    <strong>动态规划中递推式的求解方法不是动态规划的本质。</strong> 动态规划的本质，是对问题<strong>状态的定义</strong>和<strong>状态转移方程的定义</strong>。 动态规划是通过<strong>拆分问题，</strong>定义问题状态和状态之间的关系，使得问题能够以递推（或者说分治）的方式去解决。 本题下的其他答案，大多都是在说递推的求解方法，但<strong>如何拆分问题</strong>，才是动态规划的核心。 而<strong>拆分问题</strong>，靠的就是<strong>状态的定义</strong>和<strong>状态转移方程的定义</strong>。 要解决这个问题，我们首先要<strong>定义这个问题</strong>和这个问题的子问题。 有人可能会问了，题目都已经在这了，我们还需定义这个问题吗？需要，原因就是问题在字面上看，不容易找不出子问题，而没有子问题，这个题目就没办法解决 。状态转移方程，就是定义了问题和子问题之间的关系。 可以看出，状态转移方程就是带有条件的递推式。 </p>
+<h2 id="一-阶乘-Factorial"><a href="#一-阶乘-Factorial" class="headerlink" title="一.阶乘(Factorial)"></a>一.阶乘(Factorial)</h2><p>$1\times 2\times3\times\dots\times N$,整数1到$N$的连乘积。$N$阶乘$N!$</p>
 <p>分析：$N!$源自$(N-1)!$，如此就递回分割问题了。</p>
 <p><img src="/2018/05/07/dp1/./dp1/wps63B6.tmp.jpg" alt="img"></p>
 <p>阵列的每一格对应每一个问题。设定第一格的答案，再以回圈依序计算其余答案。</p>
+<p><img src="/2018/05/07/dp1/D:/hexo\source\_posts/wps3581.jpg" alt="img"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> f[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">factorial</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    f[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    f[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=N; ++i)</span><br><span class="line">        f[i] = f[i<span class="number">-1</span>] * i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">factorial</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=N; ++i)</span><br><span class="line">        f *= i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>总共$N$个问题，每个问题花费$O(1)$时间，总共花费$O(N)$时间</p>
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>求$1!$到$N!$:总共$N$个问题，用一条$N$格阵列存储全部问题的答案，空间复杂度为$O(N)$</p>
+<p>只求$N!$:用一个变量累计成绩，空间复杂度为$O(1)$</p>
+<p>Dynamic Programming: recurrence</p>
+<p>Dynamic Programming = Divide and Conquer + Memoization</p>
+<p>​    动态规划是分治法的延伸。当递推分割出来的问题，一而再、再而三出现，就运用记忆法储存这些问题的答案，避免重复求解，以空间换取时间。动态规划的过程，就是反复地读取数据、计算数据、储存数据。</p>
+<p><img src="/2018/05/07/dp1/wpsB825.jpg" alt="img"></p>
+<ol>
+<li><p>把原问题递归分割成许多更小的问题。（recurrence）</p>
+<p>子问题与原问题的求解方式皆类似。（optimal sub-structure）</p>
+<p>子问题会一而再、再而三的出现。（overlapping sub-problems）</p>
+</li>
+<li><p>设计计算过程：</p>
+<p> 确认每个问题需要哪些子问题来计算答案。（recurrence）</p>
+<p> 确认总共有哪些问题。（state space）</p>
+<p>把问题一一对应到表格。（lookup table）</p>
+<p>决定问题的计算顺序。（computational sequence）</p>
+</li>
+</ol>
+<p>​       确认初始值、计算范围（initial states / boundary）   </p>
+<ol>
+<li><p>实作，主要有两种方式：</p>
+<p> Top-down</p>
+<p> Bottom-up</p>
+</li>
+</ol>
+<h3 id="1-recurrence"><a href="#1-recurrence" class="headerlink" title="1. recurrence"></a>1. recurrence</h3><p>​    递归分割问题时，当子问题与原问题完全相同，只有数值范围不同，我们称此现象为recurrence，再度出现、一而再出现之意。</p>
+<p>【注： recursion 和 recurrence ，中文都翻译为“递归”，然而两者意义大不相同，读者切莫混淆】</p>
+<p>​    此处以爬楼梯问题当做范例。先前于递归法章节，已经谈过如何求踏法，而此处要谈如何求踏法数目。</p>
+<p><img src="/2018/05/07/dp1/wpsB76A.jpg" alt="img"></p>
+<p>​    踏上第五阶，只能从第四阶或从第三阶踏过去，因此爬到五阶源自两个子问题：爬到四阶与爬到三阶。</p>
+<p><img src="/2018/05/07/dp1/a1.png" alt="a"></p>
+<p>​    爬到五阶的踏法数目，就是综合爬到四阶与爬到三阶的踏法数目。写成数学式子是$f(5)=f(4)+f(3)$，其中$f$表示爬到某阶的踏法数目。</p>
+<p>​    依样画葫芦，得到<br>$$<br>f(4)=f(3)+f(2)\\<br>f(3)=f(2)+f(1)<br>$$<br>​    爬到两阶与爬到一阶无法再分割，没有子问题，直接得到<br>$$<br>f(2)=2\\<br>f(1)=1<br>$$<br>整理成一道简明扼要的递归公式：<br>$$<br>f(n)= \begin{cases}<br>1&amp;if   n=1 \\<br>2  &amp; if   n =2 \\<br>f(n-1)+f(n-2) &amp; if  n \ge3  and   n\le 5<br>\end{cases}<br>$$<br>爬到任何一阶的踏法数目，都可以借由这道递归公式求得。<img src="/2018/05/07/dp1/D:/hexo\source\_posts/wpsE565.tmp.png" alt="img">带入实际数值，递归计算即可。</p>
+<p>​    为什么分割问题之后，就容易计算答案呢？因为分割问题时，同时也分类了这个问题所有可能答案。分类使得答案的规律变得单纯，于是更容易求得答案。</p>
+<p><img src="/2018/05/07/dp1/wps2ACB.jpg" alt="img"></p>
+<h3 id="2-、state-space"><a href="#2-、state-space" class="headerlink" title="2 、state space"></a>2 、state space</h3><p>想要计算第五阶的踏法数目。</p>
+<p>全部的问题是“爬到一节”、“爬到二阶”、“爬到三阶”、“爬到四阶”、“爬到五阶”。</p>
+<p><img src="/2018/05/07/dp1/wps2204.jpg" alt="img"></p>
+<p>至于爬到零阶、爬到负一阶。爬到负二阶以及爬到六阶、爬到七阶没有必要计算。</p>
+<h3 id="3、lookup-table"><a href="#3、lookup-table" class="headerlink" title="3、lookup table"></a>3、lookup table</h3><p>​    建立六格的阵列，存储五个问题的答案。</p>
+<p>​    表格的第零格不使用，第一格式爬到一阶的答案，第二格是爬到二阶的答案，以此类推。</p>
+<p><img src="/2018/05/07/dp1/wps75F.jpg" alt="img"></p>
+<p>​    如果只计算爬完五阶，也可以建立三个变量交替使用。</p>
+<h3 id="4、computational-sequence"><a href="#4、computational-sequence" class="headerlink" title="4、computational sequence"></a>4、computational sequence</h3><p>​    因为每个问题都依赖阶数少一阶、阶数少两阶这两个问题，所以必须由阶数小的问题开始计算。</p>
+<p>​    计算顺序是爬到一阶、爬到二阶、……、爬到五阶。设定初始值。</p>
+<h3 id="5、-initial-states-boundary"><a href="#5、-initial-states-boundary" class="headerlink" title="5、 initial states / boundary"></a>5、 initial states / boundary</h3><p>​    最先计算的问题时爬到一阶与爬到二阶，必须预先将答案填入表格。写入方程式，才能计算其他问题。心算求得爬到一阶的答案是1，爬到二阶的答案是2。最后计算的问题时原问题是原问题爬到五阶。</p>
+<p>​    为了让表格更顺畅。为了让程式更漂亮，可以加入爬到零阶的答案，对应到表格的第零格。爬到零阶的答案，可以运用爬到一阶的答案与爬到两阶的答案，刻意逆推而得。</p>
+<p><img src="/2018/05/07/dp1/wps589E.jpg" alt="img"></p>
+<p>​    最后可以把初始值，尚待计算的部分、不需计算的部分，整理成一道递归公式：<br>$$<br>f(n)= \begin{cases}<br>0 &amp; if  n<0\\ 0="" 1="" &="" if="" \="" n="0\\" 1&if="" \\="" f(n-1)+f(n-2)="" \ge2="" and="" n\le="" 5\\="">5<br>\end{cases}<br>$$</0\\></p>
+<h3 id="6、实现"><a href="#6、实现" class="headerlink" title="6、实现"></a>6、实现</h3><p>​    直接用递归实作，而不使用记忆体存储各个问题的答案，是最直接的方式，也是最慢的方式。时间复杂度是$O(f(n))$。问题一而再、再而三的出现，不断呼叫同样的函数求解，效率不彰。刚接触DP的新手常犯这种错误。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span> || n == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> f(n<span class="number">-1</span>) + f(n<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    正确的DP是一边计算，一边将计算出来的数值存入表格，以便不必重算。这里整理了两种实现方式，各有优缺点。</p>
+<p>1)Top-down</p>
+<p>2)Bottom-up</p>
+<p><img src="/2018/05/07/dp1/wps58E0.jpg" alt="img"></p>
+<p>1)Top-down</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> table[<span class="number">6</span>];   <span class="comment">// 表格，储存全部问题的答案。</span></span><br><span class="line"><span class="keyword">bool</span> solve[<span class="number">6</span>];  <span class="comment">// 记录问题是否已经計算完毕</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// [Initial]</span></span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span> || n == <span class="number">1</span>) <span class="keyword">return</span> table[n] = <span class="number">1</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// [Compute]</span></span><br><span class="line">    <span class="comment">// 如果已經計算過，就直接讀取表格的答案。</span></span><br><span class="line">    <span class="keyword">if</span> (solve[n]) <span class="keyword">return</span> table[n];</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 如果不曾計算過，就計算一遍，儲存答案。</span></span><br><span class="line">    table[n] = f(n<span class="number">-1</span>) + f(n<span class="number">-2</span>); <span class="comment">// 將答案存入表格</span></span><br><span class="line">    solve[n] = <span class="literal">true</span>;            <span class="comment">// 已經計算完畢</span></span><br><span class="line">    <span class="keyword">return</span> table[n];</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">stairs_climbing</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;=<span class="number">5</span>; i++)</span><br><span class="line">        solve[i] = <span class="literal">false</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n &amp;&amp; (n &gt;= <span class="number">0</span> &amp;&amp; n &lt;= <span class="number">5</span>))</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"爬到"</span> &lt;&lt; n &lt;&lt; <span class="string">"阶，"</span> &lt;&lt; f(n) &lt;&lt; <span class="string">"种踏法"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> table[<span class="number">6</span>];   <span class="comment">// 合并solve跟table，简化代码。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">// [Initial]</span></span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span> || n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// [Compute]</span></span><br><span class="line">    <span class="comment">// 用 0 代表该问题还未计算答案</span></span><br><span class="line"><span class="comment">//  if (table[n] != 0) </span></span><br><span class="line"><span class="keyword">return</span> table[n];</span><br><span class="line"><span class="keyword">if</span> (table[n]) </span><br><span class="line"><span class="keyword">return</span> table[n];</span><br><span class="line">    <span class="keyword">return</span> table[n] = f(n<span class="number">-1</span>) + f(n<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">stairs_climbing</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;=<span class="number">5</span>; i++)</span><br><span class="line">     table[i] = <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n &amp;&amp; (n &gt;= <span class="number">0</span> &amp;&amp; n &lt;= <span class="number">5</span>))</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"爬到"</span> &lt;&lt; n &lt;&lt; <span class="string">"阶，"</span> &lt;&lt; f(n) &lt;&lt; <span class="string">"种踏法"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    这个实现方式的好处是不必斤斤计较计算顺序，因为代码中的递归结构会迫使最小的问题先被计算。这个实现方式的另一个好处是只计算必要的问题，而不必计算所有可能的问题。</p>
+<p>​    这个实现的坏处是代码采用递归结构，不断调用函数，执行效率差。这个实现方式的另一个坏处是无法自由地控制计算顺序，因而无法妥善运用记忆体，浪费了可回收再利用的记忆体。</p>
+<p>2）Bottom-up</p>
+<p>​    指定一个计算顺序，然后由最小问题开始计算。特色是代码通常只有几个递归。这个实现方式的好处与坏处与前一个方式恰好互补。</p>
+<p>​    首先建立表格。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> table[<span class="number">6</span>];</span><br><span class="line"><span class="keyword">int</span> table[<span class="number">5</span> + <span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+<p>心算爬到零阶的答案、爬到一阶的答案，填入报个当中，作为初始值。分别天道表格的第零格、第一格。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">table[0] = 1;</span><br><span class="line">table[1] = 1;</span><br></pre></td></tr></table></figure>
+<p>​    尚待计算的部分就是爬到两阶的答案、……、爬到五阶的答案。通常是使用递归，按照计算顺序来计算。</p>
+<p>计算过程的实现方式，有两种迥异的风格。一种是往回取值，是常见的实现方式。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">往回取值</span><br><span class="line"><span class="keyword">int</span> table[<span class="number">6</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dynamic_programming</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// [Initial]</span></span><br><span class="line">    table[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    table[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// [Compute]</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=<span class="number">5</span>; i++)</span><br><span class="line">        table[i] = table[i<span class="number">-1</span>] + table[i<span class="number">-2</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另一种是往后补值，是罕见的实现方式。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">往后补值<span class="keyword">int</span> table[<span class="number">6</span>];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dynamic_programming</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// [Initial]</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;=<span class="number">5</span>; i++) table[i] = <span class="number">0</span>;</span><br><span class="line">    table[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"><span class="comment">//  table[1] = 1;   // 剛好可以被算到</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">// [Compute]</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;=<span class="number">5</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (i+<span class="number">1</span> &lt;= <span class="number">5</span>) table[i+<span class="number">1</span>] += table[i];</span><br><span class="line">        <span class="keyword">if</span> (i+<span class="number">2</span> &lt;= <span class="number">5</span>) table[i+<span class="number">2</span>] += table[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="7、总结"><a href="#7、总结" class="headerlink" title="7、总结"></a>7、总结</h3><p>​    第一，先找到原问题和其子问题之间的关系，写成递归公式。如此一来，即可利用递归公式，用子子问题的答案，求出子问题的答案；用子问题的答案，求出原问题的答案。</p>
+<p>​    第二。确认可能出现的问题全部总共有哪些；用子问题的答案，求出原问题的答案。</p>
+<p>​    第三。有了递归公式之后，就必须安排出一套计算顺序。大问题的答案，总是以小问题的答案来求得的，所以，小问题的答案必须是先算的，否则大问题的答案从何而来呢？一个好的安排方式，不但使代码易写，还可重复利用记忆体空间。</p>
+<p>​    第四。记得先将最小，最先被计算的问题，心算出答案，储存如表格，内建与代码之中。一道递归公式必须拥有初始值，才有计算其他项。</p>
+<p>​    第五。实现DP的代码时，会建立一个表格，表格存入所有大小问题的答案。安排好每个问题的答案再表格的哪个位置，这样计算时才能知道该在哪里取值。</p>
+<p>​    切勿存取超出表格的原始，产生溢位情形，导致答案算错。计算过程当中，一旦某个问题的答案出错，就会如骨牌效应般一个影响一个，造成很难除错。</p>
 
       
     </div>
@@ -434,6 +524,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/dynamic-programming/" rel="tag"># dynamic programming</a>
+          
+        </div>
       
 
       
@@ -488,7 +584,7 @@
   
     <div class="comments" id="comments">
       <div class="ds-thread" data-thread-key="2018/05/07/dp1/"
-           data-title="dp1" data-url="https://goingcoder.github.io/2018/05/07/dp1/">
+           data-title="动态规划" data-url="https://goingcoder.github.io/2018/05/07/dp1/">
       </div>
     </div>
 
@@ -566,7 +662,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -636,7 +732,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-阶乘-Factorial"><span class="nav-number">1.</span> <span class="nav-text"><a href="#1-&#x9636;&#x4E58;-Factorial" class="headerlink" title="** 1.&#x9636;&#x4E58;(Factorial)"></a>** 1.&#x9636;&#x4E58;(Factorial)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-阶乘-Factorial"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4E00;-&#x9636;&#x4E58;-Factorial" class="headerlink" title="&#x4E00;.&#x9636;&#x4E58;(Factorial)"></a>&#x4E00;.&#x9636;&#x4E58;(Factorial)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;" class="headerlink" title="&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;"></a>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间复杂度"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;" class="headerlink" title="&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;"></a>&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-recurrence"><span class="nav-number">1.3.</span> <span class="nav-text"><a href="#1-recurrence" class="headerlink" title="1. recurrence"></a>1. recurrence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-、state-space"><span class="nav-number">1.4.</span> <span class="nav-text"><a href="#2-&#x3001;state-space" class="headerlink" title="2 &#x3001;state space"></a>2 &#x3001;state space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、lookup-table"><span class="nav-number">1.5.</span> <span class="nav-text"><a href="#3&#x3001;lookup-table" class="headerlink" title="3&#x3001;lookup table"></a>3&#x3001;lookup table</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、computational-sequence"><span class="nav-number">1.6.</span> <span class="nav-text"><a href="#4&#x3001;computational-sequence" class="headerlink" title="4&#x3001;computational sequence"></a>4&#x3001;computational sequence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、-initial-states-boundary"><span class="nav-number">1.7.</span> <span class="nav-text"><a href="#5&#x3001;-initial-states-boundary" class="headerlink" title="5&#x3001; initial states / boundary"></a>5&#x3001; initial states / boundary</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、实现"><span class="nav-number">1.8.</span> <span class="nav-text"><a href="#6&#x3001;&#x5B9E;&#x73B0;" class="headerlink" title="6&#x3001;&#x5B9E;&#x73B0;"></a>6&#x3001;&#x5B9E;&#x73B0;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、总结"><span class="nav-number">1.9.</span> <span class="nav-text"><a href="#7&#x3001;&#x603B;&#x7ED3;" class="headerlink" title="7&#x3001;&#x603B;&#x7ED3;"></a>7&#x3001;&#x603B;&#x7ED3;</span></a></li></ol></li></ol></div>
             
 
           </div>
