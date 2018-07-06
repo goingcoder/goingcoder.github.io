@@ -51,6 +51,7 @@
 <li>LM embedding 与word embedding类似语义信息，LM embedding感觉更像序列级别的，在加入LM embedding 到RNN中时，在与第一层RNN拼接时效果也是最好的。word embedding也是包含上下文信息的，感觉两个embedding包含的信息有部分的重叠，虽然有一个点的提升。</li>
 <li>对人们比较关心的几个问题都做了附加的分析，让人心服口服，值得学习。</li>
 <li>即使只是对基础模型的一个细小改动，增加一个类型信息（本文是语言模型的上下文信息），如果把实验做的充分，结果显著，也是可以发出来文章的。</li>
+<li>感觉得presentation者得天下……</li>
 </ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] Rei, M. (2017). Semi-supervised Multitask Learning for Sequence Labeling. <em>ACL</em>. <a href="http://doi.org/10.18653/v1/P17-1194" target="_blank" rel="noopener">http://doi.org/10.18653/v1/P17-1194</a> </p>
 <p>[2] <a href="http://oyeblog.com/2017/paper_0_LM/" target="_blank" rel="noopener">http://oyeblog.com/2017/paper_0_LM/</a></p>

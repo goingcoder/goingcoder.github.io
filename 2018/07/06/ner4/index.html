@@ -97,7 +97,7 @@
 <meta property="og:image" content="https://goingcoder.github.io/2018/07/06/ner4/p2.PNG">
 <meta property="og:image" content="https://goingcoder.github.io/2018/07/06/ner4/p3.PNG">
 <meta property="og:image" content="https://goingcoder.github.io/2018/07/06/ner4/p4.PNG">
-<meta property="og:updated_time" content="2018-07-06T10:26:08.039Z">
+<meta property="og:updated_time" content="2018-07-06T10:36:51.952Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Semi-supervised sequence tagging with bidirectional language models">
 <meta name="twitter:description" content="介绍​    对于NLP任务，从无标签文本中学习预训练的embedding已经是神经网络的一个标准部分。在这篇论文中，提出了将一个双向的语言模型的context embedding引入序列标注任务中，在NER和chunking两个标准数据集上进行了实验，证明了与其他的某些使用迁移学习和使用附加标注数据和特定任务字典的联合学习相比，效果都要好，超过了以往所有的模型。 贡献 主要贡献是表明在LM em">
@@ -468,6 +468,7 @@
 <li>LM embedding 与word embedding类似语义信息，LM embedding感觉更像序列级别的，在加入LM embedding 到RNN中时，在与第一层RNN拼接时效果也是最好的。word embedding也是包含上下文信息的，感觉两个embedding包含的信息有部分的重叠，虽然有一个点的提升。</li>
 <li>对人们比较关心的几个问题都做了附加的分析，让人心服口服，值得学习。</li>
 <li>即使只是对基础模型的一个细小改动，增加一个类型信息（本文是语言模型的上下文信息），如果把实验做的充分，结果显著，也是可以发出来文章的。</li>
+<li>感觉得presentation者得天下……</li>
 </ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] Rei, M. (2017). Semi-supervised Multitask Learning for Sequence Labeling. <em>ACL</em>. <a href="http://doi.org/10.18653/v1/P17-1194" target="_blank" rel="noopener">http://doi.org/10.18653/v1/P17-1194</a> </p>
 <p>[2] <a href="http://oyeblog.com/2017/paper_0_LM/" target="_blank" rel="noopener">http://oyeblog.com/2017/paper_0_LM/</a></p>
