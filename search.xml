@@ -21,7 +21,7 @@
 <li>对 LM embedding加入attention机制</li>
 </ul>
 <h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>​    在CoNLL2003 NER任务和CoNLL Chunking 任务上进行了实验。</p>
-<p><img src="/2018/07/06/ner4/p2.png" alt="2"></p>
+<p><img src="/2018/07/06/ner4/p2.PNG" alt="2"></p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>###1.How to use LM embedding?</p>
 <p>作者在不同的位置上对LM embedding进行拼接</p>
 <ul>
@@ -32,10 +32,10 @@
 <li><p>在第一层RNN输出时<br>  $$<br>  h_{k,1}=[h_{k,1};h^{LM}_k]<br>  $$</p>
 </li>
 <li><p>在第二层RNN输出时<br>  $$<br>  h_{k,2}=[h_{k,2};h^{LM}_k]<br>  $$<br>  实验结果</p>
-<p>  <img src="/2018/07/06/ner4/p3.png" alt="3"></p>
+<p>  <img src="/2018/07/06/ner4/p3.PNG" alt="3"></p>
 <p>  <strong>结果表明，在第一层RNN输出时拼接效果做好</strong></p>
 <h3 id="2-Does-it-matter-which-language-model-to-use"><a href="#2-Does-it-matter-which-language-model-to-use" class="headerlink" title="2.Does it matter which language model to use?"></a>2.Does it matter which language model to use?</h3><p>  不同语言模型的影响。</p>
-<p>  <img src="/2018/07/06/ner4/p4.png" alt="4"></p>
+<p>  <img src="/2018/07/06/ner4/p4.PNG" alt="4"></p>
 </li>
 <li><p>语言模型的大小是重要的。</p>
 </li>

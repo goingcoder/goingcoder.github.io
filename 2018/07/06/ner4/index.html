@@ -94,10 +94,10 @@
 <meta property="og:description" content="介绍​    对于NLP任务，从无标签文本中学习预训练的embedding已经是神经网络的一个标准部分。在这篇论文中，提出了将一个双向的语言模型的context embedding引入序列标注任务中，在NER和chunking两个标准数据集上进行了实验，证明了与其他的某些使用迁移学习和使用附加标注数据和特定任务字典的联合学习相比，效果都要好，超过了以往所有的模型。 贡献 主要贡献是表明在LM em">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://goingcoder.github.io/2018/07/06/ner4/p1.PNG">
-<meta property="og:image" content="https://goingcoder.github.io/2018/07/06/ner4/p2.png">
-<meta property="og:image" content="https://goingcoder.github.io/2018/07/06/ner4/p3.png">
-<meta property="og:image" content="https://goingcoder.github.io/2018/07/06/ner4/p4.png">
-<meta property="og:updated_time" content="2018-07-06T10:24:46.103Z">
+<meta property="og:image" content="https://goingcoder.github.io/2018/07/06/ner4/p2.PNG">
+<meta property="og:image" content="https://goingcoder.github.io/2018/07/06/ner4/p3.PNG">
+<meta property="og:image" content="https://goingcoder.github.io/2018/07/06/ner4/p4.PNG">
+<meta property="og:updated_time" content="2018-07-06T10:26:08.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Semi-supervised sequence tagging with bidirectional language models">
 <meta name="twitter:description" content="介绍​    对于NLP任务，从无标签文本中学习预训练的embedding已经是神经网络的一个标准部分。在这篇论文中，提出了将一个双向的语言模型的context embedding引入序列标注任务中，在NER和chunking两个标准数据集上进行了实验，证明了与其他的某些使用迁移学习和使用附加标注数据和特定任务字典的联合学习相比，效果都要好，超过了以往所有的模型。 贡献 主要贡献是表明在LM em">
@@ -438,7 +438,7 @@
 <li>对 LM embedding加入attention机制</li>
 </ul>
 <h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>​    在CoNLL2003 NER任务和CoNLL Chunking 任务上进行了实验。</p>
-<p><img src="/2018/07/06/ner4/p2.png" alt="2"></p>
+<p><img src="/2018/07/06/ner4/p2.PNG" alt="2"></p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>###1.How to use LM embedding?</p>
 <p>作者在不同的位置上对LM embedding进行拼接</p>
 <ul>
@@ -449,10 +449,10 @@
 <li><p>在第一层RNN输出时<br>  $$<br>  h_{k,1}=[h_{k,1};h^{LM}_k]<br>  $$</p>
 </li>
 <li><p>在第二层RNN输出时<br>  $$<br>  h_{k,2}=[h_{k,2};h^{LM}_k]<br>  $$<br>  实验结果</p>
-<p>  <img src="/2018/07/06/ner4/p3.png" alt="3"></p>
+<p>  <img src="/2018/07/06/ner4/p3.PNG" alt="3"></p>
 <p>  <strong>结果表明，在第一层RNN输出时拼接效果做好</strong></p>
 <h3 id="2-Does-it-matter-which-language-model-to-use"><a href="#2-Does-it-matter-which-language-model-to-use" class="headerlink" title="2.Does it matter which language model to use?"></a>2.Does it matter which language model to use?</h3><p>  不同语言模型的影响。</p>
-<p>  <img src="/2018/07/06/ner4/p4.png" alt="4"></p>
+<p>  <img src="/2018/07/06/ner4/p4.PNG" alt="4"></p>
 </li>
 <li><p>语言模型的大小是重要的。</p>
 </li>
