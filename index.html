@@ -318,6 +318,205 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/07/08/ner5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="goingcoder">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/23649220?s=400&u=964c794854ddfd2a46f55952deb5f1010bbd2982&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="离弦的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/08/ner5/" itemprop="url">Deep contextualized word representations论文笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-08T09:22:44+08:00">
+                2018-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ner/" itemprop="url" rel="index">
+                    <span itemprop="name">ner</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/08/ner5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/07/08/ner5/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>​    预训练的词向量是很多神经语言理解模型的关键部分，然而学习高质量的表示是很有挑战性的。一个好的词向量应该包含：（1）能够建模词的复杂字符特征（比如语法和语义），（2）能够在不同语境有不同反映（如多义词）。这篇论文中，引入一种新类型的深度上下文词表示，可以应对这些挑战，并且可以容易与当前存在的模型进行整合，有效提升了一系列有挑战的语言理解问题的最优性能。</p>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>​    ELMO是一个语言模型中中间层表示的特点任务的组合。对于每一个token$t_k$,一个L层的双向语言模型计算$2L+1$表征。<br>$$<br>R_k={ x^{LM}_k,h^{LM}_{k,j}|j=1,\dots ,L} \ ={h^{LM}_{k,j}|j=1,\dots ,L}<br>$$<br>$h^{LM}_{k,0}​$是token层，$h^{LM}_{k，j}​$是双向LSTM层<br>$$<br>ELMo^{task}_k=E(R_k;\theta^task)=\gamma^{task}\sum^L_{j=0}s^{task}_jh^{LM}_{k.j}<br>$$<br>​    最简单的情况下，ELMO只选择顶层，即$E(R_k)=h^{LM}_{k,L}$,如TagLM（Peters et al., 2017 ）和 CoVe（McCann et al., 2017） 。$s^{task}$是softmax归一化权重。ELMo的训练过程与一般语言模型相似，在使用时需要对各层输出进行加权。 </p>
+<h2 id="将ELMo模型加入到有监督的NLP任务中"><a href="#将ELMo模型加入到有监督的NLP任务中" class="headerlink" title="将ELMo模型加入到有监督的NLP任务中"></a>将ELMo模型加入到有监督的NLP任务中</h2><p>三种方法</p>
+<ul>
+<li>先固定biLM中权重，然后拼接$ELMo^{task}_k$和$x_k$为$[x_k;ELMo^{task}_k]$,再将这个向量丢到任务RNN中</li>
+<li>在task RNN输出的时候使用$[h_k;ELMo^{LM}_k]$替换$h_k$。</li>
+<li>在ELMo中加入dropout以及给loss增加$\lambda||w||^2_2$</li>
+</ul>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>​    在NER任务上，ELMo加强的BiLSTM-CRF的f1值为92.22%。</p>
+<p><img src="/2018/07/08/ner5/p1.png" alt=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>感觉和17年ACL的TagLM很像，只是在LM上加了一些改动，对不同的层的加入一些权重。主要的问题还是在训练语言模型上。</li>
+<li>词向量应该随着上下文的改变而改变</li>
+<li>不同层的双向RNN可以编码不同类型的信息。ELMo第一层输出包含更多的句法信息，而第二层输出包含更多的语义信息。</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>Peters M E, Neumann M, Iyyer M, et al. Deep contextualized word representations[J]. arXiv preprint arXiv:1802.05365, 2018. </p>
+<p><div id="container"></div></p>
+<p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'window.location.pathname', // 可选。默认为 location.href
+  title: 'Deep contextualized word representations论文笔记',
+  owner: 'goingcoder',
+  repo: 'goingcoder.github.io',
+  oauth: {
+      client_id: 'de24b44123b8efbb4747',
+      client_secret: '785f51974278cde45a927a91a8438ef35eab9dd0',
+
+  },
+})
+gitment.render('container')
+</script>
+
+
+
+
+
+
+
+<p>​    </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+	<div>
+      
+	</div>
+	
+	
+	
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/07/06/ner4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1885,178 +2084,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/04/06/tf4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="goingcoder">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/23649220?s=400&u=964c794854ddfd2a46f55952deb5f1010bbd2982&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="离弦的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/06/tf4/" itemprop="url">tf.placeholder 与 tf.Variable区别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-06T18:37:35+08:00">
-                2018-04-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tensorflow/" itemprop="url" rel="index">
-                    <span itemprop="name">tensorflow</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/06/tf4/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/06/tf4/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>二者的主要区别在于：</p>
-<p><strong>tf.Variable</strong>：主要在于一些可训练变量（trainable variables），比如模型的权重（weights，W）或者偏置值（bias）；</p>
-<p><strong>声明时，必须提供初始值；<em>**</em></strong></p>
-<p>名称的真实含义，在于变量，也即在真实训练时，其值是会改变的，自然事先需要指定初始值； </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">weights = tf.Variable( tf.truncated_normal([IMAGE_PIXELS, 		                               hidden1_units],stddev=<span class="number">1.</span>/math.sqrt(float(IMAGE_PIXELS)), name=<span class="string">'weights'</span>))</span><br><span class="line">biases = tf.Variable(tf.zeros([hidden1_units]), name=<span class="string">'biases'</span>)</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/06/tf4/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-	<div>
-      
-	</div>
-	
-	
-	
-	
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2106,7 +2138,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

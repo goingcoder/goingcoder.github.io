@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ner," />
 
 
 
@@ -85,18 +85,20 @@
 
 
 
-<meta name="description" content="1.什么是序列标注？ &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这是我们在NLP任务中一直面临的一个元问题，我们希望在一个序列中为每个元素分配一个标签。对我们来说，一个序列通常是一个句子，一个词是一个元素。我们试图分配的元素通常是词性、句法块标签（是名词短语、动词短语等的一部分），命名实体标记（这是一个人吗？）凡此种种，不一而足。信息提取系统（">
-<meta name="keywords" content="Hexo,next">
+<meta name="description" content="介绍​    预训练的词向量是很多神经语言理解模型的关键部分，然而学习高质量的表示是很有挑战性的。一个好的词向量应该包含：（1）能够建模词的复杂字符特征（比如语法和语义），（2）能够在不同语境有不同反映（如多义词）。这篇论文中，引入一种新类型的深度上下文词表示，可以应对这些挑战，并且可以容易与当前存在的模型进行整合，有效提升了一系列有挑战的语言理解问题的最优性能。 模型​    ELMO是一个语言">
+<meta name="keywords" content="ner">
 <meta property="og:type" content="article">
-<meta property="og:title" content="序列标注">
-<meta property="og:url" content="https://goingcoder.github.io/2018/01/16/sequence-laneling/index.html">
+<meta property="og:title" content="Deep contextualized word representations论文笔记">
+<meta property="og:url" content="https://goingcoder.github.io/2018/07/08/ner5/index.html">
 <meta property="og:site_name" content="离弦的博客">
-<meta property="og:description" content="1.什么是序列标注？ &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这是我们在NLP任务中一直面临的一个元问题，我们希望在一个序列中为每个元素分配一个标签。对我们来说，一个序列通常是一个句子，一个词是一个元素。我们试图分配的元素通常是词性、句法块标签（是名词短语、动词短语等的一部分），命名实体标记（这是一个人吗？）凡此种种，不一而足。信息提取系统（">
+<meta property="og:description" content="介绍​    预训练的词向量是很多神经语言理解模型的关键部分，然而学习高质量的表示是很有挑战性的。一个好的词向量应该包含：（1）能够建模词的复杂字符特征（比如语法和语义），（2）能够在不同语境有不同反映（如多义词）。这篇论文中，引入一种新类型的深度上下文词表示，可以应对这些挑战，并且可以容易与当前存在的模型进行整合，有效提升了一系列有挑战的语言理解问题的最优性能。 模型​    ELMO是一个语言">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-21T11:31:39.463Z">
+<meta property="og:image" content="https://goingcoder.github.io/2018/07/08/ner5/p1.png">
+<meta property="og:updated_time" content="2018-07-08T03:11:09.612Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="序列标注">
-<meta name="twitter:description" content="1.什么是序列标注？ &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这是我们在NLP任务中一直面临的一个元问题，我们希望在一个序列中为每个元素分配一个标签。对我们来说，一个序列通常是一个句子，一个词是一个元素。我们试图分配的元素通常是词性、句法块标签（是名词短语、动词短语等的一部分），命名实体标记（这是一个人吗？）凡此种种，不一而足。信息提取系统（">
+<meta name="twitter:title" content="Deep contextualized word representations论文笔记">
+<meta name="twitter:description" content="介绍​    预训练的词向量是很多神经语言理解模型的关键部分，然而学习高质量的表示是很有挑战性的。一个好的词向量应该包含：（1）能够建模词的复杂字符特征（比如语法和语义），（2）能够在不同语境有不同反映（如多义词）。这篇论文中，引入一种新类型的深度上下文词表示，可以应对这些挑战，并且可以容易与当前存在的模型进行整合，有效提升了一系列有挑战的语言理解问题的最优性能。 模型​    ELMO是一个语言">
+<meta name="twitter:image" content="https://goingcoder.github.io/2018/07/08/ner5/p1.png">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://goingcoder.github.io/2018/01/16/sequence-laneling/"/>
+  <link rel="canonical" href="https://goingcoder.github.io/2018/07/08/ner5/"/>
 
 
 
 
 
-  <title>序列标注 | 离弦的博客</title>
+  <title>Deep contextualized word representations论文笔记 | 离弦的博客</title>
   
 
 
@@ -318,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/01/16/sequence-laneling/">
+    <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/07/08/ner5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="goingcoder">
@@ -335,7 +337,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">序列标注</h1>
+          <h1 class="post-title" itemprop="name headline">Deep contextualized word representations论文笔记</h1>
         
 
         <div class="post-meta">
@@ -347,8 +349,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-16T01:05:29+08:00">
-                2018-01-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-08T09:22:44+08:00">
+                2018-07-08
               </time>
             
 
@@ -358,6 +360,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ner/" itemprop="url" rel="index">
+                    <span itemprop="name">ner</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -366,8 +390,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/01/16/sequence-laneling/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/16/sequence-laneling/" itemprop="commentCount"></span>
+                <a href="/2018/07/08/ner5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/07/08/ner5/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -395,38 +419,29 @@
       
 
       
-        <h2 id="1-什么是序列标注？"><a href="#1-什么是序列标注？" class="headerlink" title="1.什么是序列标注？"></a>1.什么是序列标注？</h2><p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是我们在NLP任务中一直面临的一个元问题，我们希望在一个序列中为每个元素分配一个标签。对我们来说，一个序列通常是一个句子，一个词是一个元素。我们试图分配的元素通常是词性、句法块标签（是名词短语、动词短语等的一部分），命名实体标记（这是一个人吗？）凡此种种，不一而足。信息提取系统（比如从电子邮件中提取会议时间和地点）也可以被视为序列标记问题。</p>
-<h3 id="1-1-任务："><a href="#1-1-任务：" class="headerlink" title="1.1.任务："></a>1.1.任务：</h3><p>$f:{X} {sequence} \to {Y}  sequence $</p>
-<p>$X:X_1 \:  X_2\: X_3\:…X_L$</p>
-<p>$Y:Y_1 \:  Y_2 \:  Y_3 \: …Y_L$</p>
-<p>目标：$Given\:X,predcit\: Y$</p>
-<a id="more"></a>
-<h3 id="1-2-有两种序列标注："><a href="#1-2-有两种序列标注：" class="headerlink" title="1.2 .有两种序列标注："></a>1.2 .有两种序列标注：</h3><font face="Times New Roman"><br><br>1. raw labeling:Raw labeling is something like POS tagging where <strong>each element gets a single tag</strong><br><br>2.  joint segmentation and labeling: Joint segmentation and labeling is where whole segments get the same label.</font>
-
-<p>   ​</p>
-<p>   举个例子，在命名实体识别中，像</p>
-<p>   “Yesterday , George Bush gave a speech. ”</p>
-<p>   这里我们想给“George Bush”整个标注“PERSON”而不是单个的字。如果两个字被命名，我们需要在哪隔开。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;解决这个问题最容易的方法是把他们转换为raw labeling problems。标准的方法是通过“B-X”，“I-X”或者“O”对每个字进行“BIO”编码，其他的编码方式也是可以的。如下所示：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yesterday/O  ,/O    George/B-PER    Bush/I-PER    gave/O    a/O   speech/O   ./O</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意要避免产生不可能的序列，如”I-X” 只可能出现在”B-X” 或者 “I-X”后面。</p>
-<h2 id="2-标签编码表示"><a href="#2-标签编码表示" class="headerlink" title="2.标签编码表示"></a>2.标签编码表示</h2><h3 id="2-1-IO-编码"><a href="#2-1-IO-编码" class="headerlink" title="2.1. IO 编码"></a>2.1. IO 编码</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最简单的编码是IO编码，标签要么是实体X的（I_X）要么是无实体（O）。这种编码是有缺陷的，因为它不能表示彼此相邻的两个实体，因为没有边界标记。</p>
-<h3 id="2-2-BIO-Encoding"><a href="#2-2-BIO-Encoding" class="headerlink" title="2.2 .BIO Encoding"></a>2.2 .BIO Encoding</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;行业标注编码是“BIO”编码，它划分实体标签要么是实体的开始部分“B_X”和实体的延续“I_X”</p>
-<h3 id="2-3-BMEWO-Encoding"><a href="#2-3-BMEWO-Encoding" class="headerlink" title="2.3.BMEWO Encoding"></a>2.3.BMEWO Encoding</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BMEWO编码进一步区分实体，增加了结束标签E_X，M和I是一样的，尤其增加了一个完整的单实体标签。BMEWO编码最早介绍在<a href="http://citeseer.ist.psu.edu/old/699859.html" target="_blank" rel="noopener">Andrew Borthwick的 NYU thesis</a> 和1998年相关的论文最大熵命名实体识别中。</p>
-<h2 id="3-序列标注"><a href="#3-序列标注" class="headerlink" title="3.序列标注"></a>3.序列标注</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类似的，分词、词性标注、语块识别、<a href="http://book.paddlepaddle.org/07.label_semantic_roles/index.cn.html" target="_blank" rel="noopener">语义角色标注</a>等任务都可通过序列标注来解决。序列标注可以分为Sequence Classification、Segment Classification和Temporal Classification三类<a href="http://models.paddlepaddle.org/2017/04/21/sequence-tagging-for-ner-README.html#参考文献" target="_blank" rel="noopener">Supervised Sequence Labelling with Recurrent Neural Networks</a>]，这里只考虑Segment Classification，即对输入序列中的每个元素在输出序列中给出对应的标签。对于NER任务，由于需要标识边界，一般采用<a href="http://book.paddlepaddle.org/07.label_semantic_roles/" target="_blank" rel="noopener">BIO标注方法</a>定义的标签集。在raw labeling中，我们面临的问题是给序列中的每个字打上一个标签。也许最容易的方法是独立的预测每个标签。然后可以看做一个多分类的任务（每个标签是不同的分类）。我们可以使用各种分类器来解决这个问题。尽管它很简单，但这种方法对许多问题是非常<a href="http://arxiv.org/abs/cs/0111003" target="_blank" rel="noopener">有效</a>。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;直觉上，我们通常认为这些问题中的标签不是独立的。以词性标注为例，不可能有一个动词跟着限定词。因此，我们想使用局部序列信息来提高我们的性能。传统的方法是用<a href="http://nlp.stanford.edu/fsnlp/" target="_blank" rel="noopener">隐马尔科夫</a>。在这里我们有两个概率分布：一个是转移概率（限定词后面跟着动词的可能性）；二是发射概率（“the”是限定词的可能性）。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用隐马尔可夫的潜在问题是我们知道发射概率$ P(word|tag)$,但是我们想知道模型$P(tag|word)$ 后者更可取，因为他包含了许多重叠特征（大写、单词标识、前缀，后缀，主干等）。局部的解决是用最大熵马尔科夫模型<a href="http://www.cs.iastate.edu/~honavar/memm-icml2000.pdf" target="_blank" rel="noopener">MEMM</a> ,即使用最大熵模型对模型$P(tag|word)$ 建模，而其他的地方跟隐马尔可夫模型保持一样。最大熵马尔科夫模型比隐马尔可夫模型的训练复杂一点，但是效果好得多。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最大熵马尔科夫潜在的问题是当模型训练的时候，它们训练出来与先前的正确标签的有冲突。这是因为我们创建一个与时间$t+1$ 中的标签相对于的分类示例时，我们包含的特征依赖于时间$t$的标签，它们在训练的时刻总是对的，但是在测试的时刻是错误的。这导致了著名的“标签偏移”问题。CRF是解决这个问题的答案。CRF经常表现比MEMM更好。<a href="http://mallet.cs.umass.edu" target="_blank" rel="noopener">CRF implement</a></p>
-<p>参考资料：</p>
-<p><a href="https://nlpers.blogspot.com.au/2006/11/getting-started-in-sequence-labeling.html" target="_blank" rel="noopener">https://nlpers.blogspot.com.au/2006/11/getting-started-in-sequence-labeling.html</a></p>
-<p><a href="https://lingpipe-blog.com/2009/10/14/coding-chunkers-as-taggers-io-bio-bmewo-and-bmewo/" target="_blank" rel="noopener">https://lingpipe-blog.com/2009/10/14/coding-chunkers-as-taggers-io-bio-bmewo-and-bmewo/</a></p>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>​    预训练的词向量是很多神经语言理解模型的关键部分，然而学习高质量的表示是很有挑战性的。一个好的词向量应该包含：（1）能够建模词的复杂字符特征（比如语法和语义），（2）能够在不同语境有不同反映（如多义词）。这篇论文中，引入一种新类型的深度上下文词表示，可以应对这些挑战，并且可以容易与当前存在的模型进行整合，有效提升了一系列有挑战的语言理解问题的最优性能。</p>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>​    ELMO是一个语言模型中中间层表示的特点任务的组合。对于每一个token$t_k$,一个L层的双向语言模型计算$2L+1$表征。<br>$$<br>R_k={ x^{LM}_k,h^{LM}_{k,j}|j=1,\dots ,L} \ ={h^{LM}_{k,j}|j=1,\dots ,L}<br>$$<br>$h^{LM}_{k,0}​$是token层，$h^{LM}_{k，j}​$是双向LSTM层<br>$$<br>ELMo^{task}_k=E(R_k;\theta^task)=\gamma^{task}\sum^L_{j=0}s^{task}_jh^{LM}_{k.j}<br>$$<br>​    最简单的情况下，ELMO只选择顶层，即$E(R_k)=h^{LM}_{k,L}$,如TagLM（Peters et al., 2017 ）和 CoVe（McCann et al., 2017） 。$s^{task}$是softmax归一化权重。ELMo的训练过程与一般语言模型相似，在使用时需要对各层输出进行加权。 </p>
+<h2 id="将ELMo模型加入到有监督的NLP任务中"><a href="#将ELMo模型加入到有监督的NLP任务中" class="headerlink" title="将ELMo模型加入到有监督的NLP任务中"></a>将ELMo模型加入到有监督的NLP任务中</h2><p>三种方法</p>
+<ul>
+<li>先固定biLM中权重，然后拼接$ELMo^{task}_k$和$x_k$为$[x_k;ELMo^{task}_k]$,再将这个向量丢到任务RNN中</li>
+<li>在task RNN输出的时候使用$[h_k;ELMo^{LM}_k]$替换$h_k$。</li>
+<li>在ELMo中加入dropout以及给loss增加$\lambda||w||^2_2$</li>
+</ul>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>​    在NER任务上，ELMo加强的BiLSTM-CRF的f1值为92.22%。</p>
+<p><img src="/2018/07/08/ner5/p1.png" alt=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>感觉和17年ACL的TagLM很像，只是在LM上加了一些改动，对不同的层的加入一些权重。主要的问题还是在训练语言模型上。</li>
+<li>词向量应该随着上下文的改变而改变</li>
+<li>不同层的双向RNN可以编码不同类型的信息。ELMo第一层输出包含更多的句法信息，而第二层输出包含更多的语义信息。</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>Peters M E, Neumann M, Iyyer M, et al. Deep contextualized word representations[J]. arXiv preprint arXiv:1802.05365, 2018. </p>
 <p><div id="container"></div></p>
 <p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
   id: 'window.location.pathname', // 可选。默认为 location.href
-  title: '序列标注',
+  title: 'Deep contextualized word representations论文笔记',
   owner: 'goingcoder',
   repo: 'goingcoder.github.io',
   oauth: {
@@ -439,6 +454,12 @@ gitment.render('container')
 </script>
 
 
+
+
+
+
+
+<p>​    </p>
 
       
     </div>
@@ -457,12 +478,12 @@ gitment.render('container')
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/01/16/sequence-laneling/">序列标注</a></p>
+  <p><span>本文标题:</span><a href="/2018/07/08/ner5/">Deep contextualized word representations论文笔记</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 goingcoder 的个人博客">goingcoder</a></p>
-  <p><span>发布时间:</span>2018年01月16日 - 01:01</p>
-  <p><span>最后更新:</span>2018年01月21日 - 19:01</p>
-  <p><span>原始链接:</span><a href="/2018/01/16/sequence-laneling/" title="序列标注">https://goingcoder.github.io/2018/01/16/sequence-laneling/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://goingcoder.github.io/2018/01/16/sequence-laneling/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年07月08日 - 09:07</p>
+  <p><span>最后更新:</span>2018年07月08日 - 11:07</p>
+  <p><span>原始链接:</span><a href="/2018/07/08/ner5/" title="Deep contextualized word representations论文笔记">https://goingcoder.github.io/2018/07/08/ner5/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://goingcoder.github.io/2018/07/08/ner5/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -500,6 +521,12 @@ gitment.render('container')
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/ner/" rel="tag"># ner</a>
+          
+        </div>
+      
 
       
       
@@ -509,8 +536,8 @@ gitment.render('container')
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/13/训练集-验证集-测试集/" rel="next" title="训练集 验证集 测试集">
-                <i class="fa fa-chevron-left"></i> 训练集 验证集 测试集
+              <a href="/2018/07/06/ner4/" rel="next" title="Semi-supervised sequence tagging with bidirectional language models">
+                <i class="fa fa-chevron-left"></i> Semi-supervised sequence tagging with bidirectional language models
               </a>
             
           </div>
@@ -518,10 +545,6 @@ gitment.render('container')
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/16/poetry/" rel="prev" title="唐诗-1：复古的伟大继承人：李白">
-                唐诗-1：复古的伟大继承人：李白 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -552,8 +575,8 @@ gitment.render('container')
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2018/01/16/sequence-laneling/"
-           data-title="序列标注" data-url="https://goingcoder.github.io/2018/01/16/sequence-laneling/">
+      <div class="ds-thread" data-thread-key="2018/07/08/ner5/"
+           data-title="Deep contextualized word representations论文笔记" data-url="https://goingcoder.github.io/2018/07/08/ner5/">
       </div>
     </div>
 
@@ -701,7 +724,7 @@ gitment.render('container')
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是序列标注？"><span class="nav-number">1.</span> <span class="nav-text"><a href="#1-&#x4EC0;&#x4E48;&#x662F;&#x5E8F;&#x5217;&#x6807;&#x6CE8;&#xFF1F;" class="headerlink" title="1.&#x4EC0;&#x4E48;&#x662F;&#x5E8F;&#x5217;&#x6807;&#x6CE8;&#xFF1F;"></a>1.&#x4EC0;&#x4E48;&#x662F;&#x5E8F;&#x5217;&#x6807;&#x6CE8;&#xFF1F;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-任务："><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#1-1-&#x4EFB;&#x52A1;&#xFF1A;" class="headerlink" title="1.1.&#x4EFB;&#x52A1;&#xFF1A;"></a>1.1.&#x4EFB;&#x52A1;&#xFF1A;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-有两种序列标注："><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#1-2-&#x6709;&#x4E24;&#x79CD;&#x5E8F;&#x5217;&#x6807;&#x6CE8;&#xFF1A;" class="headerlink" title="1.2 .&#x6709;&#x4E24;&#x79CD;&#x5E8F;&#x5217;&#x6807;&#x6CE8;&#xFF1A;"></a>1.2 .&#x6709;&#x4E24;&#x79CD;&#x5E8F;&#x5217;&#x6807;&#x6CE8;&#xFF1A;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-标签编码表示"><span class="nav-number">2.</span> <span class="nav-text"><a href="#2-&#x6807;&#x7B7E;&#x7F16;&#x7801;&#x8868;&#x793A;" class="headerlink" title="2.&#x6807;&#x7B7E;&#x7F16;&#x7801;&#x8868;&#x793A;"></a>2.&#x6807;&#x7B7E;&#x7F16;&#x7801;&#x8868;&#x793A;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-IO-编码"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#2-1-IO-&#x7F16;&#x7801;" class="headerlink" title="2.1. IO &#x7F16;&#x7801;"></a>2.1. IO &#x7F16;&#x7801;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-BIO-Encoding"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#2-2-BIO-Encoding" class="headerlink" title="2.2 .BIO Encoding"></a>2.2 .BIO Encoding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-BMEWO-Encoding"><span class="nav-number">2.3.</span> <span class="nav-text"><a href="#2-3-BMEWO-Encoding" class="headerlink" title="2.3.BMEWO Encoding"></a>2.3.BMEWO Encoding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-序列标注"><span class="nav-number">3.</span> <span class="nav-text"><a href="#3-&#x5E8F;&#x5217;&#x6807;&#x6CE8;" class="headerlink" title="3.&#x5E8F;&#x5217;&#x6807;&#x6CE8;"></a>3.&#x5E8F;&#x5217;&#x6807;&#x6CE8;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4ECB;&#x7ECD;" class="headerlink" title="&#x4ECB;&#x7ECD;"></a>&#x4ECB;&#x7ECD;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x6A21;&#x578B;" class="headerlink" title="&#x6A21;&#x578B;"></a>&#x6A21;&#x578B;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将ELMo模型加入到有监督的NLP任务中"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x5C06;ELMo&#x6A21;&#x578B;&#x52A0;&#x5165;&#x5230;&#x6709;&#x76D1;&#x7763;&#x7684;NLP&#x4EFB;&#x52A1;&#x4E2D;" class="headerlink" title="&#x5C06;ELMo&#x6A21;&#x578B;&#x52A0;&#x5165;&#x5230;&#x6709;&#x76D1;&#x7763;&#x7684;NLP&#x4EFB;&#x52A1;&#x4E2D;"></a>&#x5C06;ELMo&#x6A21;&#x578B;&#x52A0;&#x5165;&#x5230;&#x6709;&#x76D1;&#x7763;&#x7684;NLP&#x4EFB;&#x52A1;&#x4E2D;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">4.</span> <span class="nav-text"><a href="#&#x5B9E;&#x9A8C;" class="headerlink" title="&#x5B9E;&#x9A8C;"></a>&#x5B9E;&#x9A8C;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</span></a></li></ol></div>
             
 
           </div>
