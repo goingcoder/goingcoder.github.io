@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="embedding," />
+  <meta name="keywords" content="ner," />
 
 
 
@@ -85,18 +85,22 @@
 
 
 
-<meta name="description" content="搜狐新闻数据(SogouCS)介绍：来自搜狐新闻2012年6月—7月期间国内，国际，体育，社会，娱乐等18个频道的新闻数据，提供URL和正文信息 格式说明：数据格式为 页面URL页面ID页面标题页面内容  注意：content字段去除了HTML标签，保存的是新闻正文文本 完整版(648MB)：tar.gz格式，zip格式  1、构建中文语料库1234567891011121314# 搜狐新闻 2.">
-<meta name="keywords" content="embedding">
+<meta name="description" content="介绍​    使用递归神经网络进行语言建模的最新进展表明基于字符的语言建模是可行的。这篇论文提出利用一个预训练的字符语言模型的内部状态，以产生一种新型的字嵌入，称之为上下文字符串向量。我们提出的embedding有明显的优点：（1）在没有任何明确的词汇概念的情况下进行训练，从根本上将单词作为字符序列建模。（2）由其周围语境上下文化，这意味着相同的单词的embedding将根据其不同的语境的不同而不">
+<meta name="keywords" content="ner">
 <meta property="og:type" content="article">
-<meta property="og:title" content="embedding">
-<meta property="og:url" content="https://goingcoder.github.io/2018/05/11/embedding/index.html">
+<meta property="og:title" content="ner6">
+<meta property="og:url" content="https://goingcoder.github.io/2018/07/08/ner6/index.html">
 <meta property="og:site_name" content="离弦的博客">
-<meta property="og:description" content="搜狐新闻数据(SogouCS)介绍：来自搜狐新闻2012年6月—7月期间国内，国际，体育，社会，娱乐等18个频道的新闻数据，提供URL和正文信息 格式说明：数据格式为 页面URL页面ID页面标题页面内容  注意：content字段去除了HTML标签，保存的是新闻正文文本 完整版(648MB)：tar.gz格式，zip格式  1、构建中文语料库1234567891011121314# 搜狐新闻 2.">
+<meta property="og:description" content="介绍​    使用递归神经网络进行语言建模的最新进展表明基于字符的语言建模是可行的。这篇论文提出利用一个预训练的字符语言模型的内部状态，以产生一种新型的字嵌入，称之为上下文字符串向量。我们提出的embedding有明显的优点：（1）在没有任何明确的词汇概念的情况下进行训练，从根本上将单词作为字符序列建模。（2）由其周围语境上下文化，这意味着相同的单词的embedding将根据其不同的语境的不同而不">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-11T13:31:16.384Z">
+<meta property="og:image" content="https://goingcoder.github.io/2018/07/08/ner6/p1.png">
+<meta property="og:image" content="https://goingcoder.github.io/2018/07/08/ner6/p2.png">
+<meta property="og:image" content="https://goingcoder.github.io/2018/07/08/ner6/p3.png">
+<meta property="og:updated_time" content="2018-07-08T07:03:07.357Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="embedding">
-<meta name="twitter:description" content="搜狐新闻数据(SogouCS)介绍：来自搜狐新闻2012年6月—7月期间国内，国际，体育，社会，娱乐等18个频道的新闻数据，提供URL和正文信息 格式说明：数据格式为 页面URL页面ID页面标题页面内容  注意：content字段去除了HTML标签，保存的是新闻正文文本 完整版(648MB)：tar.gz格式，zip格式  1、构建中文语料库1234567891011121314# 搜狐新闻 2.">
+<meta name="twitter:title" content="ner6">
+<meta name="twitter:description" content="介绍​    使用递归神经网络进行语言建模的最新进展表明基于字符的语言建模是可行的。这篇论文提出利用一个预训练的字符语言模型的内部状态，以产生一种新型的字嵌入，称之为上下文字符串向量。我们提出的embedding有明显的优点：（1）在没有任何明确的词汇概念的情况下进行训练，从根本上将单词作为字符序列建模。（2）由其周围语境上下文化，这意味着相同的单词的embedding将根据其不同的语境的不同而不">
+<meta name="twitter:image" content="https://goingcoder.github.io/2018/07/08/ner6/p1.png">
 
 
 
@@ -126,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="https://goingcoder.github.io/2018/05/11/embedding/"/>
+  <link rel="canonical" href="https://goingcoder.github.io/2018/07/08/ner6/"/>
 
 
 
 
 
-  <title>embedding | 离弦的博客</title>
+  <title>ner6 | 离弦的博客</title>
   
 
 
@@ -318,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/05/11/embedding/">
+    <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/07/08/ner6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="goingcoder">
@@ -335,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">embedding</h1>
+          <h1 class="post-title" itemprop="name headline">ner6</h1>
         
 
         <div class="post-meta">
@@ -347,8 +351,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T21:30:51+08:00">
-                2018-05-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-08T13:40:45+08:00">
+                2018-07-08
               </time>
             
 
@@ -358,6 +362,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ner/" itemprop="url" rel="index">
+                    <span itemprop="name">ner</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -366,8 +392,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/11/embedding/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/05/11/embedding/" itemprop="commentCount"></span>
+                <a href="/2018/07/08/ner6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/07/08/ner6/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -395,35 +421,69 @@
       
 
       
-        <h2 id="搜狐新闻数据-SogouCS"><a href="#搜狐新闻数据-SogouCS" class="headerlink" title="搜狐新闻数据(SogouCS)"></a>搜狐新闻数据(SogouCS)</h2><h5 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a>介绍：</h5><p>来自搜狐新闻2012年6月—7月期间国内，国际，体育，社会，娱乐等18个频道的新闻数据，提供URL和正文信息</p>
-<h5 id="格式说明："><a href="#格式说明：" class="headerlink" title="格式说明："></a>格式说明：</h5><p>数据格式为</p>
-<doc><br><br><url>页面URL</url><br><br><docno>页面ID</docno><br><br><contenttitle>页面标题</contenttitle><br><br><content>页面内容</content><br><br></doc>
-
-<p>注意：content字段去除了HTML标签，保存的是新闻正文文本</p>
-<p>完整版(648MB)：<a href="http://www.sogou.com/labs/resource/ftp.php?dir=/Data/SogouCS/news_sohusite_xml.full.tar.gz" target="_blank" rel="noopener">tar.gz格式</a>，<a href="http://www.sogou.com/labs/resource/ftp.php?dir=/Data/SogouCS/news_sohusite_xml.full.zip" target="_blank" rel="noopener">zip格式</a> </p>
-<h2 id="1、构建中文语料库"><a href="#1、构建中文语料库" class="headerlink" title="1、构建中文语料库"></a>1、构建中文语料库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 搜狐新闻 2.1G</span></span><br><span class="line">tar -zxvf news_sohusite_xml.full.tar.gz </span><br><span class="line">cat news_sohusite_xml.dat | iconv -f gb18030 -t utf<span class="number">-8</span> | grep <span class="string">"&lt;content&gt;"</span> &gt; news_sohusite.txt</span><br><span class="line">sed -i <span class="string">'s/&lt;content&gt;//g'</span> news_sohusite.txt</span><br><span class="line">sed -i <span class="string">'s/&lt;\/content&gt;//g'</span> news_sohusite.txt</span><br><span class="line">python -m jieba -d <span class="string">' '</span> news_sohusite.txt &gt; news_sohusite_cutword.txt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 全网新闻 1.8G</span></span><br><span class="line">tar -zxvf news_tensites_xml.full.tar.gz </span><br><span class="line">cat news_tensites_xml.full.tar.gz | iconv -f gb18030 -t utf<span class="number">-8</span> | grep <span class="string">"&lt;content&gt;"</span> &gt; news_tensite.txt</span><br><span class="line">sed -i <span class="string">'s/&lt;content&gt;//g'</span> news_tensite.txt</span><br><span class="line">sed -i <span class="string">'s/&lt;\/content&gt;//g'</span> news_tensite.txt</span><br><span class="line">python -m jieba -d <span class="string">' '</span> news_tensite.txt &gt; news_tensite_cutword.txt</span><br></pre></td></tr></table></figure>
-<p>第一条命令解压之后会生成news_sohusite_xml.dat文件</p>
-<h2 id="2、利用gensim库进行训练"><a href="#2、利用gensim库进行训练" class="headerlink" title="2、利用gensim库进行训练"></a>2、利用gensim库进行训练</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">from</span> gensim.models <span class="keyword">import</span> word2vec</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"></span><br><span class="line"><span class="comment">#  Loading corpus...</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    input_file = <span class="string">"news_sohu_text.txt"</span></span><br><span class="line">    vector_file = <span class="string">"news_sohu_embedding"</span></span><br><span class="line">    <span class="comment"># 保存字典文件</span></span><br><span class="line">    vocab_file = <span class="string">"vocabulary_file"</span></span><br><span class="line">    sentences = word2vec.Text8Corpus(input_file)</span><br><span class="line"></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    Training embedding...</span></span><br><span class="line"><span class="string">    embedding_dim : 100</span></span><br><span class="line"><span class="string">    window_size ：5</span></span><br><span class="line"><span class="string">    minimum_count of word ：5</span></span><br><span class="line"><span class="string">    epoch of model（iter）：10</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="comment"># 记录各种优先级的东西; 激活日志记录</span></span><br><span class="line">    logging.basicConfig(format=<span class="string">'%(asctime)s: %(levelname)s: %(message)s'</span>, level=logging.INFO)</span><br><span class="line">     <span class="comment"># sg=0 使用cbow训练, sg=1对低频词较为敏感，默认是sg=0</span></span><br><span class="line">    model = word2vec.Word2Vec(sentences, size=<span class="number">100</span>, window=<span class="number">5</span>, min_count=<span class="number">6</span>, iter=<span class="number">10</span>, workers=multiprocessing.cpu_count())</span><br><span class="line">    <span class="comment">#  Saving word_embedding</span></span><br><span class="line">    model.wv.save_word2vec_format(vector_file, fvocab=vocab_file, binary=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
-<p>​    input_file是输入文件，如果是训练词向量，必须是分词好的文件，词与词之间空格隔开。如果训练的是字向量，字与字之间同样用空格隔开。一个句子是一个列表，所有的句子是二维列表。</p>
-<h2 id="3、加载训练好的embedding并测试"><a href="#3、加载训练好的embedding并测试" class="headerlink" title="3、加载训练好的embedding并测试"></a>3、加载训练好的embedding并测试</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加载模型，embedding_file是训练好的向量文件</span></span><br><span class="line">model = gensim.models.KeyedVectors.load_word2vec_format(embedding_file, binary=<span class="keyword">False</span>)</span><br><span class="line">temp1 = model.most_similar(<span class="string">'我'</span>)  <span class="comment"># 测试相关词</span></span><br><span class="line">temp2 = model.most_similar(<span class="string">'好'</span>)  <span class="comment"># 测试相关词</span></span><br><span class="line">t = model.similarity(<span class="string">"他"</span>, <span class="string">"她"</span>)  <span class="comment"># 测试相似度</span></span><br><span class="line"></span><br><span class="line">print(temp1)</span><br><span class="line">print(temp2)</span><br><span class="line">print(t)</span><br></pre></td></tr></table></figure>
-<p>我在搜狐新闻训练的向量测试的结果：</p>
-<p><code>[(&#39;咱&#39;, 0.8646953105926514), (&#39;他&#39;, 0.857693076133728), (&#39;你&#39;, 0.7627511024475098), (&#39;她&#39;, 0.7525184750556946), (&#39;俺&#39;, 0.7336732149124146), (&#39;它&#39;, 0.7071460485458374), (&#39;牠&#39;, 0.46839216351509094), (&#39;谁&#39;, 0.4390422999858856), (&#39;您&#39;, 0.40126579999923706), (&#39;尤&#39;, 0.3958999514579773)]</code></p>
-<p><code>[(&#39;懂&#39;, 0.4896905720233917), (&#39;棒&#39;, 0.4554690718650818), (&#39;是&#39;, 0.4444722533226013), (&#39;佳&#39;, 0.44040754437446594), (&#39;让&#39;, 0.43987756967544556), (&#39;快&#39;, 0.4291210174560547), (&#39;朋&#39;, 0.42199385166168213), (&#39;错&#39;, 0.4218539297580719), (&#39;多&#39;, 0.42170557379722595), (&#39;乖&#39;,</code>0.4164968729019165)]<code>``
-</code>0.813737169426`</p>
-<h2 id="4、训练注意"><a href="#4、训练注意" class="headerlink" title="4、训练注意"></a>4、训练注意</h2><p>Word2vec 有多个影响训练速度和质量的参数。</p>
-<p>其中之一是用来修剪内部字典树的。在一个数以亿计的预料中出现一到两次的单词非常有可能是噪音或不需要被关注的。另外，也没有足够的数据对他们进行有意义的训练。因此，最好的办法就是直接将他们忽略掉。<br> <code>model = Word2Vec(sentences, min_count=10) # default value is 5</code></p>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>​    使用递归神经网络进行语言建模的最新进展表明基于字符的语言建模是可行的。这篇论文提出利用一个预训练的字符语言模型的内部状态，以产生一种新型的字嵌入，称之为上下文字符串向量。我们提出的embedding有明显的优点：（1）在没有任何明确的词汇概念的情况下进行训练，从根本上将单词作为字符序列建模。（2）由其周围语境上下文化，这意味着相同的单词的embedding将根据其不同的语境的不同而不同。我们对先前的embedding进行比较评估，发现我们的embedding对于下游任务非常有用。在四个经典序列标记任务中，我们始终优于当前最优的结果。</p>
+<a id="more"></a>
+<p>​    在一个大规模未标注语料上进行训练，用来辅助学习和泛化放的的word embedding是一个关键的部分。目前最优的方法中连接了三种embedding：</p>
 <ol>
-<li>对于设定 <code>min_count</code> 的值，合理的范围是0 - 100，可以根据数据集的规模进行调整。</li>
-<li><p>另一个参数是神经网络 NN 层单元数，它也对应了训练算法的自由程度。</p>
-<p><code>model = Word2Vec(sentences, size=200) # default value is 100</code><br>更大的 <code>size</code> 值需要更多的训练数据，但也同时可以得到更准确的模型。合理的取值范围是几十到几百。</p>
+<li>word embedding(Pennington et al., 2014; Mikolov et al., 2013)：在大规模语料上预训练的，为捕捉潜在句法和语义相似性。</li>
+<li>Character-level features(Ma and Hovy, 2016; Lample et al., 2016)：不是预训练，在任务数据上训练，为捕捉特点任务的词根特征（subword features）。</li>
+<li>Contextualized word embeddings(Peters et al., 2017; Peters et al., 2018)：捕捉词在上下文中的语义，解决词汇的多义性和语境依赖性。</li>
+</ol>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><ol>
+<li><p>在一个大规模无标注语料上预训练</p>
+</li>
+<li><p>捕获词在上下文的意思，因此可以对多义词根据他们的用法产生不同的embedding</p>
+</li>
+<li><p>对词和上下文作为一个字符的序列，可以更好的处理生僻词以及拼写错误的的单词和对词根（如前缀和后缀）的建模。</p>
 </li>
 </ol>
-<p>3.最后一个主要参数是训练并行粒度，用来加速训练。<br> <code>model = Word2Vec(sentences, workers=4) # default = 1 worker = no parallelization</code><br> 该参数只有在机器已安装 Cython 情况下才会起到作用。如没有 Cython，则只能单核运行。</p>
-<h2 id="5、评估"><a href="#5、评估" class="headerlink" title="5、评估"></a>5、评估</h2><p>Word2vec 训练是一个非监督任务，很难客观地评估结果。评估要<strong>依赖于后续的实际应用场景</strong>。Google 公布了一个包含 20,000 语法语义的测试样例，形式为 “A is to B as C is to D”。</p>
-<p>需要注意的是，<strong>如在此测试样例上展示良好性能并不意味着在其它应用场景依然有效，反之亦然</strong>。</p>
-<p>参考：</p>
-<p>1.<a href="https://www.cnblogs.com/jkmiao/p/7007763.html" target="_blank" rel="noopener">https://www.cnblogs.com/jkmiao/p/7007763.html</a></p>
+<p><img src="/2018/07/08/ner6/p1.png" alt=""></p>
+<p>​    对没一句话作为一个字符序列传递给双向字符级的语言模型，从语言模型中提取每一个词的embedding，这个embedding可以用于BiLSTM-CRF序列标注模型的中。</p>
+<p><img src="/2018/07/08/ner6/p2.png" alt=""></p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>论文做了几个尝试（different stackings of embeddings）。</p>
+<ol>
+<li><p>PROPOSED : 只使用预训练的contextual string embeddings。就是上图所示</p>
+</li>
+<li><p>PROPOSED+WORD：加入预训练的word embedding<br> $$</p>
+<p> $$</p>
+<p> $$<br> w_i=\begin{bmatrix} w^{ChatLM}_i\\w^{Glove}_i  \ \end{bmatrix}<br> $$</p>
+</li>
+<li><p>PROPOSED+CHAR :加入char embedding</p>
+</li>
+<li><p>PROPOSED+WORD+CHAR</p>
+</li>
+<li><p>PROPOSED+ALL : Finally, we evaluate a setup that uses all four embeddings. Since Peters et al. (2018)<br> embeddings are only distributed for English, we use this setup only on the English tasks.</p>
+</li>
+</ol>
+<p>实验结果</p>
+<p><img src="/2018/07/08/ner6/p3.png" alt=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li><p>字符级语言模型独立于token和固定的词典。</p>
+</li>
+<li><p>可以产生更强的字符特征，用于下游的NLP任务，比如NER。</p>
+</li>
+<li>这个模型有一个更小的字典（distinct characters vs. distinct words），在一个GPU上只需要训练一周，而基于词的语言模型需要在32个GPU上训练五个星期。(Peters et al. (2017))</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><strong>Contextual String Embeddings for Sequence Labeling</strong> – Alan Akbik, Duncan Blythe and Roland Vollgraf.</li>
+</ul>
+<p><div id="container"></div></p>
+<p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'window.location.pathname', // 可选。默认为 location.href
+  title: 'Deep contextualized word representations论文笔记',
+  owner: 'goingcoder',
+  repo: 'goingcoder.github.io',
+  oauth: {
+      client_id: 'de24b44123b8efbb4747',
+      client_secret: '785f51974278cde45a927a91a8438ef35eab9dd0',
 
+  },
+})
+gitment.render('container')
+</script>
       
     </div>
     
@@ -435,6 +495,35 @@
 	<div>
       
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/07/08/ner6/">ner6</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 goingcoder 的个人博客">goingcoder</a></p>
+  <p><span>发布时间:</span>2018年07月08日 - 13:07</p>
+  <p><span>最后更新:</span>2018年07月08日 - 15:07</p>
+  <p><span>原始链接:</span><a href="/2018/07/08/ner6/" title="ner6">https://goingcoder.github.io/2018/07/08/ner6/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://goingcoder.github.io/2018/07/08/ner6/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
       
 	</div>
 	
@@ -457,7 +546,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/embedding/" rel="tag"># embedding</a>
+            <a href="/tags/ner/" rel="tag"># ner</a>
           
         </div>
       
@@ -470,8 +559,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/07/dp1/" rel="next" title="动态规划">
-                <i class="fa fa-chevron-left"></i> 动态规划
+              <a href="/2018/07/08/ner5/" rel="next" title="Deep contextualized word representations论文笔记">
+                <i class="fa fa-chevron-left"></i> Deep contextualized word representations论文笔记
               </a>
             
           </div>
@@ -479,10 +568,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/14/tf9/" rel="prev" title="tensorflow入门笔记1">
-                tensorflow入门笔记1 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -513,8 +598,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2018/05/11/embedding/"
-           data-title="embedding" data-url="https://goingcoder.github.io/2018/05/11/embedding/">
+      <div class="ds-thread" data-thread-key="2018/07/08/ner6/"
+           data-title="ner6" data-url="https://goingcoder.github.io/2018/07/08/ner6/">
       </div>
     </div>
 
@@ -662,7 +747,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搜狐新闻数据-SogouCS"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x641C;&#x72D0;&#x65B0;&#x95FB;&#x6570;&#x636E;-SogouCS" class="headerlink" title="&#x641C;&#x72D0;&#x65B0;&#x95FB;&#x6570;&#x636E;(SogouCS)"></a>&#x641C;&#x72D0;&#x65B0;&#x95FB;&#x6570;&#x636E;(SogouCS)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#介绍："><span class="nav-number">1.0.0.1.</span> <span class="nav-text"><a href="#&#x4ECB;&#x7ECD;&#xFF1A;" class="headerlink" title="&#x4ECB;&#x7ECD;&#xFF1A;"></a>&#x4ECB;&#x7ECD;&#xFF1A;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#格式说明："><span class="nav-number">1.0.0.2.</span> <span class="nav-text"><a href="#&#x683C;&#x5F0F;&#x8BF4;&#x660E;&#xFF1A;" class="headerlink" title="&#x683C;&#x5F0F;&#x8BF4;&#x660E;&#xFF1A;"></a>&#x683C;&#x5F0F;&#x8BF4;&#x660E;&#xFF1A;</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、构建中文语料库"><span class="nav-number">2.</span> <span class="nav-text"><a href="#1&#x3001;&#x6784;&#x5EFA;&#x4E2D;&#x6587;&#x8BED;&#x6599;&#x5E93;" class="headerlink" title="1&#x3001;&#x6784;&#x5EFA;&#x4E2D;&#x6587;&#x8BED;&#x6599;&#x5E93;"></a>1&#x3001;&#x6784;&#x5EFA;&#x4E2D;&#x6587;&#x8BED;&#x6599;&#x5E93;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、利用gensim库进行训练"><span class="nav-number">3.</span> <span class="nav-text"><a href="#2&#x3001;&#x5229;&#x7528;gensim&#x5E93;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;" class="headerlink" title="2&#x3001;&#x5229;&#x7528;gensim&#x5E93;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;"></a>2&#x3001;&#x5229;&#x7528;gensim&#x5E93;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、加载训练好的embedding并测试"><span class="nav-number">4.</span> <span class="nav-text"><a href="#3&#x3001;&#x52A0;&#x8F7D;&#x8BAD;&#x7EC3;&#x597D;&#x7684;embedding&#x5E76;&#x6D4B;&#x8BD5;" class="headerlink" title="3&#x3001;&#x52A0;&#x8F7D;&#x8BAD;&#x7EC3;&#x597D;&#x7684;embedding&#x5E76;&#x6D4B;&#x8BD5;"></a>3&#x3001;&#x52A0;&#x8F7D;&#x8BAD;&#x7EC3;&#x597D;&#x7684;embedding&#x5E76;&#x6D4B;&#x8BD5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、训练注意"><span class="nav-number">5.</span> <span class="nav-text"><a href="#4&#x3001;&#x8BAD;&#x7EC3;&#x6CE8;&#x610F;" class="headerlink" title="4&#x3001;&#x8BAD;&#x7EC3;&#x6CE8;&#x610F;"></a>4&#x3001;&#x8BAD;&#x7EC3;&#x6CE8;&#x610F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、评估"><span class="nav-number">6.</span> <span class="nav-text"><a href="#5&#x3001;&#x8BC4;&#x4F30;" class="headerlink" title="5&#x3001;&#x8BC4;&#x4F30;"></a>5&#x3001;&#x8BC4;&#x4F30;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4ECB;&#x7ECD;" class="headerlink" title="&#x4ECB;&#x7ECD;"></a>&#x4ECB;&#x7ECD;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x6A21;&#x578B;" class="headerlink" title="&#x6A21;&#x578B;"></a>&#x6A21;&#x578B;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x5B9E;&#x9A8C;" class="headerlink" title="&#x5B9E;&#x9A8C;"></a>&#x5B9E;&#x9A8C;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</span></a></li></ol></div>
             
 
           </div>
@@ -876,6 +961,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

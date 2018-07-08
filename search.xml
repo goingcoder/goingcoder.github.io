@@ -3,6 +3,88 @@
   
     
     <entry>
+      <title><![CDATA[ner6]]></title>
+      <url>/2018/07/08/ner6/</url>
+      <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>​    使用递归神经网络进行语言建模的最新进展表明基于字符的语言建模是可行的。这篇论文提出利用一个预训练的字符语言模型的内部状态，以产生一种新型的字嵌入，称之为上下文字符串向量。我们提出的embedding有明显的优点：（1）在没有任何明确的词汇概念的情况下进行训练，从根本上将单词作为字符序列建模。（2）由其周围语境上下文化，这意味着相同的单词的embedding将根据其不同的语境的不同而不同。我们对先前的embedding进行比较评估，发现我们的embedding对于下游任务非常有用。在四个经典序列标记任务中，我们始终优于当前最优的结果。</p>
+<a id="more"></a>
+<p>​    在一个大规模未标注语料上进行训练，用来辅助学习和泛化放的的word embedding是一个关键的部分。目前最优的方法中连接了三种embedding：</p>
+<ol>
+<li>word embedding(Pennington et al., 2014; Mikolov et al., 2013)：在大规模语料上预训练的，为捕捉潜在句法和语义相似性。</li>
+<li>Character-level features(Ma and Hovy, 2016; Lample et al., 2016)：不是预训练，在任务数据上训练，为捕捉特点任务的词根特征（subword features）。</li>
+<li>Contextualized word embeddings(Peters et al., 2017; Peters et al., 2018)：捕捉词在上下文中的语义，解决词汇的多义性和语境依赖性。</li>
+</ol>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><ol>
+<li><p>在一个大规模无标注语料上预训练</p>
+</li>
+<li><p>捕获词在上下文的意思，因此可以对多义词根据他们的用法产生不同的embedding</p>
+</li>
+<li><p>对词和上下文作为一个字符的序列，可以更好的处理生僻词以及拼写错误的的单词和对词根（如前缀和后缀）的建模。</p>
+</li>
+</ol>
+<p><img src="/2018/07/08/ner6/p1.png" alt=""></p>
+<p>​    对没一句话作为一个字符序列传递给双向字符级的语言模型，从语言模型中提取每一个词的embedding，这个embedding可以用于BiLSTM-CRF序列标注模型的中。</p>
+<p><img src="/2018/07/08/ner6/p2.png" alt=""></p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>论文做了几个尝试（different stackings of embeddings）。</p>
+<ol>
+<li><p>PROPOSED : 只使用预训练的contextual string embeddings。就是上图所示</p>
+</li>
+<li><p>PROPOSED+WORD：加入预训练的word embedding<br> $$</p>
+<p> $$</p>
+<p> $$<br> w_i=\begin{bmatrix} w^{ChatLM}_i\\w^{Glove}_i  \ \end{bmatrix}<br> $$</p>
+</li>
+<li><p>PROPOSED+CHAR :加入char embedding</p>
+</li>
+<li><p>PROPOSED+WORD+CHAR</p>
+</li>
+<li><p>PROPOSED+ALL : Finally, we evaluate a setup that uses all four embeddings. Since Peters et al. (2018)<br> embeddings are only distributed for English, we use this setup only on the English tasks.</p>
+</li>
+</ol>
+<p>实验结果</p>
+<p><img src="/2018/07/08/ner6/p3.png" alt=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li><p>字符级语言模型独立于token和固定的词典。</p>
+</li>
+<li><p>可以产生更强的字符特征，用于下游的NLP任务，比如NER。</p>
+</li>
+<li>这个模型有一个更小的字典（distinct characters vs. distinct words），在一个GPU上只需要训练一周，而基于词的语言模型需要在32个GPU上训练五个星期。(Peters et al. (2017))</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><strong>Contextual String Embeddings for Sequence Labeling</strong> – Alan Akbik, Duncan Blythe and Roland Vollgraf.</li>
+</ul>
+<p><div id="container"></div></p>
+<p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'window.location.pathname', // 可选。默认为 location.href
+  title: 'Deep contextualized word representations论文笔记',
+  owner: 'goingcoder',
+  repo: 'goingcoder.github.io',
+  oauth: {
+      client_id: 'de24b44123b8efbb4747',
+      client_secret: '785f51974278cde45a927a91a8438ef35eab9dd0',
+
+  },
+})
+gitment.render('container')
+</script>]]></content>
+      
+        <categories>
+            
+            <category> ner </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ner </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Deep contextualized word representations论文笔记]]></title>
       <url>/2018/07/08/ner5/</url>
       <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>​    预训练的词向量是很多神经语言理解模型的关键部分，然而学习高质量的表示是很有挑战性的。一个好的词向量应该包含：（1）能够建模词的复杂字符特征（比如语法和语义），（2）能够在不同语境有不同反映（如多义词）。这篇论文中，引入一种新类型的深度上下文词表示，可以应对这些挑战，并且可以容易与当前存在的模型进行整合，有效提升了一系列有挑战的语言理解问题的最优性能。</p>
