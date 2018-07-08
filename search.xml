@@ -6,6 +6,7 @@
       <title><![CDATA[Deep contextualized word representations论文笔记]]></title>
       <url>/2018/07/08/ner5/</url>
       <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>​    预训练的词向量是很多神经语言理解模型的关键部分，然而学习高质量的表示是很有挑战性的。一个好的词向量应该包含：（1）能够建模词的复杂字符特征（比如语法和语义），（2）能够在不同语境有不同反映（如多义词）。这篇论文中，引入一种新类型的深度上下文词表示，可以应对这些挑战，并且可以容易与当前存在的模型进行整合，有效提升了一系列有挑战的语言理解问题的最优性能。</p>
+<a id="more"></a>
 <h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>​    ELMO是一个语言模型中中间层表示的特点任务的组合。对于每一个token$t_k$,一个L层的双向语言模型计算$2L+1$表征。<br>$$<br>R_k={ x^{LM}_k,h^{LM}_{k,j}|j=1,\dots ,L} \ ={h^{LM}_{k,j}|j=1,\dots ,L}<br>$$<br>$h^{LM}_{k,0}​$是token层，$h^{LM}_{k，j}​$是双向LSTM层<br>$$<br>ELMo^{task}_k=E(R_k;\theta^task)=\gamma^{task}\sum^L_{j=0}s^{task}_jh^{LM}_{k.j}<br>$$<br>​    最简单的情况下，ELMO只选择顶层，即$E(R_k)=h^{LM}_{k,L}$,如TagLM（Peters et al., 2017 ）和 CoVe（McCann et al., 2017） 。$s^{task}$是softmax归一化权重。ELMo的训练过程与一般语言模型相似，在使用时需要对各层输出进行加权。 </p>
 <h2 id="将ELMo模型加入到有监督的NLP任务中"><a href="#将ELMo模型加入到有监督的NLP任务中" class="headerlink" title="将ELMo模型加入到有监督的NLP任务中"></a>将ELMo模型加入到有监督的NLP任务中</h2><p>三种方法</p>
 <ul>
