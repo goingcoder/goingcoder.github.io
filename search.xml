@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title><![CDATA[ner6]]></title>
+      <title><![CDATA[Contextual String Embeddings for Sequence Labeling笔记]]></title>
       <url>/2018/07/08/ner6/</url>
       <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>​    使用递归神经网络进行语言建模的最新进展表明基于字符的语言建模是可行的。这篇论文提出利用一个预训练的字符语言模型的内部状态，以产生一种新型的字嵌入，称之为上下文字符串向量。我们提出的embedding有明显的优点：（1）在没有任何明确的词汇概念的情况下进行训练，从根本上将单词作为字符序列建模。（2）由其周围语境上下文化，这意味着相同的单词的embedding将根据其不同的语境的不同而不同。我们对先前的embedding进行比较评估，发现我们的embedding对于下游任务非常有用。在四个经典序列标记任务中，我们始终优于当前最优的结果。</p>
 <a id="more"></a>
@@ -57,7 +57,7 @@
 <script>
 var gitment = new Gitment({
   id: 'window.location.pathname', // 可选。默认为 location.href
-  title: 'Deep contextualized word representations论文笔记',
+  title: 'Contextual String Embeddings for Sequence Labeling笔记',
   owner: 'goingcoder',
   repo: 'goingcoder.github.io',
   oauth: {
