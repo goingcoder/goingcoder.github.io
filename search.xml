@@ -3,6 +3,66 @@
   
     
     <entry>
+      <title><![CDATA[Multi-Task Cross-Lingual Sequence Tagging from Scratch笔记]]></title>
+      <url>/2018/07/10/ner7/</url>
+      <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>​    论文提出了一个深度层叠循环神经网络的序列标注模型，这个模型是任务独立的，语言独立的，以及没有特征工程。论文探索了两种类型的联合训练，在多任务联合训练中，同种语言多个任务连个训练——英文的词性标注和实体识别。在跨语言联合训练中，模型训练同一个任务在不同的语言上——英文和西班牙语中的实体识别。论文表明多任务和跨语言的联合训练可以在不同场景提高性能。</p>
+<a id="more"></a>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>使用的是双向的GRU-CRF，网络的层数都是一层。</p>
+<p><img src="/2018/07/10/ner7/p1.PNG" alt=""></p>
+<p>###多任务联合训练</p>
+<p>共享字符级和词级参数，学习语言特有的规则。</p>
+<p><img src="/2018/07/10/ner7/p2.PNG" alt=""></p>
+<p>###跨语言联合训练</p>
+<p>共享字符级的参数，在不使用平行语料或者词对齐的情况下，捕获语言之间的形态学相似性。</p>
+<p><img src="/2018/07/10/ner7/p3.PNG" alt=""></p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>数据集统计</p>
+<p><img src="/2018/07/10/ner7/p4.PNG" alt=""></p>
+<p>实验结果</p>
+<p><img src="/2018/07/10/ner7/p5.PNG" alt=""></p>
+<p><img src="/2018/07/10/ner7/p6.PNG" alt=""></p>
+<p><img src="/2018/07/10/ner7/p7.PNG" alt=""></p>
+<p><img src="/2018/07/10/ner7/p8.PNG" alt=""></p>
+<p><img src="/2018/07/10/ner7/p9.PNG" alt=""></p>
+<p><img src="/2018/07/10/ner7/p10.PNG" alt=""></p>
+<h2 id="使用t-SNE对数据降维可视化"><a href="#使用t-SNE对数据降维可视化" class="headerlink" title="使用t-SNE对数据降维可视化"></a>使用t-SNE对数据降维可视化</h2><p>​    使用t-SNE在英语和西班牙语的字符级GRU输出降为2维的可视化，可以清楚的看到模型通过联合训练可以捕获两种语言的形态学相似性。</p>
+<p><img src="/2018/07/10/ner7/p11.PNG" alt=""></p>
+<p><strong>参考</strong>：Yang, Zhilin, Ruslan Salakhutdinov, and William Cohen. “Multi-task cross-lingual sequence tagging from scratch.” <em>arXiv preprint arXiv:1603.06270</em> (2016). </p>
+<p><div id="container"></div></p>
+<p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'window.location.pathname', // 可选。默认为 location.href
+  title: 'Contextual String Embeddings for Sequence Labeling笔记',
+  owner: 'goingcoder',
+  repo: 'goingcoder.github.io',
+  oauth: {
+      client_id: 'de24b44123b8efbb4747',
+      client_secret: '785f51974278cde45a927a91a8438ef35eab9dd0',
+
+  },
+})
+gitment.render('container')
+</script>
+
+]]></content>
+      
+        <categories>
+            
+            <category> ner </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ner </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Contextual String Embeddings for Sequence Labeling笔记]]></title>
       <url>/2018/07/08/ner6/</url>
       <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>​    使用递归神经网络进行语言建模的最新进展表明基于字符的语言建模是可行的。这篇论文提出利用一个预训练的字符语言模型的内部状态，以产生一种新型的字嵌入，称之为上下文字符串向量。我们提出的embedding有明显的优点：（1）在没有任何明确的词汇概念的情况下进行训练，从根本上将单词作为字符序列建模。（2）由其周围语境上下文化，这意味着相同的单词的embedding将根据其不同的语境的不同而不同。我们对先前的embedding进行比较评估，发现我们的embedding对于下游任务非常有用。在四个经典序列标记任务中，我们始终优于当前最优的结果。</p>
