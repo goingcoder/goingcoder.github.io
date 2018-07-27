@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="linux," />
+  <meta name="keywords" content="ner," />
 
 
 
@@ -85,18 +85,18 @@
 
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在linux系统中，源码的安装一般有3个步骤组成：配置（configure）、源码（make）、安装（make install），具体的安装方法一般作者都会给出文档，这里主要讨论配置（configure）。Configure是一个可执行脚本，它有很多选项，使用命令./configure –help输出详">
-<meta name="keywords" content="linux">
+<meta name="description" content="1 Introduction在实际应用中，我们经常需要解决这样一类问题：如何计算一个橘子的概率？如：  机器翻译：P(high winds tonite) &amp;gt;P(large winds tonite) 拼写纠错：P(about fifteen minutes from) &amp;gt; P(about fifteen minutes from) 语言识别：P(I saw a van) &amp;gt;&amp;g">
+<meta name="keywords" content="ner">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux-1:源码安装">
-<meta property="og:url" content="https://goingcoder.github.io/2018/01/18/linux/index.html">
+<meta property="og:title" content="语言模型">
+<meta property="og:url" content="https://goingcoder.github.io/2018/07/27/ner9/index.html">
 <meta property="og:site_name" content="离弦的博客">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在linux系统中，源码的安装一般有3个步骤组成：配置（configure）、源码（make）、安装（make install），具体的安装方法一般作者都会给出文档，这里主要讨论配置（configure）。Configure是一个可执行脚本，它有很多选项，使用命令./configure –help输出详">
+<meta property="og:description" content="1 Introduction在实际应用中，我们经常需要解决这样一类问题：如何计算一个橘子的概率？如：  机器翻译：P(high winds tonite) &amp;gt;P(large winds tonite) 拼写纠错：P(about fifteen minutes from) &amp;gt; P(about fifteen minutes from) 语言识别：P(I saw a van) &amp;gt;&amp;g">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-23T11:53:36.768Z">
+<meta property="og:updated_time" content="2018-07-27T13:19:36.565Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux-1:源码安装">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在linux系统中，源码的安装一般有3个步骤组成：配置（configure）、源码（make）、安装（make install），具体的安装方法一般作者都会给出文档，这里主要讨论配置（configure）。Configure是一个可执行脚本，它有很多选项，使用命令./configure –help输出详">
+<meta name="twitter:title" content="语言模型">
+<meta name="twitter:description" content="1 Introduction在实际应用中，我们经常需要解决这样一类问题：如何计算一个橘子的概率？如：  机器翻译：P(high winds tonite) &amp;gt;P(large winds tonite) 拼写纠错：P(about fifteen minutes from) &amp;gt; P(about fifteen minutes from) 语言识别：P(I saw a van) &amp;gt;&amp;g">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://goingcoder.github.io/2018/01/18/linux/"/>
+  <link rel="canonical" href="https://goingcoder.github.io/2018/07/27/ner9/"/>
 
 
 
 
 
-  <title>linux-1:源码安装 | 离弦的博客</title>
+  <title>语言模型 | 离弦的博客</title>
   
 
 
@@ -318,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/01/18/linux/">
+    <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/07/27/ner9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="goingcoder">
@@ -335,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linux-1:源码安装</h1>
+          <h1 class="post-title" itemprop="name headline">语言模型</h1>
         
 
         <div class="post-meta">
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T17:18:41+08:00">
-                2018-01-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-27T18:58:48+08:00">
+                2018-07-27
               </time>
             
 
@@ -370,8 +370,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/liunx/" itemprop="url" rel="index">
-                    <span itemprop="name">liunx</span>
+                  <a href="/categories/ner/" itemprop="url" rel="index">
+                    <span itemprop="name">ner</span>
                   </a>
                 </span>
 
@@ -388,8 +388,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/01/18/linux/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/18/linux/" itemprop="commentCount"></span>
+                <a href="/2018/07/27/ner9/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/07/27/ner9/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -417,21 +417,69 @@
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在linux系统中，源码的安装一般有3个步骤组成：配置（configure）、源码（make）、安装（make install），具体的安装方法一般作者都会给出文档，这里主要讨论配置（configure）。Configure是一个可执行脚本，它有很多选项，使用命令./configure –help输出详细的选项列表，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-bash-3.00# ./configure --help</span><br><span class="line">Usage: configure [options][ host]</span><br><span class="line">Options: [defaults in brackets after descriptions]</span><br><span class="line">Configuration:</span><br><span class="line">--cache-file=FILE     cache test results in FILE</span><br><span class="line">--help             print this message</span><br><span class="line">--no-create         do not create output files</span><br><span class="line">--quiet, --silent     do not print `checking...&apos; messages</span><br><span class="line">--version           print the version of autoconf that created configure</span><br><span class="line">Directory and file names:</span><br><span class="line">--prefix=PREFIX       install architecture-independent files in PREFIX [/usr/local]</span><br><span class="line">--exec-prefix=EPREFIX   install architecture-dependent files in EPREFIX [same as prefix]</span><br><span class="line">--bindir=DIR         user executables in DIR [EPREFIX/bin]</span><br></pre></td></tr></table></figure>
+        <h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1 Introduction"></a>1 Introduction</h2><p>在实际应用中，我们经常需要解决这样一类问题：如何计算一个橘子的概率？如：</p>
+<ul>
+<li>机器翻译：P(high winds tonite) &gt;P(large winds tonite)</li>
+<li>拼写纠错：P(about fifteen minutes from) &gt; P(about fifteen minutes from)</li>
+<li>语言识别：P(I saw a van) &gt;&gt;P(eyes awe of an)</li>
+<li>音字转换：P(你现在在干什么|nixianzaiganshenme)&gt;P(你西安在干什么|nixianzaiganshenme)</li>
+<li>自动文摘、问答系统……</li>
+</ul>
+<p>以上问题的形式化表示如下：<br>$$<br>p(S)=p(w_1,w_2,w_3,w_4,…,w_n)\\=p(w_1)p(w_2|w_1)p(w3|w_1,w_2)…p(w_n|w_1,w_2,…,w_{n-1})<br>$$<br>$p(S)$被称为语言模型，即用来计算一个句子概率的模型。</p>
 <a id="more"></a>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其中–prefix选项就是配置安装的路径，如果不配置该选项，安装后可执行文件默认放在/usr /local/bin，库文件默认放在/usr/local/lib，配置文件默认放在/usr/local/etc，其它的资源文件放在/usr /local/share，比较分散。为了便于集中管理某个软件的各种文件，可以配置–prefix，如：./configure –prefix=/usr/local</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以把所有资源文件放在/usr/local的路径中，就不会分散了。用了—prefix选项的另一个好处是卸载软件或移植软件。当某个安装的软件不再需要时，只须简单地删除该安装目录，就可以把软件卸载得干干净净；移植软件只需拷贝整个目录到另外一个机器即可（相同的操作系统）。当然要卸载程序，也可以在原来的make目录下用一次make uninstall，但前提是make文件指定过uninstall。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;尤其是在服务器上，普通用户没有sudo权限，执行./configure会提示：./configure: Permission denied。可以使用–prefix将按照的配置路径放在自己的目录下，因为像/usr/local/lib此类的目录普通用户是没有写的权限的，会造成安装失败。失败的还要一种可能的原因是当前源码中的configure文件没有可执行权限，也会导致“Permission denied”。可以使用“ll”命令查看文件的权限，然后使用chmod命令对该文件加上可执行的权限“chmod +x ./configure”。</p>
+<p><strong>为了避免数据溢出、提高性能，通常会使用取log后使用加法运算替代乘法运算。</strong></p>
+<p>那么，如何计算$p(w_i|w_1,w_2,…,w_{i-1})=p(w_1,w_2,…,w_{i-1},w_i)/p(w_i,w_2,…,w_{i-1})$</p>
+<p>但是，这里面面临两个重要问题：<strong>数据稀疏严重；参数空间过大，无法实现</strong>。</p>
+<p>目标：<br>$$<br>P(w_1,w_2,…,w_n)<br>$$</p>
+<ul>
+<li><strong>一阶马尔科夫过程</strong></li>
+</ul>
+<p>下一个词的出现仅依赖于前面的一个词。<br>$$<br>p(S)=p(w_1,w_2,…,w_n)\\=p(w_1)\prod p(w_i|w_1,w_2,..,w_{i-1})\\=p(w_1) \prod p(w_i|w_{i-1})<br>$$</p>
+<ul>
+<li><p><strong>二阶马尔科夫过程</strong></p>
+<p>  假设下一个词的出现依赖它的前面两个词</p>
+</li>
+</ul>
+<p>$$<br>p(S)=p(w_1,w_2,\dots,w_n)\\=p(w_1)p(w_2|w_1)\prod p(w_i|w_{i-2},w_{i-1})\\=\prod p(w_i|w_{i-2},w_{i-1})<br>$$</p>
+<p>（为了方便起见，我们假设$w_0=w_{-1}=<em>$,这里</em>代表起始标志）</p>
+<p><strong>那么，我们在面临实际问题时，如何选择依赖词的个数，即n。</strong></p>
+<ul>
+<li>更大的n：对下一个词出现的约束信息更多，具有更大的<strong>辨别力</strong>；</li>
+<li>更小的n：在训练语料库中出现的次数更多，具有更可靠的统计信息，具有更高的<strong>可靠性。</strong></li>
+</ul>
+<p>理论上，n越大越好，经验上，trigram用的最多，尽管如此，原则上，<strong>能用bigram解决，绝不使用trigram。</strong></p>
+<p>例:</p>
+<p>通常，通过计算<strong>最大似然估计（Maximum Likelihood Estimate）</strong>构造语言模型，这是对训练数据的最佳估计，公式如下：<br>$$<br>p(w_1|w_{i-2},w_{i-1}) = Count(w_{i-2},w_{i-1}, w_i) / Count(w_{i-2},w_{i-1})<br>$$<br>the dog barks STOP<br>$$<br>p(the dog  barks STOP)=p(the|<em>,</em>)p(dog|*,the)p(barks|the dog)p(STOP|dog,barks)<br>$$</p>
+<p>$$</p>
+<p>$$</p>
+<p>$$<br>p(w_i|w_{i-2},w_{i-1})=Count(w_{i-2},w_{i-1},w_i)/Count(w_{i-2},w_{i-1})<br>$$</p>
+<p>假设词典大小为$N$，这个模型由$N^3$个参数，当$N=20000$,$N^3=20000^3=8 \times 10^{12}$</p>
+<h2 id="2-评估一个语言模型：Perplexity"><a href="#2-评估一个语言模型：Perplexity" class="headerlink" title="2 评估一个语言模型：Perplexity"></a>2 评估一个语言模型：Perplexity</h2><p><strong>理论方法</strong>：迷惑度/困惑度/混乱度（preplexity），其基本思想是给测试集赋予较高概率值的语言模型较好，公式如下：</p>
+<p>假设有$m$个句子的数据集:<br>$$<br>s_1,s_2,s_3,\dots, s_m<br>$$<br>我们可以计算这个$m$个句子在我们模型下的概率$\prod p(s_i)$,或者更方便地，计算对数概率$log \prod^m_{i-1}=\sum_{i=1}^m logp(s_i)$</p>
+<p>一般来说，评估度量是perplexity<br>$$<br>Perplexity=2^{-l} \\l=1/M\sum_{i-1}^m logp(s_i)<br>$$<br>$M$是测试集中所有词的总数。</p>
+<p>关于Perplexity的一些直观理解</p>
+<p>假设我们有一个词典$V$,$N=|V|+1$,模型预测$p(w|u,v)=1/N$对于任意的$w \in V \cup {STOP},u,v \in V\cup{*} $</p>
+<p>可以得出，<br>$$<br>Perplexity=N<br>$$<br>Perplexity 是”branching factor”（分支系数，即预测下一个词可以有多少种选择）的一个有效衡量。由公式可知，迷惑度越小，句子概率越大，语言模型越好。 </p>
+<p><strong>注：</strong>语言模型评估时我们可以用perplexity大致估计训练效果，作出判断和分析，但它不是完全意义上的标准，具体问题还是要具体分析。 </p>
+<p><strong>对于一个句子的preplexity定义如下：</strong><br>$$<br>PP(W)=P(w_1,w_2,\dots,w_N)^{-1/N}\\=\sqrt [N]{1/P(w_1,w_2,\dots,w_N)}<br>$$<br><strong>对于二元模型</strong>，该公式为<br>$$<br>PP(W)=P(w_1,w_2,\dots,w_N)^{1/N}\\=\sqrt [N]{\prod_{i=1}^N1/P(w_i|w_{i-1})}<br>$$<br>可以看到，概率越大，困惑度越小，即perplexity越小模型越好。</p>
+<p>另一种表达,</p>
+<p>$$<br>PP(S)=2^{-\frac 1N\sum logP(wi|w_{i-1})}<br>$$<br><strong>Perplexity的影响因素</strong></p>
+<ol>
+<li>训练数据集越大，PPL会下降得更低，1billion dataset和10万dataset训练效果是很不一样的；</li>
+<li>数据中的标点会对模型的perplexity产生很大影响，一个句号能让PPL波动几十，标点的预测总是不稳定；</li>
+<li>预测语句中的“的，了”等词也对PPL有很大影响，可能“我借你的书”比“我借你书”的指标值小几十，但从语义上分析有没有这些停用词并不能完全代表句子生成的好坏。</li>
+</ol>
 <p>参考：</p>
-<p><a href="http://www.maybe520.net/blog/1945/" target="_blank" rel="noopener">http://www.maybe520.net/blog/1945/</a></p>
+<p><a href="http://www.cnblogs.com/bnuvincent/p/6939787.html" target="_blank" rel="noopener">http://www.cnblogs.com/bnuvincent/p/6939787.html</a></p>
+<p><a href="https://blog.csdn.net/index20001/article/details/78884646" target="_blank" rel="noopener">https://blog.csdn.net/index20001/article/details/78884646</a></p>
+<p><a href="http://www.cs.columbia.edu/~mcollins/cs4705-spring2018/" target="_blank" rel="noopener">http://www.cs.columbia.edu/~mcollins/cs4705-spring2018/</a></p>
 <p><div id="container"></div></p>
 <p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
   id: 'window.location.pathname', // 可选。默认为 location.href
-  title: 'linux-1:源码安装',
+  title: '语言模型',
   owner: 'goingcoder',
   repo: 'goingcoder.github.io',
   oauth: {
@@ -442,6 +490,10 @@ var gitment = new Gitment({
 })
 gitment.render('container')
 </script>
+
+
+
+
       
     </div>
     
@@ -459,12 +511,12 @@ gitment.render('container')
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/01/18/linux/">linux-1:源码安装</a></p>
+  <p><span>本文标题:</span><a href="/2018/07/27/ner9/">语言模型</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 goingcoder 的个人博客">goingcoder</a></p>
-  <p><span>发布时间:</span>2018年01月18日 - 17:01</p>
-  <p><span>最后更新:</span>2018年01月23日 - 19:01</p>
-  <p><span>原始链接:</span><a href="/2018/01/18/linux/" title="linux-1:源码安装">https://goingcoder.github.io/2018/01/18/linux/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://goingcoder.github.io/2018/01/18/linux/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年07月27日 - 18:07</p>
+  <p><span>最后更新:</span>2018年07月27日 - 21:07</p>
+  <p><span>原始链接:</span><a href="/2018/07/27/ner9/" title="语言模型">https://goingcoder.github.io/2018/07/27/ner9/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://goingcoder.github.io/2018/07/27/ner9/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -504,7 +556,7 @@ gitment.render('container')
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/ner/" rel="tag"># ner</a>
           
         </div>
       
@@ -517,8 +569,8 @@ gitment.render('container')
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/17/ner2/" rel="next" title="序列标注-2：命名实体识别">
-                <i class="fa fa-chevron-left"></i> 序列标注-2：命名实体识别
+              <a href="/2018/07/10/linux5/" rel="next" title="在linux上 anaconda3和anaconda2共存的解决办法">
+                <i class="fa fa-chevron-left"></i> 在linux上 anaconda3和anaconda2共存的解决办法
               </a>
             
           </div>
@@ -526,10 +578,6 @@ gitment.render('container')
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/22/linux2/" rel="prev" title="linux-2：用户目录下的配置文件">
-                linux-2：用户目录下的配置文件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -560,8 +608,8 @@ gitment.render('container')
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2018/01/18/linux/"
-           data-title="linux-1:源码安装" data-url="https://goingcoder.github.io/2018/01/18/linux/">
+      <div class="ds-thread" data-thread-key="2018/07/27/ner9/"
+           data-title="语言模型" data-url="https://goingcoder.github.io/2018/07/27/ner9/">
       </div>
     </div>
 
@@ -588,8 +636,17 @@ gitment.render('container')
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -690,6 +747,22 @@ gitment.render('container')
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Introduction"><span class="nav-number">1.</span> <span class="nav-text"><a href="#1-Introduction" class="headerlink" title="1 Introduction"></a>1 Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-评估一个语言模型：Perplexity"><span class="nav-number">2.</span> <span class="nav-text"><a href="#2-&#x8BC4;&#x4F30;&#x4E00;&#x4E2A;&#x8BED;&#x8A00;&#x6A21;&#x578B;&#xFF1A;Perplexity" class="headerlink" title="2 &#x8BC4;&#x4F30;&#x4E00;&#x4E2A;&#x8BED;&#x8A00;&#x6A21;&#x578B;&#xFF1A;Perplexity"></a>2 &#x8BC4;&#x4F30;&#x4E00;&#x4E2A;&#x8BED;&#x8A00;&#x6A21;&#x578B;&#xFF1A;Perplexity</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

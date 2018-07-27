@@ -3,6 +3,102 @@
   
     
     <entry>
+      <title><![CDATA[语言模型]]></title>
+      <url>/2018/07/27/ner9/</url>
+      <content type="html"><![CDATA[<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1 Introduction"></a>1 Introduction</h2><p>在实际应用中，我们经常需要解决这样一类问题：如何计算一个橘子的概率？如：</p>
+<ul>
+<li>机器翻译：P(high winds tonite) &gt;P(large winds tonite)</li>
+<li>拼写纠错：P(about fifteen minutes from) &gt; P(about fifteen minutes from)</li>
+<li>语言识别：P(I saw a van) &gt;&gt;P(eyes awe of an)</li>
+<li>音字转换：P(你现在在干什么|nixianzaiganshenme)&gt;P(你西安在干什么|nixianzaiganshenme)</li>
+<li>自动文摘、问答系统……</li>
+</ul>
+<p>以上问题的形式化表示如下：<br>$$<br>p(S)=p(w_1,w_2,w_3,w_4,…,w_n)\\=p(w_1)p(w_2|w_1)p(w3|w_1,w_2)…p(w_n|w_1,w_2,…,w_{n-1})<br>$$<br>$p(S)$被称为语言模型，即用来计算一个句子概率的模型。</p>
+<a id="more"></a>
+<p><strong>为了避免数据溢出、提高性能，通常会使用取log后使用加法运算替代乘法运算。</strong></p>
+<p>那么，如何计算$p(w_i|w_1,w_2,…,w_{i-1})=p(w_1,w_2,…,w_{i-1},w_i)/p(w_i,w_2,…,w_{i-1})$</p>
+<p>但是，这里面面临两个重要问题：<strong>数据稀疏严重；参数空间过大，无法实现</strong>。</p>
+<p>目标：<br>$$<br>P(w_1,w_2,…,w_n)<br>$$</p>
+<ul>
+<li><strong>一阶马尔科夫过程</strong></li>
+</ul>
+<p>下一个词的出现仅依赖于前面的一个词。<br>$$<br>p(S)=p(w_1,w_2,…,w_n)\\=p(w_1)\prod p(w_i|w_1,w_2,..,w_{i-1})\\=p(w_1) \prod p(w_i|w_{i-1})<br>$$</p>
+<ul>
+<li><p><strong>二阶马尔科夫过程</strong></p>
+<p>  假设下一个词的出现依赖它的前面两个词</p>
+</li>
+</ul>
+<p>$$<br>p(S)=p(w_1,w_2,\dots,w_n)\\=p(w_1)p(w_2|w_1)\prod p(w_i|w_{i-2},w_{i-1})\\=\prod p(w_i|w_{i-2},w_{i-1})<br>$$</p>
+<p>（为了方便起见，我们假设$w_0=w_{-1}=<em>$,这里</em>代表起始标志）</p>
+<p><strong>那么，我们在面临实际问题时，如何选择依赖词的个数，即n。</strong></p>
+<ul>
+<li>更大的n：对下一个词出现的约束信息更多，具有更大的<strong>辨别力</strong>；</li>
+<li>更小的n：在训练语料库中出现的次数更多，具有更可靠的统计信息，具有更高的<strong>可靠性。</strong></li>
+</ul>
+<p>理论上，n越大越好，经验上，trigram用的最多，尽管如此，原则上，<strong>能用bigram解决，绝不使用trigram。</strong></p>
+<p>例:</p>
+<p>通常，通过计算<strong>最大似然估计（Maximum Likelihood Estimate）</strong>构造语言模型，这是对训练数据的最佳估计，公式如下：<br>$$<br>p(w_1|w_{i-2},w_{i-1}) = Count(w_{i-2},w_{i-1}, w_i) / Count(w_{i-2},w_{i-1})<br>$$<br>the dog barks STOP<br>$$<br>p(the dog  barks STOP)=p(the|<em>,</em>)p(dog|*,the)p(barks|the dog)p(STOP|dog,barks)<br>$$</p>
+<p>$$</p>
+<p>$$</p>
+<p>$$<br>p(w_i|w_{i-2},w_{i-1})=Count(w_{i-2},w_{i-1},w_i)/Count(w_{i-2},w_{i-1})<br>$$</p>
+<p>假设词典大小为$N$，这个模型由$N^3$个参数，当$N=20000$,$N^3=20000^3=8 \times 10^{12}$</p>
+<h2 id="2-评估一个语言模型：Perplexity"><a href="#2-评估一个语言模型：Perplexity" class="headerlink" title="2 评估一个语言模型：Perplexity"></a>2 评估一个语言模型：Perplexity</h2><p><strong>理论方法</strong>：迷惑度/困惑度/混乱度（preplexity），其基本思想是给测试集赋予较高概率值的语言模型较好，公式如下：</p>
+<p>假设有$m$个句子的数据集:<br>$$<br>s_1,s_2,s_3,\dots, s_m<br>$$<br>我们可以计算这个$m$个句子在我们模型下的概率$\prod p(s_i)$,或者更方便地，计算对数概率$log \prod^m_{i-1}=\sum_{i=1}^m logp(s_i)$</p>
+<p>一般来说，评估度量是perplexity<br>$$<br>Perplexity=2^{-l} \\l=1/M\sum_{i-1}^m logp(s_i)<br>$$<br>$M$是测试集中所有词的总数。</p>
+<p>关于Perplexity的一些直观理解</p>
+<p>假设我们有一个词典$V$,$N=|V|+1$,模型预测$p(w|u,v)=1/N$对于任意的$w \in V \cup {STOP},u,v \in V\cup{*} $</p>
+<p>可以得出，<br>$$<br>Perplexity=N<br>$$<br>Perplexity 是”branching factor”（分支系数，即预测下一个词可以有多少种选择）的一个有效衡量。由公式可知，迷惑度越小，句子概率越大，语言模型越好。 </p>
+<p><strong>注：</strong>语言模型评估时我们可以用perplexity大致估计训练效果，作出判断和分析，但它不是完全意义上的标准，具体问题还是要具体分析。 </p>
+<p><strong>对于一个句子的preplexity定义如下：</strong><br>$$<br>PP(W)=P(w_1,w_2,\dots,w_N)^{-1/N}\\=\sqrt [N]{1/P(w_1,w_2,\dots,w_N)}<br>$$<br><strong>对于二元模型</strong>，该公式为<br>$$<br>PP(W)=P(w_1,w_2,\dots,w_N)^{1/N}\\=\sqrt [N]{\prod_{i=1}^N1/P(w_i|w_{i-1})}<br>$$<br>可以看到，概率越大，困惑度越小，即perplexity越小模型越好。</p>
+<p>另一种表达,</p>
+<p>$$<br>PP(S)=2^{-\frac 1N\sum logP(wi|w_{i-1})}<br>$$<br><strong>Perplexity的影响因素</strong></p>
+<ol>
+<li>训练数据集越大，PPL会下降得更低，1billion dataset和10万dataset训练效果是很不一样的；</li>
+<li>数据中的标点会对模型的perplexity产生很大影响，一个句号能让PPL波动几十，标点的预测总是不稳定；</li>
+<li>预测语句中的“的，了”等词也对PPL有很大影响，可能“我借你的书”比“我借你书”的指标值小几十，但从语义上分析有没有这些停用词并不能完全代表句子生成的好坏。</li>
+</ol>
+<p>参考：</p>
+<p><a href="http://www.cnblogs.com/bnuvincent/p/6939787.html" target="_blank" rel="noopener">http://www.cnblogs.com/bnuvincent/p/6939787.html</a></p>
+<p><a href="https://blog.csdn.net/index20001/article/details/78884646" target="_blank" rel="noopener">https://blog.csdn.net/index20001/article/details/78884646</a></p>
+<p><a href="http://www.cs.columbia.edu/~mcollins/cs4705-spring2018/" target="_blank" rel="noopener">http://www.cs.columbia.edu/~mcollins/cs4705-spring2018/</a></p>
+<p><div id="container"></div></p>
+<p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'window.location.pathname', // 可选。默认为 location.href
+  title: '语言模型',
+  owner: 'goingcoder',
+  repo: 'goingcoder.github.io',
+  oauth: {
+      client_id: 'de24b44123b8efbb4747',
+      client_secret: '785f51974278cde45a927a91a8438ef35eab9dd0',
+
+  },
+})
+gitment.render('container')
+</script>
+
+
+
+]]></content>
+      
+        <categories>
+            
+            <category> ner </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ner </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[在linux上 anaconda3和anaconda2共存的解决办法]]></title>
       <url>/2018/07/10/linux5/</url>
       <content type="html"><![CDATA[<p>​    因为需要，有时候用到Python2有时候用到Python3, ，本人之前装的是anaconda3，由于合作伙伴用的是Python2 ，为此为了考虑兼容性，经过三个小时的折腾结合网上的资源整理如下，安装环境是linux2。先根据Ubuntukylin16.04.2安装anaconda3，然后将anaconda2安装到anaconda3的envs文件夹下作为虚拟环境用于切换。</p>
