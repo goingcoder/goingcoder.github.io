@@ -3,6 +3,112 @@
   
     
     <entry>
+      <title><![CDATA[ImportError:libcudnn.so.5]]></title>
+      <url>/2018/07/30/ner10/</url>
+      <content type="html"><![CDATA[<p>在运行GPU版的tensorflow时，遇到ImportError: libcudnn.so.5: cannot open shared object file: No such file or directory。我安装的tensorflow-gpu=1.2</p>
+<a id="more"></a>
+<p>查看linux系统安装的CUDA，在目录/usr/local/cuda-8.0/lib64下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">libcublas_device.a   libcufft.so<span class="number">.8</span><span class="number">.0</span>       libcusolver.so         libnppicc.so          libnppim.so          libnppitc.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>          libnvrtc.so</span><br><span class="line">libcublas.so         libcufft.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>    libcusolver.so<span class="number">.8</span><span class="number">.0</span>     libnppicc.so<span class="number">.8</span><span class="number">.0</span>      libnppim.so<span class="number">.8</span><span class="number">.0</span>      libnpps.so                   libnvrtc.so<span class="number">.8</span><span class="number">.0</span></span><br><span class="line">libcublas.so<span class="number">.8</span><span class="number">.0</span>     libcufft_static.a     libcusolver.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnppicc.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>   libnppim.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>   libnpps.so<span class="number">.8</span><span class="number">.0</span>               libnvrtc.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span></span><br><span class="line">libcublas.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libcufftw.so          libcusolver_static.a   libnppicom.so         libnppi.so           libnpps.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>            libnvToolsExt.so</span><br><span class="line">libcublas_static.a   libcufftw.so<span class="number">.8</span><span class="number">.0</span>      libcusparse.so         libnppicom.so<span class="number">.8</span><span class="number">.0</span>     libnppi.so<span class="number">.8</span><span class="number">.0</span>       libnpps_static.a             libnvToolsExt.so<span class="number">.1</span></span><br><span class="line">libcudadevrt.a       libcufftw.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>   libcusparse.so<span class="number">.8</span><span class="number">.0</span>     libnppicom.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnppi.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>    libnvblas.so                 libnvToolsExt.so<span class="number">.1</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line">libcudart.so         libcufftw_static.a    libcusparse.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnppidei.so         libnppi_static.a     libnvblas.so<span class="number">.8</span><span class="number">.0</span>             libOpenCL.so</span><br><span class="line">libcudart.so<span class="number">.8</span><span class="number">.0</span>     libcuinj64.so         libcusparse_static.a   libnppidei.so<span class="number">.8</span><span class="number">.0</span>     libnppist.so         libnvblas.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>          libOpenCL.so<span class="number">.1</span></span><br><span class="line">libcudart.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libcuinj64.so<span class="number">.8</span><span class="number">.0</span>     libnppc.so             libnppidei.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnppist.so<span class="number">.8</span><span class="number">.0</span>     libnvgraph.so                libOpenCL.so<span class="number">.1</span><span class="number">.0</span></span><br><span class="line">libcudart_static.a   libcuinj64.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnppc.so<span class="number">.8</span><span class="number">.0</span>         libnppif.so           libnppist.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnvgraph.so<span class="number">.8</span><span class="number">.0</span>            libOpenCL.so<span class="number">.1</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line">libcudnn.so          libculibos.a          libnppc.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>      libnppif.so<span class="number">.8</span><span class="number">.0</span>       libnppisu.so         libnvgraph.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>         stubs</span><br><span class="line">libcudnn.so<span class="number">.6</span>        libcurand.so          libnppc_static.a       libnppif.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>    libnppisu.so<span class="number">.8</span><span class="number">.0</span>     libnvgraph_static.a</span><br><span class="line">libcudnn.so<span class="number">.6</span><span class="number">.0</span><span class="number">.21</span>   libcurand.so<span class="number">.8</span><span class="number">.0</span>      libnppial.so           libnppig.so           libnppisu.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnvrtc-builtins.so</span><br><span class="line">libcudnn_static.a    libcurand.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>   libnppial.so<span class="number">.8</span><span class="number">.0</span>       libnppig.so<span class="number">.8</span><span class="number">.0</span>       libnppitc.so         libnvrtc-builtins.so<span class="number">.8</span><span class="number">.0</span></span><br><span class="line">libcufft.so          libcurand_static.a    libnppial.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>    libnppig.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>    libnppitc.so<span class="number">.8</span><span class="number">.0</span>     libnvrtc-builtins.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span></span><br></pre></td></tr></table></figure>
+<p>确实没有libcudnn.so.5<br>tensorflow要和安装的CUDA对应，CUDA是NVIDIA的编程语言平台，想使用GPU就必须要使用cuda。</p>
+<ul>
+<li>在官网可以查看适合自己显卡的驱动</li>
+<li>安装cuda（<a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-downloads</a> ）</li>
+<li>安装cuDNN，cuDNN是GPU加速计算深层神经网络的库。 （<a href="https://developer.nvidia.com/rdp/cudnn-download）" target="_blank" rel="noopener">https://developer.nvidia.com/rdp/cudnn-download）</a></li>
+<li>安装tensorflow，可以在清华镜像网址上找对应版<a href="https://mirror.tuna.tsinghua.edu.cn/help/tensorflow/&gt;" target="_blank" rel="noopener">https://mirror.tuna.tsinghua.edu.cn/help/tensorflow/&gt;</a> </li>
+</ul>
+<p><strong>注：cudnn6支持的是tensorflow1.3及以上</strong> </p>
+<p>查看CUDA版本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /usr/local/cuda/version.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CUDA Version 8.0.61</span><br></pre></td></tr></table></figure>
+<p>查看cudnn版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>define CUDNN_MAJOR      6</span><br><span class="line"><span class="meta">#</span>define CUDNN_MINOR      0</span><br><span class="line"><span class="meta">#</span>define CUDNN_PATCHLEVEL 21</span><br><span class="line">--</span><br><span class="line"><span class="meta">#</span>define CUDNN_VERSION    (CUDNN_MAJOR * 1000 + CUDNN_MINOR * 100 + CUDNN_PATCHLEVEL)</span><br></pre></td></tr></table></figure>
+<p><div id="container"></div></p>
+<p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'window.location.pathname', // 可选。默认为 location.href
+  title: 'ImportError: libcudnn.so.5',
+  owner: 'goingcoder',
+  repo: 'goingcoder.github.io',
+  oauth: {
+      client_id: 'de24b44123b8efbb4747',
+      client_secret: '785f51974278cde45a927a91a8438ef35eab9dd0',
+
+  },
+})
+gitment.render('container')
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul>
+<li>*</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> linux </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[语言模型]]></title>
       <url>/2018/07/27/ner9/</url>
       <content type="html"><![CDATA[<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1 Introduction"></a>1 Introduction</h2><p>在实际应用中，我们经常需要解决这样一类问题：如何计算一个橘子的概率？如：</p>

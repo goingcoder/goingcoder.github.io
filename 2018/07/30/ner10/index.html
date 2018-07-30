@@ -85,18 +85,18 @@
 
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在Ubuntu服务器的用户目录下，有以下几个文件：  .bash_history .bash_logout .bashrc .profile  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;“.”开头的文件都是隐藏文件。Shell 是一个用 C 语言编写">
+<meta name="description" content="在运行GPU版的tensorflow时，遇到ImportError: libcudnn.so.5: cannot open shared object file: No such file or directory。我安装的tensorflow-gpu=1.2">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux-2：用户目录下的配置文件">
-<meta property="og:url" content="https://goingcoder.github.io/2018/01/22/linux2/index.html">
+<meta property="og:title" content="ImportError:libcudnn.so.5">
+<meta property="og:url" content="https://goingcoder.github.io/2018/07/30/ner10/index.html">
 <meta property="og:site_name" content="离弦的博客">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在Ubuntu服务器的用户目录下，有以下几个文件：  .bash_history .bash_logout .bashrc .profile  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;“.”开头的文件都是隐藏文件。Shell 是一个用 C 语言编写">
+<meta property="og:description" content="在运行GPU版的tensorflow时，遇到ImportError: libcudnn.so.5: cannot open shared object file: No such file or directory。我安装的tensorflow-gpu=1.2">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-22T13:20:32.406Z">
+<meta property="og:updated_time" content="2018-07-30T13:06:34.880Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux-2：用户目录下的配置文件">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在Ubuntu服务器的用户目录下，有以下几个文件：  .bash_history .bash_logout .bashrc .profile  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;“.”开头的文件都是隐藏文件。Shell 是一个用 C 语言编写">
+<meta name="twitter:title" content="ImportError:libcudnn.so.5">
+<meta name="twitter:description" content="在运行GPU版的tensorflow时，遇到ImportError: libcudnn.so.5: cannot open shared object file: No such file or directory。我安装的tensorflow-gpu=1.2">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://goingcoder.github.io/2018/01/22/linux2/"/>
+  <link rel="canonical" href="https://goingcoder.github.io/2018/07/30/ner10/"/>
 
 
 
 
 
-  <title>linux-2：用户目录下的配置文件 | 离弦的博客</title>
+  <title>ImportError:libcudnn.so.5 | 离弦的博客</title>
   
 
 
@@ -318,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/01/22/linux2/">
+    <link itemprop="mainEntityOfPage" href="https://goingcoder.github.io/2018/07/30/ner10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="goingcoder">
@@ -335,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linux-2：用户目录下的配置文件</h1>
+          <h1 class="post-title" itemprop="name headline">ImportError:libcudnn.so.5</h1>
         
 
         <div class="post-meta">
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T21:12:38+08:00">
-                2018-01-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-30T20:41:50+08:00">
+                2018-07-30
               </time>
             
 
@@ -370,8 +370,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/liunx/" itemprop="url" rel="index">
-                    <span itemprop="name">liunx</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -388,8 +388,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/01/22/linux2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/22/linux2/" itemprop="commentCount"></span>
+                <a href="/2018/07/30/ner10/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/07/30/ner10/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -417,61 +417,33 @@
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Ubuntu服务器的用户目录下，有以下几个文件：</p>
-<ol>
-<li>.bash_history</li>
-<li>.bash_logout</li>
-<li>.bashrc</li>
-<li>.profile</li>
-</ol>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“.”开头的文件都是隐藏文件。Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。Shell 是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。Ken Thompson 的 sh 是第一种 Unix Shell，Windows Explorer 是一个典型的图形界面 Shell。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linux 的 Shell 种类众多，常见的有：</p>
-<ul>
-<li><p>Bourne Shell（/usr/bin/sh或/bin/sh）</p>
-</li>
-<li><p>Bourne Again Shell（/bin/bash）</p>
-</li>
-<li><p>C Shell（/usr/bin/csh）</p>
-</li>
-<li><p>K Shell（/usr/bin/ksh）</p>
-</li>
-<li><p>Shell for Root（/sbin/sh）</p>
+        <p>在运行GPU版的tensorflow时，遇到ImportError: libcudnn.so.5: cannot open shared object file: No such file or directory。我安装的tensorflow-gpu=1.2</p>
 <a id="more"></a>
-</li>
+<p>查看linux系统安装的CUDA，在目录/usr/local/cuda-8.0/lib64下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">libcublas_device.a   libcufft.so<span class="number">.8</span><span class="number">.0</span>       libcusolver.so         libnppicc.so          libnppim.so          libnppitc.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>          libnvrtc.so</span><br><span class="line">libcublas.so         libcufft.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>    libcusolver.so<span class="number">.8</span><span class="number">.0</span>     libnppicc.so<span class="number">.8</span><span class="number">.0</span>      libnppim.so<span class="number">.8</span><span class="number">.0</span>      libnpps.so                   libnvrtc.so<span class="number">.8</span><span class="number">.0</span></span><br><span class="line">libcublas.so<span class="number">.8</span><span class="number">.0</span>     libcufft_static.a     libcusolver.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnppicc.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>   libnppim.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>   libnpps.so<span class="number">.8</span><span class="number">.0</span>               libnvrtc.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span></span><br><span class="line">libcublas.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libcufftw.so          libcusolver_static.a   libnppicom.so         libnppi.so           libnpps.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>            libnvToolsExt.so</span><br><span class="line">libcublas_static.a   libcufftw.so<span class="number">.8</span><span class="number">.0</span>      libcusparse.so         libnppicom.so<span class="number">.8</span><span class="number">.0</span>     libnppi.so<span class="number">.8</span><span class="number">.0</span>       libnpps_static.a             libnvToolsExt.so<span class="number">.1</span></span><br><span class="line">libcudadevrt.a       libcufftw.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>   libcusparse.so<span class="number">.8</span><span class="number">.0</span>     libnppicom.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnppi.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>    libnvblas.so                 libnvToolsExt.so<span class="number">.1</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line">libcudart.so         libcufftw_static.a    libcusparse.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnppidei.so         libnppi_static.a     libnvblas.so<span class="number">.8</span><span class="number">.0</span>             libOpenCL.so</span><br><span class="line">libcudart.so<span class="number">.8</span><span class="number">.0</span>     libcuinj64.so         libcusparse_static.a   libnppidei.so<span class="number">.8</span><span class="number">.0</span>     libnppist.so         libnvblas.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>          libOpenCL.so<span class="number">.1</span></span><br><span class="line">libcudart.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libcuinj64.so<span class="number">.8</span><span class="number">.0</span>     libnppc.so             libnppidei.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnppist.so<span class="number">.8</span><span class="number">.0</span>     libnvgraph.so                libOpenCL.so<span class="number">.1</span><span class="number">.0</span></span><br><span class="line">libcudart_static.a   libcuinj64.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnppc.so<span class="number">.8</span><span class="number">.0</span>         libnppif.so           libnppist.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnvgraph.so<span class="number">.8</span><span class="number">.0</span>            libOpenCL.so<span class="number">.1</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line">libcudnn.so          libculibos.a          libnppc.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>      libnppif.so<span class="number">.8</span><span class="number">.0</span>       libnppisu.so         libnvgraph.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>         stubs</span><br><span class="line">libcudnn.so<span class="number">.6</span>        libcurand.so          libnppc_static.a       libnppif.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>    libnppisu.so<span class="number">.8</span><span class="number">.0</span>     libnvgraph_static.a</span><br><span class="line">libcudnn.so<span class="number">.6</span><span class="number">.0</span><span class="number">.21</span>   libcurand.so<span class="number">.8</span><span class="number">.0</span>      libnppial.so           libnppig.so           libnppisu.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>  libnvrtc-builtins.so</span><br><span class="line">libcudnn_static.a    libcurand.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>   libnppial.so<span class="number">.8</span><span class="number">.0</span>       libnppig.so<span class="number">.8</span><span class="number">.0</span>       libnppitc.so         libnvrtc-builtins.so<span class="number">.8</span><span class="number">.0</span></span><br><span class="line">libcufft.so          libcurand_static.a    libnppial.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>    libnppig.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span>    libnppitc.so<span class="number">.8</span><span class="number">.0</span>     libnvrtc-builtins.so<span class="number">.8</span><span class="number">.0</span><span class="number">.61</span></span><br></pre></td></tr></table></figure>
+<p>确实没有libcudnn.so.5<br>tensorflow要和安装的CUDA对应，CUDA是NVIDIA的编程语言平台，想使用GPU就必须要使用cuda。</p>
+<ul>
+<li>在官网可以查看适合自己显卡的驱动</li>
+<li>安装cuda（<a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-downloads</a> ）</li>
+<li>安装cuDNN，cuDNN是GPU加速计算深层神经网络的库。 （<a href="https://developer.nvidia.com/rdp/cudnn-download）" target="_blank" rel="noopener">https://developer.nvidia.com/rdp/cudnn-download）</a></li>
+<li>安装tensorflow，可以在清华镜像网址上找对应版<a href="https://mirror.tuna.tsinghua.edu.cn/help/tensorflow/&gt;" target="_blank" rel="noopener">https://mirror.tuna.tsinghua.edu.cn/help/tensorflow/&gt;</a> </li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bash（ Bourne Again Shell） 是一个可执行从标准输入或者文件中读取的命令的一种兼容sh命令语言解释器。Bash集成了来自K Shell和C Shell的实用功能。Bash是与Shell和IEEE POSIX规范一致的一种实现。Bash是POSIX的默认配置。Bash 也是大多数Linux 系统默认的 Shell。</p>
-<p>通过以下命令查看文档</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man bash</span><br></pre></td></tr></table></figure>
-<h2 id="1-bashrc"><a href="#1-bashrc" class="headerlink" title="1. ~/.bashrc"></a>1. ~/.bashrc</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The individual per-interactive-shell startup file   # 个人交互式shell的启动文件。</span><br></pre></td></tr></table></figure>
-<p>这个文件类似于windows系统的环境变量的设置，如命令别名、路径等。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PATH=&quot;/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin&quot;</span><br><span class="line">LANG=zh_CN.GBK</span><br><span class="line">export PATH LANG</span><br><span class="line">alias rm=&apos;rm -i&apos;</span><br><span class="line">alias ls=&apos;/bin/ls -F --color=tty --show-control-chars&apos;</span><br></pre></td></tr></table></figure>
-<p>​    例子中定义了路径，语言，命令别名（使用rm删除命令时总是加上-i参数需要用户确认，使用ls命令列出文件列表时加上颜色显示）。每次修改.bashrc后，使用source ~/.bashrc（或者 . ~/.bashrc）就可以立刻加载修改后的设置，使之生效。一般会在.bash_profile文件中显式调用.bashrc。登陆linux启动bash时首先会去读取~/.bash_profile文件，这样~/.bashrc也就得到执行了，你的个性化设置也就生效了。</p>
-<h2 id="2-profile"><a href="#2-profile" class="headerlink" title="2.~/.profile"></a>2.~/.profile</h2><p>同样是配置文件。如果~/.bash_profile 或者 ~/.bash_login存在，这个文件不会被bash读取。</p>
-<h2 id="3-bash-logout"><a href="#3-bash-logout" class="headerlink" title="3.~/bash_logout"></a>3.~/bash_logout</h2><p>当login Shell 存在的时候会被执行。当离开控制台的时候，清除屏幕以增加隐私性。</p>
-<h2 id="4-bash-history"><a href="#4-bash-history" class="headerlink" title="4.~/bash_history"></a>4.~/bash_history</h2><p>记录命令的历史记录。</p>
-<p>在根目录下也有一个bashrc，/etc/bashrc:为每一个运行bash shell的用户执行此文件。当bash shell被打开时,该文件被读取。~/.bashrc:该文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该<br>该文件被读取。而在系统加载的过程中，通过/etc/init调用/etc/inittab，调用/etc/rc.d/rc.sysinit和/etc/rc.d/init.d/functions，然后启动和检查系统功能和服务。在启动bash时，分别再调用/etc/profile和/etc/bashrc，而对于每个用户，在打开shell时使用HOME/.bashrc和​HOME/.bash_profile设定专用于自己使用的shell信息。普通用户只能更改用户目录下的配置文件，跟目录下的配置文件只有可读的权限。</p>
-<p>登陆时执行文件的顺序是：</p>
-<ol>
-<li>/etc/profile</li>
-<li>user home directory /.bash_profile</li>
-<li>user home directory /.bash_login</li>
-<li>user home directory /.profile</li>
-</ol>
-<p>参考：</p>
-<p><a href="http://blog.csdn.net/yeqishi/article/details/5652870" target="_blank" rel="noopener">http://blog.csdn.net/yeqishi/article/details/5652870</a></p>
-<p><a href="http://blog.csdn.net/decisiveness/article/details/51967721" target="_blank" rel="noopener">http://blog.csdn.net/decisiveness/article/details/51967721</a></p>
-<p><a href="http://www.runoob.com/linux/linux-shell.html" target="_blank" rel="noopener">http://www.runoob.com/linux/linux-shell.html</a></p>
+<p><strong>注：cudnn6支持的是tensorflow1.3及以上</strong> </p>
+<p>查看CUDA版本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /usr/local/cuda/version.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CUDA Version 8.0.61</span><br></pre></td></tr></table></figure>
+<p>查看cudnn版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>define CUDNN_MAJOR      6</span><br><span class="line"><span class="meta">#</span>define CUDNN_MINOR      0</span><br><span class="line"><span class="meta">#</span>define CUDNN_PATCHLEVEL 21</span><br><span class="line">--</span><br><span class="line"><span class="meta">#</span>define CUDNN_VERSION    (CUDNN_MAJOR * 1000 + CUDNN_MINOR * 100 + CUDNN_PATCHLEVEL)</span><br></pre></td></tr></table></figure>
 <p><div id="container"></div></p>
 <p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
   id: 'window.location.pathname', // 可选。默认为 location.href
-  title: 'linux-2：用户目录下的配置文件',
+  title: 'ImportError: libcudnn.so.5',
   owner: 'goingcoder',
   repo: 'goingcoder.github.io',
   oauth: {
-
       client_id: 'de24b44123b8efbb4747',
       client_secret: '785f51974278cde45a927a91a8438ef35eab9dd0',
 
@@ -486,6 +458,51 @@ gitment.render('container')
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul>
+<li>*</li>
+</ul>
 
       
     </div>
@@ -504,12 +521,12 @@ gitment.render('container')
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/01/22/linux2/">linux-2：用户目录下的配置文件</a></p>
+  <p><span>本文标题:</span><a href="/2018/07/30/ner10/">ImportError:libcudnn.so.5</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 goingcoder 的个人博客">goingcoder</a></p>
-  <p><span>发布时间:</span>2018年01月22日 - 21:01</p>
-  <p><span>最后更新:</span>2018年01月22日 - 21:01</p>
-  <p><span>原始链接:</span><a href="/2018/01/22/linux2/" title="linux-2：用户目录下的配置文件">https://goingcoder.github.io/2018/01/22/linux2/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://goingcoder.github.io/2018/01/22/linux2/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年07月30日 - 20:07</p>
+  <p><span>最后更新:</span>2018年07月30日 - 21:07</p>
+  <p><span>原始链接:</span><a href="/2018/07/30/ner10/" title="ImportError:libcudnn.so.5">https://goingcoder.github.io/2018/07/30/ner10/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://goingcoder.github.io/2018/07/30/ner10/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -562,8 +579,8 @@ gitment.render('container')
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/18/linux/" rel="next" title="linux-1:源码安装">
-                <i class="fa fa-chevron-left"></i> linux-1:源码安装
+              <a href="/2018/07/27/ner9/" rel="next" title="语言模型">
+                <i class="fa fa-chevron-left"></i> 语言模型
               </a>
             
           </div>
@@ -571,10 +588,6 @@ gitment.render('container')
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/23/ner3/" rel="prev" title="序列标注-3：CRF介绍">
-                序列标注-3：CRF介绍 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -605,8 +618,8 @@ gitment.render('container')
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2018/01/22/linux2/"
-           data-title="linux-2：用户目录下的配置文件" data-url="https://goingcoder.github.io/2018/01/22/linux2/">
+      <div class="ds-thread" data-thread-key="2018/07/30/ner10/"
+           data-title="ImportError:libcudnn.so.5" data-url="https://goingcoder.github.io/2018/07/30/ner10/">
       </div>
     </div>
 
@@ -633,17 +646,8 @@ gitment.render('container')
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -744,22 +748,6 @@ gitment.render('container')
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-bashrc"><span class="nav-number">1.</span> <span class="nav-text"><a href="#1-bashrc" class="headerlink" title="1. ~/.bashrc"></a>1. ~/.bashrc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-profile"><span class="nav-number">2.</span> <span class="nav-text"><a href="#2-profile" class="headerlink" title="2.~/.profile"></a>2.~/.profile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-bash-logout"><span class="nav-number">3.</span> <span class="nav-text"><a href="#3-bash-logout" class="headerlink" title="3.~/bash_logout"></a>3.~/bash_logout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-bash-history"><span class="nav-number">4.</span> <span class="nav-text"><a href="#4-bash-history" class="headerlink" title="4.~/bash_history"></a>4.~/bash_history</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
