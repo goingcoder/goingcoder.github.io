@@ -3,6 +3,143 @@
   
     
     <entry>
+      <title><![CDATA[tensorflow学习1]]></title>
+      <url>/2018/08/07/tensorflow1/</url>
+      <content type="html"><![CDATA[<h2 id="Python安装"><a href="#Python安装" class="headerlink" title="Python安装"></a>Python安装</h2><p>下载及安装Anaconda开发工具</p>
+<ul>
+<li>找到Anaconda官网，<a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">https://www.anaconda.com/download/</a></li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>进入到【Packages Included in Anaconda】<a href="https://docs.anaconda.com/anaconda/packages/pkg-docs" target="_blank" rel="noopener">https://docs.anaconda.com/anaconda/packages/pkg-docs</a></li>
+</ul>
+<p><img src="/2018/08/07/tensorflow1/p2.PNG" alt=""></p>
+<ul>
+<li><p>进入<a href="http://repo.anaconda.com/pkgs/" target="_blank" rel="noopener">package repository</a>.页面</p>
+<p>  <img src="/2018/08/07/tensorflow1/p3.png" alt=""></p>
+</li>
+<li><p>进入Anaconda installer archive <a href="https://repo.anaconda.com/archive/" target="_blank" rel="noopener">download page</a>. (<a href="https://repo.anaconda.com/archive/.winzip/" target="_blank" rel="noopener">winzip</a>) ，下载完整版。</p>
+</li>
+</ul>
+<p><img src="/2018/08/07/tensorflow1/p5.png" alt=""></p>
+<p>注意：Anaconda的不同版本默认支持的Python的版本是不一样的。对于支持Python2的版本，统一的以Anaconda2开头来命名；对于支持Python3的版本，统一以Anaconda3为开头命名。当前最新版本是Anaconda 5.2。支持python2.7和Python3.6。Tensorflow中的1.3以前版本不支持3.6版本。</p>
+<h2 id="tensorflow安装"><a href="#tensorflow安装" class="headerlink" title="tensorflow安装"></a>tensorflow安装</h2><ul>
+<li>在线安装，pip install tensorflow,可以在tensorflow后面加上版本号，如pip install tensorflow==1.5。对于GPU版本，可以使用pip install tensorflow-gpu.</li>
+<li>离线安装。下载对应版本的whl文件，使用pip即可安装。</li>
+</ul>
+<h2 id="GPU版本tensorflow安装"><a href="#GPU版本tensorflow安装" class="headerlink" title="GPU版本tensorflow安装"></a>GPU版本tensorflow安装</h2><h3 id="安装CUDA"><a href="#安装CUDA" class="headerlink" title="安装CUDA"></a>安装CUDA</h3><p>*首先安装对应显卡的驱动。<a href="https://www.nvidia.com/Download/index.aspx" target="_blank" rel="noopener">https://www.nvidia.com/Download/index.aspx</a></p>
+<ul>
+<li><p>安装CUDA，<a href="https://developer.nvidia.com/cuda-downloads，选择电脑对应的版本。分为两个版本，一个是网络版，一个是本地版。网络版安装包比较小，执行安装时再去下载需要的安装包；本地版安装包是直接下载完整的安装包。" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-downloads，选择电脑对应的版本。分为两个版本，一个是网络版，一个是本地版。网络版安装包比较小，执行安装时再去下载需要的安装包；本地版安装包是直接下载完整的安装包。</a></p>
+<p>  <img src="/2018/08/07/tensorflow1/p6.png" alt=""></p>
+</li>
+</ul>
+<p>注：CUDA软件有很多版本，必须要与Tensorflow的版本对应才行。比如Tensorflow1.0以后，知道Tensorflow1.5版本只支持CUDA8.0.可以根据<a href="https://developer.nvidia.com/cuda-toolkit-archive找到更多版本。" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-toolkit-archive找到更多版本。</a></p>
+<h3 id="安装cuDNN库"><a href="#安装cuDNN库" class="headerlink" title="安装cuDNN库"></a>安装cuDNN库</h3><p>进入<a href="https://developer.nvidia.com/cudnn，需要注册并填写一些调查问卷才能下载这个安装包。cuDNN的版本选择也是有规定的。以Windowns" target="_blank" rel="noopener">https://developer.nvidia.com/cudnn，需要注册并填写一些调查问卷才能下载这个安装包。cuDNN的版本选择也是有规定的。以Windowns</a> 10 操作系统为例，Tensorflow1.0到Tensorflow1.2版本使用的是cuDNN的5.1版本（安装包为cudnn-8.0-Windows10x64-V5.1-zip），从tensorflow1.3版本之后使用的是cuDNN版本(cudnn-8.0-Windows10x64-V6.0-zip),得到相关包解压后，直接复制到cuda路径对应的文件夹下面就行。</p>
+<h2 id="测试显卡"><a href="#测试显卡" class="headerlink" title="测试显卡"></a>测试显卡</h2><h3 id="使用nvidia-smi命令查看显卡信息"><a href="#使用nvidia-smi命令查看显卡信息" class="headerlink" title="使用nvidia-smi命令查看显卡信息"></a>使用nvidia-smi命令查看显卡信息</h3><p>nvidia-smi指的是NVIDIA System Management Interface。在安装完成NVIDIA显卡驱动之后，对应Windows用户而言，cmd命令行还无法识别nvidia-smi命令，需要将相关环境变量添加进去。如果NVIDIA显卡驱动在默认位置，nvidia-smi命令所在的完整路径为：C:\Program Files\NVIDIA Corporation\NVSMI。将上述路径添加到path系统环境变量中。之后在cmd运行nvidia-smi命令，可以看到显卡信息。</p>
+<h3 id="查看CUDA版本"><a href="#查看CUDA版本" class="headerlink" title="查看CUDA版本"></a>查看CUDA版本</h3><p>在cmd中实验命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvcc -V</span><br></pre></td></tr></table></figure>
+<p>## </p>
+<p><div id="container"></div></p>
+<p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'window.location.pathname', // 可选。默认为 location.href
+  title: '序列标注-1：命名实体识别',
+  owner: 'goingcoder',
+  repo: 'goingcoder.github.io',
+  oauth: {
+      client_id: 'de24b44123b8efbb4747',
+      client_secret: '785f51974278cde45a927a91a8438ef35eab9dd0',
+
+  },
+})
+gitment.render('container')
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>*</p>
+]]></content>
+      
+        <categories>
+            
+            <category> tensorflow </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> tensorflow </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[ImportError:libcudnn.so.5]]></title>
       <url>/2018/07/30/ner10/</url>
       <content type="html"><![CDATA[<p>在运行GPU版的tensorflow时，遇到ImportError: libcudnn.so.5: cannot open shared object file: No such file or directory。我安装的tensorflow-gpu=1.2</p>
